@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Case Studies — Creatix SEO Agency</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --lime: #A6F13B; --lime-dark: #8BD82E; }
+    * { font-family: 'Manrope', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0c0c0c; color: #ffffff; overflow-x: hidden; }
+    .lime { color: var(--lime); }
+    .bg-lime { background: var(--lime); }
+    .pill-nav { background: #101010; border-radius: 9999px; padding: 0.6rem 1.2rem; }
+    .footer-icon { background: #101010; color: #ffffff !important; display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 9999px; transition: opacity 0.2s; text-decoration: none; }
+    .footer-icon:hover { opacity: 0.8; }
+    .footer-icon i { color: #ffffff !important; font-size: 1.1rem; }
+    .footer-subscribe-btn { background: #101010; color: #ffffff !important; border-radius: 9999px; padding: 0.5rem 1.2rem; font-size: 0.875rem; font-weight: 600; transition: opacity 0.2s; border: none; cursor: pointer; }
+    .footer-subscribe-btn:hover { opacity: 0.85; }
+    .case-card {
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .case-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+    .result-stat {
+      background: rgba(166, 241, 59, 0.08);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 1rem;
+      padding: 1rem;
+      text-align: center;
+    }
+    .result-stat .number { font-size: 1.8rem; font-weight: 800; color: #A6F13B; }
+    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #1a1a1a; border-radius: 1rem; padding: 0.75rem 0; min-width: 200px; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .dropdown-trigger:hover .dropdown-menu { display: block; }
+    .dropdown-menu a { display: block; padding: 0.5rem 1.25rem; color: #d0d0d0; font-size: 0.85rem; transition: all 0.2s; text-decoration: none; }
+    .dropdown-menu a:hover { color: #A6F13B; background: rgba(166, 241, 59, 0.05); }
+    @media (max-width: 768px) { .dropdown-menu { position: relative; top: 0; background: transparent; border: none; box-shadow: none; padding: 0.5rem 0 0 1rem; } .dropdown-trigger:hover .dropdown-menu { display: none; } .dropdown-trigger.active .dropdown-menu { display: block; } }
+    .filter-btn { background: #141414; border: 1px solid rgba(255,255,255,0.08); border-radius: 9999px; padding: 0.5rem 1.2rem; font-size: 0.8rem; transition: all 0.3s; cursor: pointer; color: #b0b0b0; }
+    .filter-btn:hover, .filter-btn.active { background: #A6F13B; color: #101010; border-color: #A6F13B; }
+  </style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4" role="navigation">
+  <div class="pill-nav rounded-full flex items-center justify-between px-3 sm:px-5 py-2.5 text-white relative shadow-lg shadow-black/30">
+    <div class="flex items-center gap-1.5 font-bold text-base sm:text-lg shrink-0">
+      <i class='bx bx-sparkle text-xl lime'></i>
+      <span>Creatix</span>
+    </div>
+    <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-200">
+      <a href="index.html" class="hover:text-lime transition">Home</a>
+      <div class="dropdown-trigger relative">
+        <a href="services.html" class="hover:text-lime transition flex items-center gap-1">Services <i class='bx bx-chevron-down text-xs'></i></a>
+        <div class="dropdown-menu">
+          <a href="services.html#local-seo">Local SEO</a>
+          <a href="services.html#ecom-seo">E-Com SEO</a>
+          <a href="services.html#onpage">On-Page SEO</a>
+          <a href="services.html#offpage">Off-Page SEO</a>
+          <a href="services.html#technical">Technical SEO</a>
+          <hr class="border-white/10 my-1">
+          <a href="services.html#aeo">Answer Engine Optimization</a>
+          <a href="services.html#generative">Generative SEO</a>
+          <hr class="border-white/10 my-1">
+          <a href="services.html#webdev">Web Development</a>
+        </div>
+      </div>
+      <a href="#" class="text-lime font-semibold">Case Studies</a>
+      <a href="about.html" class="hover:text-lime transition">About</a>
+      <a href="blog.html" class="hover:text-lime transition">Blog</a>
+    </div>
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="login.html" class="text-sm font-medium hover:text-lime transition">Log In</a>
+      <a href="register.html" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-sm hover:brightness-95 transition">Get Started</a>
+    </div>
+    <button id="menuBtn" aria-label="Toggle menu" class="lg:hidden w-8 h-8 flex items-center justify-center text-xl">
+      <i class='bx bx-menu' id="menuIconOpen"></i>
+      <i class='bx bx-x hidden' id="menuIconClose"></i>
+    </button>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden lg:hidden mt-2 bg-[#101010] text-white rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm shadow-lg shadow-black/30">
+    <a href="index.html" class="py-1 hover:text-lime transition">Home</a>
+    <div class="flex flex-col gap-1">
+      <button id="mobileServicesBtn" class="flex items-center justify-between w-full py-1 hover:text-lime transition text-left">Services <i class='bx bx-chevron-down' id="mobileServicesIcon"></i></button>
+      <div id="mobileServicesMenu" class="hidden pl-4 flex flex-col gap-1 text-gray-400">
+        <a href="services.html#local-seo" class="py-1 hover:text-lime transition">Local SEO</a>
+        <a href="services.html#ecom-seo" class="py-1 hover:text-lime transition">E-Com SEO</a>
+        <a href="services.html#onpage" class="py-1 hover:text-lime transition">On-Page SEO</a>
+        <a href="services.html#offpage" class="py-1 hover:text-lime transition">Off-Page SEO</a>
+        <a href="services.html#technical" class="py-1 hover:text-lime transition">Technical SEO</a>
+        <hr class="border-white/10">
+        <a href="services.html#aeo" class="py-1 hover:text-lime transition">Answer Engine Optimization</a>
+        <a href="services.html#generative" class="py-1 hover:text-lime transition">Generative SEO</a>
+        <hr class="border-white/10">
+        <a href="services.html#webdev" class="py-1 hover:text-lime transition">Web Development</a>
+      </div>
+    </div>
+    <a href="#" class="py-1 text-lime font-semibold">Case Studies</a>
+    <a href="about.html" class="py-1 hover:text-lime transition">About</a>
+    <a href="blog.html" class="py-1 hover:text-lime transition">Blog</a>
+    <hr class="border-white/10">
+    <a href="login.html" class="py-1 hover:text-lime transition">Log In</a>
+    <a href="register.html" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-center hover:brightness-95 transition">Get Started</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="relative w-full">
+  <div class="bg-white text-[#101010] rounded-b-[2rem] sm:rounded-b-[3rem] overflow-hidden">
+    <div class="pt-[70px] sm:pt-[84px]"></div>
+    <div class="relative px-4 sm:px-8 lg:px-12 pt-8 sm:pt-12 pb-8 sm:pb-12 max-w-[1400px] mx-auto">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="inline-block bg-lime text-[#101010] text-[10px] font-bold tracking-widest px-4 py-1.5 rounded-full">CASE STUDIES</span>
+        <h1 class="text-3xl sm:text-4xl md:text-[3.2rem] font-bold leading-[1.15] mt-3">
+          Results That <br><span class="bg-lime px-3 py-1 rounded-xl inline-block">Speak for Themselves</span>
+        </h1>
+        <p class="text-gray-600 text-sm sm:text-base mt-4 max-w-md mx-auto">Real success stories from real clients. See how we've helped businesses grow through data-driven SEO and digital marketing strategies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FILTERS ============ -->
+<section class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-6 sm:mt-8">
+  <div class="flex flex-wrap justify-center gap-2">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="seo">SEO</button>
+    <button class="filter-btn" data-filter="local">Local SEO</button>
+    <button class="filter-btn" data-filter="ecom">E-Commerce</button>
+    <button class="filter-btn" data-filter="webdev">Web Development</button>
+    <button class="filter-btn" data-filter="content">Content</button>
+  </div>
+</section>
+
+<!-- ============ CASE STUDIES GRID ============ -->
+<section class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-6 sm:mt-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="caseGrid">
+    
+    <!-- Case 1: Local SEO -->
+    <div class="case-card" data-category="local seo">
+      <div class="relative aspect-[16/9] overflow-hidden">
+        <img src="https://picsum.photos/seed/local-seo-case/600/350" alt="Local SEO Case Study" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute top-3 left-3 bg-lime text-[#101010] text-[10px] font-bold px-3 py-1 rounded-full">Local SEO</div>
+      </div>
+      <div class="p-5">
+        <h3 class="text-lg font-bold">Local Bakery Chain · 300% Increase in Store Visits</h3>
+        <p class="text-gray-400 text-sm mt-1 leading-relaxed">Helped a local bakery chain dominate Google Maps and local search results across 5 cities.</p>
+        <div class="grid grid-cols-3 gap-2 mt-4">
+          <div class="result-stat"><span class="number">300%</span><p class="text-[10px] text-gray-400 mt-0.5">Store Visits</p></div>
+          <div class="result-stat"><span class="number">#1</span><p class="text-[10px] text-gray-400 mt-0.5">Map Ranking</p></div>
+          <div class="result-stat"><span class="number">150+</span><p class="text-[10px] text-gray-400 mt-0.5">Reviews</p></div>
+        </div>
+        <a href="#" class="inline-block mt-4 text-lime text-sm font-semibold hover:underline">Read Full Case Study →</a>
+      </div>
+    </div>
+
+    <!-- Case 2: E-Com SEO -->
+    <div class="case-card" data-category="ecom seo">
+      <div class="relative aspect-[16/9] overflow-hidden">
+        <img src="https://picsum.photos/seed/ecom-seo-case/600/350" alt="E-Com SEO Case Study" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute top-3 left-3 bg-lime text-[#101010] text-[10px] font-bold px-3 py-1 rounded-full">E-Com SEO</div>
+      </div>
+      <div class="p-5">
+        <h3 class="text-lg font-bold">Online Fashion Store · 450% Revenue Growth</h3>
+        <p class="text-gray-400 text-sm mt-1 leading-relaxed">Optimized product pages, category structure, and technical SEO for a fashion e-commerce store.</p>
+        <div class="grid grid-cols-3 gap-2 mt-4">
+          <div class="result-stat"><span class="number">450%</span><p class="text-[10px] text-gray-400 mt-0.5">Revenue</p></div>
+          <div class="result-stat"><span class="number">2.8x</span><p class="text-[10px] text-gray-400 mt-0.5">Conversion Rate</p></div>
+          <div class="result-stat"><span class="number">120+</span><p class="text-[10px] text-gray-400 mt-0.5">Keywords</p></div>
+        </div>
+        <a href="#" class="inline-block mt-4 text-lime text-sm font-semibold hover:underline">Read Full Case Study →</a>
+      </div>
+    </div>
+
+    <!-- Case 3: Technical SEO -->
+    <div class="case-card" data-category="seo technical">
+      <div class="relative aspect-[16/9] overflow-hidden">
+        <img src="https://picsum.photos/seed/technical-seo-case/600/350" alt="Technical SEO Case Study" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute top-3 left-3 bg-lime text-[#101010] text-[10px] font-bold px-3 py-1 rounded-full">Technical SEO</div>
+      </div>
+      <div class="p-5">
+        <h3 class="text-lg font-bold">SaaS Platform · 200% Organic Traffic Increase</h3>
+        <p class="text-gray-400 text-sm mt-1 leading-relaxed">Fixed speed issues, crawl errors, and implemented schema markup for a B2B SaaS platform.</p>
+        <div class="grid grid-cols-3 gap-2 mt-4">
+          <div class="result-stat"><span class="number">200%</span><p class="text-[10px] text-gray-400 mt-0.5">Organic Traffic</p></div>
+          <div class="result-stat"><span class="number">2.1s</span><p class="text-[10px] text-gray-400 mt-0.5">Load Time</p></div>
+          <div class="result-stat"><span class="number">50+</span><p class="text-[10px] text-gray-400 mt-0.5">Backlinks</p></div>
+        </div>
+        <a href="#" class="inline-block mt-4 text-lime text-sm font-semibold hover:underline">Read Full Case Study →</a>
+      </div>
+    </div>
+
+    <!-- Case 4: Web Development -->
+    <div class="case-card" data-category="webdev">
+      <div class="relative aspect-[16/9] overflow-hidden">
+        <img src="https://picsum.photos/seed/webdev-case/600/350" alt="Web Development Case Study" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute top-3 left-3 bg-lime text-[#101010] text-[10px] font-bold px-3 py-1 rounded-full">Web Development</div>
+      </div>
+      <div class="p-5">
+        <h3 class="text-lg font-bold">Real Estate Agency · 180% Lead Generation Boost</h3>
+        <p class="text-gray-400 text-sm mt-1 leading-relaxed">Built a responsive, SEO-optimized website with property listings and lead capture forms.</p>
+        <div class="grid grid-cols-3 gap-2 mt-4">
+          <div class="result-stat"><span class="number">180%</span><p class="text-[10px] text-gray-400 mt-0.5">Leads</p></div>
+          <div class="result-stat"><span class="number">40%</span><p class="text-[10px] text-gray-400 mt-0.5">Bounce Rate</p></div>
+          <div class="result-stat"><span class="number">4.8★</span><p class="text-[10px] text-gray-400 mt-0.5">User Rating</p></div>
+        </div>
+        <a href="#" class="inline-block mt-4 text-lime text-sm font-semibold hover:underline">Read Full Case Study →</a>
+      </div>
+    </div>
+
+    <!-- Case 5: Content SEO -->
+    <div class="case-card" data-category="content seo">
+      <div class="relative aspect-[16/9] overflow-hidden">
+        <img src="https://picsum.photos/seed/content-seo-case/600/350" alt="Content SEO Case Study" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute top-3 left-3 bg-lime text-[#101010] text-[10px] font-bold px-3 py-1 rounded-full">Content SEO</div>
+      </div>
+      <div class="p-5">
+        <h3 class="text-lg font-bold">Health & Wellness Blog · 350% Traffic Growth</h3>
+        <p class="text-gray-400 text-sm mt-1 leading-relaxed">Developed a content strategy with pillar pages, topic clusters, and SEO-optimized articles.</p>
+        <div class="grid grid-cols-3 gap-2 mt-4">
+          <div class="result-stat"><span class="number">350%</span><p class="text-[10px] text-gray-400 mt-0.5">Traffic</p></div>
+          <div class="result-stat"><span class="number">#1</span><p class="text-[10px] text-gray-400 mt-0.5">Featured Snippets</p></div>
+          <div class="result-stat"><span class="number">80+</span><p class="text-[10px] text-gray-400 mt-0.5">Articles</p></div>
+        </div>
+        <a href="#" class="inline-block mt-4 text-lime text-sm font-semibold hover:underline">Read Full Case Study →</a>
+      </div>
+    </div>
+
+    <!-- Case 6: Local SEO -->
+    <div class="case-card" data-category="local seo">
+      <div class="relative aspect-[16/9] overflow-hidden">
+        <img src="https://picsum.photos/seed/local-seo-case-2/600/350" alt="Local SEO Case Study" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute top-3 left-3 bg-lime text-[#101010] text-[10px] font-bold px-3 py-1 rounded-full">Local SEO</div>
+      </div>
+      <div class="p-5">
+        <h3 class="text-lg font-bold">Plumbing Company · 500% Increase in Calls</h3>
+        <p class="text-gray-400 text-sm mt-1 leading-relaxed">Optimized Google Business Profile and local citations for a service-based business.</p>
+        <div class="grid grid-cols-3 gap-2 mt-4">
+          <div class="result-stat"><span class="number">500%</span><p class="text-[10px] text-gray-400 mt-0.5">Phone Calls</p></div>
+          <div class="result-stat"><span class="number">#2</span><p class="text-[10px] text-gray-400 mt-0.5">Map Pack</p></div>
+          <div class="result-stat"><span class="number">25+</span><p class="text-[10px] text-gray-400 mt-0.5">Citations</p></div>
+        </div>
+        <a href="#" class="inline-block mt-4 text-lime text-sm font-semibold hover:underline">Read Full Case Study →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
+  <div class="bg-lime text-[#101010] rounded-[2rem] p-6 sm:p-10 text-center">
+    <h2 class="text-2xl sm:text-3xl font-bold">Ready to write your success story?</h2>
+    <p class="text-sm sm:text-base max-w-md mx-auto mt-2 text-[#1a1a1a]/80">Let's discuss how we can help your business achieve similar results.</p>
+    <a href="#" class="inline-block mt-4 bg-[#101010] text-white font-bold rounded-full px-8 py-3 text-sm hover:bg-black transition">Get Free Consultation</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16 pb-6">
+  <div class="bg-lime text-[#101010] rounded-[2rem] p-5 sm:p-9">
+    <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
+      <div>
+        <div class="flex items-center gap-2 font-bold text-xl mb-2">
+          <i class='bx bx-sparkle text-xl'></i>
+          <span>Creatix</span>
+        </div>
+        <p class="text-sm max-w-xs text-[#1a1a1a]/80">Data-driven SEO and web development agency helping businesses rank higher and grow faster.</p>
+        <div class="flex gap-2 mt-4">
+          <a href="#" class="footer-icon"><i class='bx bxl-facebook'></i></a>
+          <a href="#" class="footer-icon"><i class='bx bxl-instagram'></i></a>
+          <a href="#" class="footer-icon"><i class='bx bxl-twitter'></i></a>
+          <a href="#" class="footer-icon"><i class='bx bxl-linkedin'></i></a>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm">
+        <div><p class="font-bold mb-2">Services</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Local SEO</a></li><li><a href="#" class="hover:underline">On-Page SEO</a></li><li><a href="#" class="hover:underline">Web Development</a></li></ul></div>
+        <div><p class="font-bold mb-2">Company</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">About Us</a></li><li><a href="#" class="hover:underline">Case Studies</a></li><li><a href="#" class="hover:underline">Blog</a></li></ul></div>
+        <div><p class="font-bold mb-2">Support</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Contact</a></li><li><a href="#" class="hover:underline">FAQs</a></li><li><a href="#" class="hover:underline">Privacy Policy</a></li></ul></div>
+      </div>
+      <div class="max-w-xs"><p class="font-bold mb-2">Subscribe</p><form class="flex flex-wrap gap-2" onsubmit="return false;"><input type="email" required placeholder="Your email" class="flex-1 min-w-[150px] bg-white/40 placeholder:text-[#1a1a1a]/60 rounded-full px-4 py-2 text-sm outline-none"><button class="footer-subscribe-btn">Subscribe</button></form></div>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 pt-5 border-t border-[#1a1a1a]/15 text-xs text-[#1a1a1a]/70"><p>© 2026 Creatix. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconOpen = document.getElementById('menuIconOpen');
+  const iconClose = document.getElementById('menuIconClose');
+
+  function openMenu(){ mobileMenu.classList.remove('hidden'); iconOpen.classList.add('hidden'); iconClose.classList.remove('hidden'); menuBtn.setAttribute('aria-expanded','true'); }
+  function closeMenu(){ mobileMenu.classList.add('hidden'); iconOpen.classList.remove('hidden'); iconClose.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false'); }
+  menuBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu(); });
+  document.querySelectorAll('#mobileMenu a:not(#mobileServicesBtn)').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('click', (e) => { if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && e.target !== menuBtn) closeMenu(); });
+  window.addEventListener('resize', () => { if (window.innerWidth >= 1024) closeMenu(); });
+
+  // Mobile services dropdown
+  document.getElementById('mobileServicesBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    const menu = document.getElementById('mobileServicesMenu');
+    const icon = document.getElementById('mobileServicesIcon');
+    menu.classList.toggle('hidden');
+    icon.classList.toggle('bx-chevron-down');
+    icon.classList.toggle('bx-chevron-up');
+  });
+
+  // Filter functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const caseCards = document.querySelectorAll('.case-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      
+      const filter = this.dataset.filter;
+      
+      caseCards.forEach(card => {
+        const category = card.dataset.category;
+        if (filter === 'all' || category.includes(filter)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

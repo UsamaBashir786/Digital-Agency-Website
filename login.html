@@ -1,195 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-  <title>Creatix · Login</title>
-  <!-- Tailwind + Boxicons (same as landing) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Creatix — SEO & Digital Marketing Agency</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --lime: #A6F13B;
-      --lime-dark: #8BD82E;
-    }
+    :root { --lime: #A6F13B; --lime-dark: #8BD82E; }
     * { font-family: 'Manrope', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      background: #0c0c0c; 
-      min-height: 100vh; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      padding: 1rem; 
-    }
+    body { background: #0c0c0c; color: #ffffff; overflow-x: hidden; }
     .lime { color: var(--lime); }
     .bg-lime { background: var(--lime); }
-    .noise-card {
-      background: radial-gradient(120% 140% at 15% 0%, #262626 0%, #141414 55%, #0c0c0c 100%);
-    }
-    .focus-ring:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
-    .auth-card {
-      width: 100%;
-      max-width: 440px;
-      border-radius: 2.5rem;
-      background: radial-gradient(140% 150% at 10% 0%, #262626 0%, #141414 55%, #0c0c0c 100%);
-      border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 30px 60px -15px rgba(0,0,0,0.8);
-      padding: 2rem 1.75rem;
-    }
-    .brand-icon {
-      background: #1a1a1a;
-      border-radius: 9999px;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .auth-input {
-      background: #141414;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 9999px;
-      padding: 0.9rem 1.2rem;
-      width: 100%;
-      color: #ffffff;
-      font-size: 0.95rem;
-      transition: border 0.2s;
-    }
-    .auth-input:focus {
-      border-color: #A6F13B;
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(166, 241, 59, 0.15);
-    }
-    .auth-input::placeholder { color: #aaaaaa; }
-    .btn-primary {
-      background: #A6F13B;
-      color: #0c0c0c;
-      font-weight: 700;
-      border-radius: 9999px;
-      padding: 0.9rem 1.2rem;
-      width: 100%;
-      border: none;
-      font-size: 1rem;
-      transition: background 0.2s, transform 0.1s;
-      cursor: pointer;
-    }
-    .btn-primary:hover { background: #8BD82E; }
-    .btn-primary:active { transform: scale(0.98); }
-    .auth-link { color: #dddddd; transition: color 0.2s; }
-    .auth-link:hover { color: #A6F13B; }
-    .divider-line { flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
-    .social-btn {
-      background: #1a1a1a;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 9999px;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      transition: background 0.2s, border-color 0.2s;
-      cursor: pointer;
-    }
-    .social-btn:hover { background: #262626; border-color: rgba(166, 241, 59, 0.3); }
-    .social-btn i { font-size: 1.3rem; }
-    .back-home {
-      color: #cccccc;
-      transition: color 0.2s;
-      font-size: 0.9rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .back-home:hover { color: #A6F13B; }
-    .text-white-force { color: #ffffff !important; }
-    .text-gray-light { color: #e0e0e0; }
-    @media (max-width: 480px) {
-      .auth-card { padding: 1.5rem 1.25rem; }
-    }
+    .pill-nav { background: #101010; border-radius: 9999px; padding: 0.6rem 1.2rem; }
+    .footer-icon { background: #101010; color: #ffffff !important; display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 9999px; transition: opacity 0.2s; text-decoration: none; }
+    .footer-icon:hover { opacity: 0.8; }
+    .footer-icon i { color: #ffffff !important; font-size: 1.1rem; }
+    .footer-subscribe-btn { background: #101010; color: #ffffff !important; border-radius: 9999px; padding: 0.5rem 1.2rem; font-size: 0.875rem; font-weight: 600; transition: opacity 0.2s; border: none; cursor: pointer; }
+    .footer-subscribe-btn:hover { opacity: 0.85; }
+    .service-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 1.5rem; padding: 1.75rem; transition: transform 0.3s ease, border-color 0.3s ease; }
+    .service-card:hover { transform: translateY(-4px); border-color: rgba(166, 241, 59, 0.3); }
+    .service-icon { background: rgba(166, 241, 59, 0.08); width: 56px; height: 56px; border-radius: 1rem; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #A6F13B; }
+    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #1a1a1a; border-radius: 1rem; padding: 0.75rem 0; min-width: 200px; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .dropdown-trigger:hover .dropdown-menu { display: block; }
+    .dropdown-menu a { display: block; padding: 0.5rem 1.25rem; color: #d0d0d0; font-size: 0.85rem; transition: all 0.2s; text-decoration: none; }
+    .dropdown-menu a:hover { color: #A6F13B; background: rgba(166, 241, 59, 0.05); }
+    .hero-section { background: #ffffff; border-radius: 0 0 3rem 3rem; overflow: hidden; }
+    @media (max-width: 768px) { .dropdown-menu { position: relative; top: 0; background: transparent; border: none; box-shadow: none; padding: 0.5rem 0 0 1rem; } .dropdown-trigger:hover .dropdown-menu { display: none; } .dropdown-trigger.active .dropdown-menu { display: block; } }
   </style>
 </head>
 <body>
 
-<div class="auth-card">
-  <!-- back to landing (subtle) -->
-  <div class="flex justify-end mb-1">
-    <a href="#" class="back-home" onclick="alert('🔙 Navigate to landing page (index.html)'); return false;">
-      <i class='bx bx-arrow-back'></i> Back
-    </a>
-  </div>
-
-  <!-- brand header -->
-  <div class="flex items-center gap-3 mb-6">
-    <div class="brand-icon">
-      <i class='bx bx-sparkle text-2xl lime'></i>
+<!-- ============ NAVBAR ============ -->
+<nav class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4" role="navigation">
+  <div class="pill-nav rounded-full flex items-center justify-between px-3 sm:px-5 py-2.5 text-white relative shadow-lg shadow-black/30">
+    <div class="flex items-center gap-1.5 font-bold text-base sm:text-lg shrink-0">
+      <i class='bx bx-sparkle text-xl lime'></i>
+      <span>Creatix</span>
     </div>
-    <span class="text-xl font-bold tracking-tight text-white">Creatix</span>
-    <span class="ml-auto text-[10px] font-medium uppercase tracking-wider text-white/40 border border-white/10 rounded-full px-3 py-0.5">login</span>
-  </div>
-
-  <!-- welcome -->
-  <h1 class="text-2xl font-bold tracking-tight mb-1 text-white">Welcome back</h1>
-  <p class="text-sm text-gray-300 mb-6">Log in to your account to continue creating.</p>
-
-  <!-- login form -->
-  <form onsubmit="event.preventDefault(); alert('✅ Login successful (demo)');">
-    <div class="mb-4">
-      <label for="email" class="block text-xs font-medium text-gray-200 mb-1.5">Email address</label>
-      <input type="email" id="email" class="auth-input" placeholder="hello@creatix.design" required />
-    </div>
-    <div class="mb-4">
-      <div class="flex items-center justify-between mb-1.5">
-        <label for="password" class="block text-xs font-medium text-gray-200">Password</label>
-        <a href="#" class="text-xs text-gray-400 hover:text-lime transition" onclick="alert('🔐 Password reset link would be sent.'); return false;">Forgot?</a>
+    <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-200">
+      <a href="#" class="hover:text-lime transition">Home</a>
+      
+      <!-- Services Dropdown -->
+      <div class="dropdown-trigger relative">
+        <a href="#" class="hover:text-lime transition flex items-center gap-1">Services <i class='bx bx-chevron-down text-xs'></i></a>
+        <div class="dropdown-menu">
+          <a href="#">Local SEO</a>
+          <a href="#">E-Com SEO</a>
+          <a href="#">On-Page SEO</a>
+          <a href="#">Off-Page SEO</a>
+          <a href="#">Technical SEO</a>
+          <hr class="border-white/10 my-1">
+          <a href="#">Answer Engine Optimization</a>
+          <a href="#">Generative SEO</a>
+          <hr class="border-white/10 my-1">
+          <a href="#">Web Development</a>
+        </div>
       </div>
-      <input type="password" id="password" class="auth-input" placeholder="••••••••" required />
+      
+      <a href="#" class="hover:text-lime transition">Case Studies</a>
+      <a href="#" class="hover:text-lime transition">About</a>
+      <a href="#" class="hover:text-lime transition">Blog</a>
     </div>
-
-    <button type="submit" class="btn-primary mt-2">
-      <span>Log in</span>
-      <i class='bx bx-log-in ml-1.5 text-lg align-middle'></i>
-    </button>
-  </form>
-
-  <!-- divider -->
-  <div class="flex items-center gap-3 my-6">
-    <span class="divider-line"></span>
-    <span class="text-[11px] uppercase tracking-wider text-gray-400">or continue with</span>
-    <span class="divider-line"></span>
-  </div>
-
-  <!-- social login -->
-  <div class="flex justify-center gap-3">
-    <button class="social-btn" aria-label="Google" onclick="alert('🔓 Google login (demo)')">
-      <i class='bx bxl-google'></i>
-    </button>
-    <button class="social-btn" aria-label="GitHub" onclick="alert('🔓 GitHub login (demo)')">
-      <i class='bx bxl-github'></i>
-    </button>
-    <button class="social-btn" aria-label="Apple" onclick="alert('🔓 Apple login (demo)')">
-      <i class='bx bxl-apple'></i>
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="login.html" class="text-sm font-medium hover:text-lime transition">Log In</a>
+      <a href="register.html" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-sm hover:brightness-95 transition">Get Started</a>
+    </div>
+    <button id="menuBtn" aria-label="Toggle menu" class="lg:hidden w-8 h-8 flex items-center justify-center text-xl">
+      <i class='bx bx-menu' id="menuIconOpen"></i>
+      <i class='bx bx-x hidden' id="menuIconClose"></i>
     </button>
   </div>
+  
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden lg:hidden mt-2 bg-[#101010] text-white rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm shadow-lg shadow-black/30">
+    <a href="#" class="py-1 hover:text-lime transition">Home</a>
+    <div class="flex flex-col gap-1">
+      <button id="mobileServicesBtn" class="flex items-center justify-between w-full py-1 hover:text-lime transition text-left">Services <i class='bx bx-chevron-down' id="mobileServicesIcon"></i></button>
+      <div id="mobileServicesMenu" class="hidden pl-4 flex flex-col gap-1 text-gray-400">
+        <a href="#" class="py-1 hover:text-lime transition">Local SEO</a>
+        <a href="#" class="py-1 hover:text-lime transition">E-Com SEO</a>
+        <a href="#" class="py-1 hover:text-lime transition">On-Page SEO</a>
+        <a href="#" class="py-1 hover:text-lime transition">Off-Page SEO</a>
+        <a href="#" class="py-1 hover:text-lime transition">Technical SEO</a>
+        <hr class="border-white/10">
+        <a href="#" class="py-1 hover:text-lime transition">Answer Engine Optimization</a>
+        <a href="#" class="py-1 hover:text-lime transition">Generative SEO</a>
+        <hr class="border-white/10">
+        <a href="#" class="py-1 hover:text-lime transition">Web Development</a>
+      </div>
+    </div>
+    <a href="#" class="py-1 hover:text-lime transition">Case Studies</a>
+    <a href="#" class="py-1 hover:text-lime transition">About</a>
+    <a href="#" class="py-1 hover:text-lime transition">Blog</a>
+    <hr class="border-white/10">
+    <a href="login.html" class="py-1 hover:text-lime transition">Log In</a>
+    <a href="register.html" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-center hover:brightness-95 transition">Get Started</a>
+  </div>
+</nav>
 
-  <!-- register link -->
-  <div class="text-center text-sm text-gray-300 mt-6">
-    Don't have an account?
-    <a href="#" class="auth-link font-medium" onclick="alert('📝 Navigate to Register page (register.html)'); return false;">Sign up</a>
+<!-- ============ HERO ============ -->
+<section class="relative w-full">
+  <div class="hero-section bg-white text-[#101010]">
+    <div class="pt-[70px] sm:pt-[84px]"></div>
+    <div class="relative px-4 sm:px-8 lg:px-12 pt-8 sm:pt-12 pb-10 sm:pb-16 max-w-[1400px] mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <span class="inline-block bg-lime text-[#101010] text-[10px] font-bold tracking-widest px-4 py-1.5 rounded-full">#1 SEO AGENCY</span>
+          <h1 class="text-3xl sm:text-4xl md:text-[3.2rem] font-bold leading-[1.15] mt-3">
+            Rank Higher. <br>
+            <span class="bg-lime px-3 py-1 rounded-xl inline-block">Get More</span> Customers.
+          </h1>
+          <p class="text-gray-600 text-sm sm:text-base mt-4 max-w-md">We help businesses dominate search results with data-driven SEO, content, and web development strategies that deliver real results.</p>
+          <div class="flex flex-wrap gap-3 mt-6">
+            <a href="#" class="bg-lime text-[#101010] font-bold rounded-full px-6 py-3 text-sm hover:brightness-95 transition">Get Free Audit</a>
+            <a href="#" class="border border-gray-300 text-gray-700 font-semibold rounded-full px-6 py-3 text-sm hover:bg-[#101010] hover:text-white hover:border-[#101010] transition">View Services</a>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <div class="bg-gray-100 rounded-[2rem] overflow-hidden w-full max-w-md aspect-[4/3] shadow-2xl">
+            <img src="https://picsum.photos/seed/seo-agency/600/450" alt="SEO Agency" class="w-full h-full object-cover" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
+  <div class="text-center max-w-3xl mx-auto mb-8">
+    <span class="inline-block bg-[#1a1a1a] text-lime text-[10px] font-bold tracking-widest px-4 py-1.5 rounded-full border border-white/10">WHAT WE DO</span>
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-3">Our <span class="bg-lime text-[#101010] px-3 py-1 rounded-full">Services</span></h2>
+    <p class="text-gray-400 text-sm mt-2 max-w-lg mx-auto">Comprehensive SEO and digital marketing solutions tailored to your business goals.</p>
   </div>
 
-  <!-- extra: demo hint (invisible on production) -->
-  <div class="mt-5 pt-4 border-t border-white/5 text-[10px] text-center text-gray-400/70 flex items-center justify-center gap-2">
-    <i class='bx bx-info-circle'></i>
-    <span>Demo login · any credentials work</span>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="service-card"><div class="service-icon mb-3"><i class='bx bx-map-pin'></i></div><h3 class="text-lg font-bold">Local SEO</h3><p class="text-gray-400 text-sm mt-1 leading-relaxed">Dominate local search results and Google Maps to attract customers in your area.</p></div>
+    <div class="service-card"><div class="service-icon mb-3"><i class='bx bx-store'></i></div><h3 class="text-lg font-bold">E-Com SEO</h3><p class="text-gray-400 text-sm mt-1 leading-relaxed">Optimize your online store to drive more traffic, conversions, and revenue.</p></div>
+    <div class="service-card"><div class="service-icon mb-3"><i class='bx bx-code-alt'></i></div><h3 class="text-lg font-bold">On-Page SEO</h3><p class="text-gray-400 text-sm mt-1 leading-relaxed">Optimize titles, meta tags, headings, content, and internal linking for better rankings.</p></div>
+    <div class="service-card"><div class="service-icon mb-3"><i class='bx bx-link-alt'></i></div><h3 class="text-lg font-bold">Off-Page SEO</h3><p class="text-gray-400 text-sm mt-1 leading-relaxed">Build high-quality backlinks and citations to boost your website's authority.</p></div>
+    <div class="service-card"><div class="service-icon mb-3"><i class='bx bx-cog'></i></div><h3 class="text-lg font-bold">Technical SEO</h3><p class="text-gray-400 text-sm mt-1 leading-relaxed">Fix speed issues, crawl errors, indexing, and security for optimal performance.</p></div>
+    <div class="service-card"><div class="service-icon mb-3"><i class='bx bx-bot'></i></div><h3 class="text-lg font-bold">Answer Engine Optimization</h3><p class="text-gray-400 text-sm mt-1 leading-relaxed">Optimize for AI-powered search and featured snippets to capture voice search traffic.</p></div>
+    <div class="service-card"><div class="service-icon mb-3"><i class='bx bx-brain'></i></div><h3 class="text-lg font-bold">Generative SEO</h3><p class="text-gray-400 text-sm mt-1 leading-relaxed">Leverage AI content strategies to scale your SEO efforts and stay ahead.</p></div>
+    <div class="service-card"><div class="service-icon mb-3"><i class='bx bx-palette'></i></div><h3 class="text-lg font-bold">Web Development</h3><p class="text-gray-400 text-sm mt-1 leading-relaxed">Responsive, SEO-friendly websites designed to convert visitors into customers.</p></div>
   </div>
-</div>
+</section>
 
-<!-- micro interaction: register page alert (separate page) -->
-<!-- The register page is a separate HTML file (register.html) -->
-<!-- This login page is fully independent and matches the brand style -->
+<!-- ============ STATS ============ -->
+<section class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
+  <div class="bg-[#141414] border border-white/5 rounded-[2rem] px-6 sm:px-10 py-8 sm:py-10 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+    <div><p class="text-2xl sm:text-3xl font-bold">500<span class="lime">+</span></p><p class="text-[10px] sm:text-xs text-gray-400">Projects Delivered</p></div>
+    <div><p class="text-2xl sm:text-3xl font-bold">98<span class="lime">%</span></p><p class="text-[10px] sm:text-xs text-gray-400">Client Satisfaction</p></div>
+    <div><p class="text-2xl sm:text-3xl font-bold">10<span class="lime">+</span></p><p class="text-[10px] sm:text-xs text-gray-400">Years Experience</p></div>
+    <div><p class="text-2xl sm:text-3xl font-bold">4.9<span class="lime">★</span></p><p class="text-[10px] sm:text-xs text-gray-400">Avg. Rating</p></div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
+  <div class="bg-lime text-[#101010] rounded-[2rem] p-6 sm:p-10 text-center">
+    <h2 class="text-2xl sm:text-3xl font-bold">Ready to rank higher?</h2>
+    <p class="text-sm sm:text-base max-w-md mx-auto mt-2 text-[#1a1a1a]/80">Get a free SEO audit and discover how we can help your business grow.</p>
+    <a href="#" class="inline-block mt-4 bg-[#101010] text-white font-bold rounded-full px-8 py-3 text-sm hover:bg-black transition">Get Free Audit</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16 pb-6">
+  <div class="bg-lime text-[#101010] rounded-[2rem] p-5 sm:p-9">
+    <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
+      <div>
+        <div class="flex items-center gap-2 font-bold text-xl mb-2">
+          <i class='bx bx-sparkle text-xl'></i>
+          <span>Creatix</span>
+        </div>
+        <p class="text-sm max-w-xs text-[#1a1a1a]/80">Data-driven SEO and web development agency helping businesses rank higher and grow faster.</p>
+        <div class="flex gap-2 mt-4">
+          <a href="#" class="footer-icon"><i class='bx bxl-facebook'></i></a>
+          <a href="#" class="footer-icon"><i class='bx bxl-instagram'></i></a>
+          <a href="#" class="footer-icon"><i class='bx bxl-twitter'></i></a>
+          <a href="#" class="footer-icon"><i class='bx bxl-linkedin'></i></a>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm">
+        <div><p class="font-bold mb-2">Services</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Local SEO</a></li><li><a href="#" class="hover:underline">On-Page SEO</a></li><li><a href="#" class="hover:underline">Web Development</a></li></ul></div>
+        <div><p class="font-bold mb-2">Company</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">About Us</a></li><li><a href="#" class="hover:underline">Case Studies</a></li><li><a href="#" class="hover:underline">Blog</a></li></ul></div>
+        <div><p class="font-bold mb-2">Support</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Contact</a></li><li><a href="#" class="hover:underline">FAQs</a></li><li><a href="#" class="hover:underline">Privacy Policy</a></li></ul></div>
+      </div>
+      <div class="max-w-xs"><p class="font-bold mb-2">Subscribe</p><form class="flex flex-wrap gap-2" onsubmit="return false;"><input type="email" required placeholder="Your email" class="flex-1 min-w-[150px] bg-white/40 placeholder:text-[#1a1a1a]/60 rounded-full px-4 py-2 text-sm outline-none"><button class="footer-subscribe-btn">Subscribe</button></form></div>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 pt-5 border-t border-[#1a1a1a]/15 text-xs text-[#1a1a1a]/70"><p>© 2026 Creatix. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconOpen = document.getElementById('menuIconOpen');
+  const iconClose = document.getElementById('menuIconClose');
+
+  function openMenu(){ mobileMenu.classList.remove('hidden'); iconOpen.classList.add('hidden'); iconClose.classList.remove('hidden'); menuBtn.setAttribute('aria-expanded','true'); }
+  function closeMenu(){ mobileMenu.classList.add('hidden'); iconOpen.classList.remove('hidden'); iconClose.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false'); }
+  menuBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu(); });
+  document.querySelectorAll('#mobileMenu a:not(#mobileServicesBtn)').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('click', (e) => { if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && e.target !== menuBtn) closeMenu(); });
+  window.addEventListener('resize', () => { if (window.innerWidth >= 1024) closeMenu(); });
+
+  // Mobile services dropdown
+  document.getElementById('mobileServicesBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    const menu = document.getElementById('mobileServicesMenu');
+    const icon = document.getElementById('mobileServicesIcon');
+    menu.classList.toggle('hidden');
+    icon.classList.toggle('bx-chevron-down');
+    icon.classList.toggle('bx-chevron-up');
+  });
+</script>
 
 </body>
 </html>
