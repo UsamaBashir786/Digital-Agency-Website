@@ -92,7 +92,32 @@
     .why-icon { background: rgba(166, 241, 59, 0.08); width: 52px; height: 52px; border-radius: 1rem; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: #A6F13B; }
     .focus-ring:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
     ::selection { background: var(--lime); color: #0c0c0c; }
-    @media (max-width: 640px) { .service-card { padding: 1.25rem; } .why-card { padding: 1.25rem; } }
+    
+    /* Hero CTA pulse animation */
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(166, 241, 59, 0.4); }
+      70% { box-shadow: 0 0 0 15px rgba(166, 241, 59, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(166, 241, 59, 0); }
+    }
+    .cta-primary {
+      animation: pulse-ring 2s infinite;
+    }
+    .cta-primary:hover {
+      animation: none;
+    }
+    
+    /* Trust badge hover */
+    .trust-badge {
+      transition: all 0.3s ease;
+    }
+    .trust-badge:hover {
+      transform: translateY(-2px);
+    }
+    
+    @media (max-width: 640px) { 
+      .service-card { padding: 1.25rem; } 
+      .why-card { padding: 1.25rem; } 
+    }
   </style>
 </head>
 <body>
@@ -101,7 +126,7 @@
 <nav class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4" role="navigation" aria-label="Main navigation">
   <div class="pill-nav rounded-full flex items-center justify-between px-3 sm:px-5 py-2.5 text-white relative shadow-lg shadow-black/30">
     <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-200 flex-1">
-      <a href="#about" class="hover:text-lime transition" aria-current="page">About Us</a>
+      <a href="#about" class="hover:text-lime transition" aria-current="page">About</a>
       <a href="#services" class="hover:text-lime transition">Services</a>
     </div>
     <div class="flex items-center gap-1.5 font-bold text-base sm:text-lg shrink-0" aria-label="Creatix homepage">
@@ -118,9 +143,8 @@
       <i class='bx bx-x hidden' id="menuIconClose" aria-hidden="true"></i>
     </button>
   </div>
-  <!-- mobile menu -->
   <div id="mobileMenu" class="hidden md:hidden mt-2 bg-[#101010] text-white rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm origin-top shadow-lg shadow-black/30" role="menu">
-    <a href="#about" class="mobile-link py-1 hover:text-lime transition" role="menuitem">About Us</a>
+    <a href="#about" class="mobile-link py-1 hover:text-lime transition" role="menuitem">About</a>
     <a href="#services" class="mobile-link py-1 hover:text-lime transition" role="menuitem">Services</a>
     <a href="#why-us" class="mobile-link py-1 hover:text-lime transition" role="menuitem">Why Us</a>
     <a href="#team" class="mobile-link py-1 hover:text-lime transition" role="menuitem">Team</a>
@@ -128,72 +152,106 @@
   </div>
 </nav>
 
-<!-- ============ HERO SECTION ============ -->
+<!-- ============ CONVERSION-OPTIMIZED HERO ============ -->
 <header class="relative w-full">
   <div class="w-full">
     <div class="bg-white text-[#101010] rounded-b-[2rem] sm:rounded-b-[3rem] overflow-hidden relative">
       <div class="pt-[70px] sm:pt-[84px]"></div>
       <div class="relative px-4 sm:px-8 lg:px-12 pt-5 sm:pt-8 pb-8 sm:pb-12 max-w-[1400px] mx-auto">
+        
+        <!-- Decorative sparkle -->
         <i class='bx bx-sparkle absolute left-3 sm:left-6 top-3 sm:top-8 text-3xl sm:text-5xl lime opacity-90' aria-hidden="true"></i>
 
-        <div class="text-center max-w-3xl mx-auto relative z-10">
-          <h1 class="text-[1.7rem] leading-[1.2] sm:text-4xl md:text-[3.2rem] font-bold tracking-tight">
-            Empowering Brands
-            <br class="hidden sm:block">
-            Through Creative Solutions
-            <i class='bx bx-move-left inline-block text-2xl sm:text-4xl lime align-middle ml-0.5' aria-hidden="true"></i>
-          </h1>
-          <p class="text-sm sm:text-base text-gray-600 mt-3 max-w-lg mx-auto">Digital marketing agency delivering web design, branding, and creative solutions to help your business grow.</p>
+        <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
+          
+          <!-- LEFT CONTENT -->
+          <div class="text-center lg:text-left order-2 lg:order-1">
+            <!-- Trust badge -->
+            <div class="inline-flex items-center gap-2 bg-[#f0f5ea] rounded-full px-3 py-1.5 mb-4 trust-badge">
+              <span class="flex gap-0.5">
+                <i class='bx bxs-star text-yellow-400 text-xs' aria-hidden="true"></i>
+                <i class='bx bxs-star text-yellow-400 text-xs' aria-hidden="true"></i>
+                <i class='bx bxs-star text-yellow-400 text-xs' aria-hidden="true"></i>
+                <i class='bx bxs-star text-yellow-400 text-xs' aria-hidden="true"></i>
+                <i class='bx bxs-star text-yellow-400 text-xs' aria-hidden="true"></i>
+              </span>
+              <span class="text-[10px] font-semibold text-gray-700">Trusted by 2000+ brands</span>
+            </div>
+
+            <h1 class="text-[2rem] leading-[1.15] sm:text-4xl md:text-[3.4rem] font-bold tracking-tight">
+              <span class="block">Empowering Brands</span>
+              <span class="block">Through <span class="bg-lime px-2 sm:px-4 py-0.5 rounded-xl inline-block">Creative</span> Solutions</span>
+            </h1>
+            
+            <p class="text-gray-600 text-sm sm:text-base mt-4 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+              Digital marketing agency delivering <strong>web design, branding, and SEO</strong> that drives real growth. 
+              <span class="block sm:inline">Get a free consultation today.</span>
+            </p>
+
+            <!-- CTA Buttons - Conversion Focused -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-6">
+              <a href="#contact" class="cta-primary bg-lime text-[#101010] font-bold rounded-full px-6 sm:px-8 py-3.5 text-sm hover:brightness-95 transition inline-flex items-center gap-2">
+                <span>Start Your Project</span>
+                <i class='bx bx-right-arrow-alt text-lg' aria-hidden="true"></i>
+              </a>
+              <a href="#services" class="border border-gray-300 text-gray-700 font-semibold rounded-full px-6 sm:px-8 py-3.5 text-sm hover:bg-[#101010] hover:text-white hover:border-[#101010] transition inline-flex items-center gap-2">
+                <i class='bx bx-play-circle text-lg' aria-hidden="true"></i>
+                <span>View Services</span>
+              </a>
+            </div>
+
+            <!-- Social proof / stats -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 mt-6 pt-5 border-t border-gray-200">
+              <div class="flex items-center gap-2">
+                <div class="flex -space-x-2">
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="Client" loading="lazy">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="Client" loading="lazy">
+                  <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="Client" loading="lazy">
+                  <div class="w-8 h-8 rounded-full border-2 border-white bg-lime text-[#101010] flex items-center justify-center text-[10px] font-bold">+150</div>
+                </div>
+                <span class="text-xs text-gray-500">Happy clients</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class='bx bx-check-circle text-lime text-lg' aria-hidden="true"></i>
+                <span class="text-xs text-gray-500">98% satisfaction rate</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class='bx bx-time-five text-lime text-lg' aria-hidden="true"></i>
+                <span class="text-xs text-gray-500">10+ years experience</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT - HERO IMAGE WITH OVERLAY -->
+          <div class="order-1 lg:order-2 flex justify-center">
+            <div class="relative">
+              <div class="hero-blob bg-gray-100 w-full max-w-[340px] sm:max-w-md aspect-[4/3.4] sm:aspect-[4/3] overflow-hidden mx-auto shadow-2xl">
+                <img src="https://i.pinimg.com/736x/0a/3d/11/0a3d11bc1ca961016b339047941b9987.jpg" alt="Digital marketing agency team member" class="w-full h-full object-cover" loading="lazy">
+              </div>
+              <!-- Floating badge -->
+              <div class="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-[#101010] text-white rounded-2xl px-4 py-2.5 shadow-xl flex items-center gap-3">
+                <div class="flex items-center gap-1">
+                  <i class='bx bx-star text-yellow-400 text-sm' aria-hidden="true"></i>
+                  <span class="font-bold text-sm">4.9</span>
+                </div>
+                <span class="text-[10px] text-gray-400">Avg. Rating</span>
+              </div>
+              <!-- Floating badge 2 -->
+              <div class="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 bg-white rounded-2xl px-3 py-2 shadow-xl flex items-center gap-2">
+                <i class='bx bx-trophy text-lime text-lg' aria-hidden="true"></i>
+                <span class="text-[10px] font-bold text-[#101010]">Award Winning</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <div class="relative mt-5 sm:mt-7 flex items-center justify-center">
-          <div class="hero-blob bg-gray-100 w-full max-w-[320px] sm:max-w-md aspect-[4/3.4] sm:aspect-[4/3] overflow-hidden mx-auto">
-            <img src="https://i.pinimg.com/736x/0a/3d/11/0a3d11bc1ca961016b339047941b9987.jpg" alt="Digital marketing agency team member portrait" class="w-full h-full object-cover" loading="lazy">
-          </div>
-
-          <div class="hidden lg:block absolute left-0 top-6 max-w-[180px] text-xs text-gray-600 leading-relaxed">
-            From web development to branding, we deliver innovative strategies that elevate your brand and drive growth.
-            <div class="mt-3">
-              <button class="btn-outline rounded-full px-4 py-2 text-xs font-semibold hover:bg-[#101010] hover:text-white transition" aria-label="Learn more about our brand innovation services">Innovate Your Brand</button>
-            </div>
-          </div>
-
-          <div class="hidden lg:flex flex-col items-center absolute right-0 top-10 text-center">
-            <div class="flex gap-0.5 mb-1" aria-label="Rating: 5 out of 5 stars">
-              <i class='bx bxs-star text-yellow-400 text-base' aria-hidden="true"></i>
-              <i class='bx bxs-star text-yellow-400 text-base' aria-hidden="true"></i>
-              <i class='bx bxs-star text-yellow-400 text-base' aria-hidden="true"></i>
-              <i class='bx bxs-star text-yellow-400 text-base' aria-hidden="true"></i>
-              <i class='bx bxs-star text-yellow-400 text-base' aria-hidden="true"></i>
-            </div>
-            <p class="text-xl font-bold">10 Years</p>
-            <p class="text-xs text-gray-500">Experience</p>
-          </div>
-        </div>
-
-        <div class="lg:hidden flex flex-col sm:flex-row gap-4 items-center sm:items-start justify-between mt-5 text-center sm:text-left">
-          <div class="max-w-xs text-xs text-gray-600 leading-relaxed">
-            From web development to branding, we deliver innovative strategies that elevate your brand and drive growth.
-            <div class="mt-3">
-              <button class="btn-outline rounded-full px-4 py-2 text-xs font-semibold hover:bg-[#101010] hover:text-white transition">Innovate Your Brand</button>
-            </div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="flex gap-0.5 mb-1" aria-label="Rating: 5 out of 5 stars">
-              <i class='bx bxs-star text-yellow-400 text-base' aria-hidden="true"></i>
-              <i class='bx bxs-star text-yellow-400 text-base' aria-hidden="true"></i>
-              <i class='bx bxs-star text-yellow-400 text-base' aria-hidden="true"></i>
-              <i class='bx bxs-star text-yellow-400 text-base' aria-hidden="true"></i>
-              <i class='bx bxs-star text-yellow-400 text-base' aria-hidden="true"></i>
-            </div>
-            <p class="text-xl font-bold">10 Years</p>
-            <p class="text-xs text-gray-500">Experience</p>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap items-center justify-center gap-3 mt-6 sm:mt-8">
-          <a href="#contact" class="bg-lime text-[#101010] font-semibold rounded-full px-5 sm:px-6 py-3 text-sm hover:brightness-95 transition">Start Your Project</a>
-          <a href="#services" class="bg-[#101010] text-white font-semibold rounded-full px-5 sm:px-6 py-3 text-sm hover:bg-black transition">Explore Services</a>
+        <!-- Mobile CTA (duplicate for better conversion on small screens) -->
+        <div class="lg:hidden flex flex-wrap items-center justify-center gap-3 mt-6 sm:mt-8">
+          <a href="#contact" class="bg-lime text-[#101010] font-bold rounded-full px-6 py-3.5 text-sm hover:brightness-95 transition inline-flex items-center gap-2 w-full sm:w-auto justify-center">
+            <span>Start Your Project</span>
+            <i class='bx bx-right-arrow-alt text-lg' aria-hidden="true"></i>
+          </a>
         </div>
       </div>
     </div>
