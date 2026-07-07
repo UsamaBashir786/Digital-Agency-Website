@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- ============ SEO META TAGS ============ -->
-  <title>Creatix — Digital Marketing Agency | Web Design, Branding & SEO Services</title>
-  <meta name="description" content="Creatix is a digital marketing agency empowering brands through creative solutions. We offer web design, branding, UI/UX, SEO, and digital marketing services to help your business grow.">
-  <meta name="keywords" content="digital marketing agency, web design, branding services, UI/UX design, SEO services, creative agency, brand strategy, motion graphics, app design">
-  <meta name="robots" content="index, follow">
+  <title>Creatix — Digital Marketing Agency | Web Design, Branding & SEO Services in Pakistan</title>
+  <meta name="description" content="Creatix is a digital marketing agency empowering brands through creative solutions. We offer web design, branding, UI/UX, local & e-commerce SEO, and digital marketing services trusted by 2000+ brands.">
+  <meta name="keywords" content="digital marketing agency, web design, branding services, UI/UX design, SEO services Pakistan, local SEO, e-commerce SEO, technical SEO, creative agency, brand strategy, web development">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Creatix">
+  <meta name="theme-color" content="#0c0c0c">
   <link rel="canonical" href="https://creatix.design/">
-  
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
   <!-- Open Graph -->
+  <meta property="og:site_name" content="Creatix">
+  <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Creatix — Digital Marketing Agency | Web Design, Branding & SEO Services">
-  <meta property="og:description" content="Empowering brands through creative solutions. Web design, branding, UI/UX, SEO, and digital marketing services.">
+  <meta property="og:description" content="Empowering brands through creative solutions. Web design, branding, UI/UX, local & e-commerce SEO, and digital marketing services trusted by 2000+ brands.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://creatix.design/">
   <meta property="og:image" content="https://creatix.design/og-image.jpg">
-  
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Creatix digital marketing agency">
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Creatix — Digital Marketing Agency">
   <meta name="twitter:description" content="Empowering brands through creative solutions. Web design, branding, UI/UX, SEO, and digital marketing services.">
-  
-  <!-- Schema.org Structured Data -->
+  <meta name="twitter:image" content="https://creatix.design/og-image.jpg">
+  <meta name="twitter:image:alt" content="Creatix digital marketing agency">
+
+  <!-- Schema.org: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -42,6 +56,11 @@
       "contactType": "customer service",
       "email": "hello@creatix.design"
     },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "150"
+    },
     "sameAs": [
       "https://facebook.com/creatix",
       "https://instagram.com/creatix",
@@ -49,8 +68,23 @@
     ]
   }
   </script>
-  
-  <!-- Breadcrumb Schema -->
+
+  <!-- Schema.org: WebSite (enables sitelinks search box) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Creatix",
+    "url": "https://creatix.design/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://creatix.design/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Schema.org: Breadcrumb -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -63,159 +97,39 @@
   }
   </script>
 
+  <!-- Schema.org: Service list (helps SERP understand offerings) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Digital Marketing and SEO Services",
+    "provider": { "@type": "Organization", "name": "Creatix", "url": "https://creatix.design/" },
+    "areaServed": "Worldwide",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Digital Marketing Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Local SEO" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-Commerce SEO" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "On-Page SEO" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Off-Page SEO" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technical SEO" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development" } }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Preconnects (do these before font/CDN loads) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <style>
-    :root { --lime: #A6F13B; --lime-dark: #8BD82E; }
-    * { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #0c0c0c; color: #ffffff; overflow-x: hidden; }
-    .lime { color: var(--lime); }
-    .bg-lime { background: var(--lime); }
-    .pill-nav { background: #101010; border-radius: 9999px; padding: 0.6rem 1.2rem; }
-    .btn-outline { border: 1.5px solid rgba(255,255,255,0.7); }
-    .hero-blob { border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%; }
-    .team-card { transition: transform .25s ease, box-shadow .25s ease; }
-    .team-card:hover { transform: translateY(-4px); }
-    .footer-icon { background: #101010; color: #ffffff !important; display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 9999px; transition: opacity 0.2s; text-decoration: none; }
-    .footer-icon:hover { opacity: 0.8; }
-    .footer-icon i { color: #ffffff !important; font-size: 1.1rem; }
-    .footer-subscribe-btn { background: #101010; color: #ffffff !important; border-radius: 9999px; padding: 0.5rem 1.2rem; font-size: 0.875rem; font-weight: 600; transition: opacity 0.2s; border: none; cursor: pointer; }
-    .footer-subscribe-btn:hover { opacity: 0.85; }
-    .service-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 1.5rem; padding: 1.75rem; transition: transform 0.3s ease, border-color 0.3s ease; }
-    .service-card:hover { transform: translateY(-4px); border-color: rgba(166, 241, 59, 0.3); }
-    .service-icon { background: rgba(166, 241, 59, 0.08); width: 56px; height: 56px; border-radius: 1rem; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #A6F13B; }
-    .why-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 1.5rem; padding: 1.75rem; transition: transform 0.3s ease, border-color 0.3s ease; }
-    .why-card:hover { transform: translateY(-4px); border-color: rgba(166, 241, 59, 0.3); }
-    .why-icon { background: rgba(166, 241, 59, 0.08); width: 52px; height: 52px; border-radius: 1rem; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: #A6F13B; }
-    .focus-ring:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
-    ::selection { background: var(--lime); color: #0c0c0c; }
-    
-    /* Hero CTA pulse animation */
-    @keyframes pulse-ring {
-      0% { box-shadow: 0 0 0 0 rgba(166, 241, 59, 0.4); }
-      70% { box-shadow: 0 0 0 15px rgba(166, 241, 59, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(166, 241, 59, 0); }
-    }
-    .cta-primary { animation: pulse-ring 2s infinite; }
-    .cta-primary:hover { animation: none; }
-    .trust-badge { transition: all 0.3s ease; }
-    .trust-badge:hover { transform: translateY(-2px); }
-    
-    /* Dropdown Styles */
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #1a1a1a;
-      border-radius: 1rem;
-      padding: 0.75rem 0;
-      min-width: 220px;
-      border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      z-index: 100;
-    }
-    .dropdown-trigger:hover .dropdown-menu { display: block; }
-    .dropdown-menu a {
-      display: block;
-      padding: 0.45rem 1.25rem;
-      color: #d0d0d0;
-      font-size: 0.8rem;
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-    .dropdown-menu a:hover { color: #A6F13B; background: rgba(166, 241, 59, 0.05); }
-    .dropdown-menu .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 0.25rem 0.75rem; }
-    
-    /* ============ NAV LINKS WITH UNDERLINE ANIMATION ============ */
-    .nav-link {
-      position: relative;
-      text-decoration: none;
-      color: #e5e5e5;
-      transition: color 0.3s ease;
-      padding-bottom: 2px;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #A6F13B;
-      transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .nav-link:hover {
-      color: #ffffff;
-    }
-    .nav-link:hover::after {
-      width: 100%;
-    }
-    .nav-link.active {
-      color: #ffffff;
-    }
-    .nav-link.active::after {
-      width: 100%;
-    }
-    
-    /* Dropdown trigger link with underline */
-    .dropdown-trigger .nav-link::after {
-      bottom: -2px;
-    }
-    
-    /* Mobile nav links */
-    .mobile-link {
-      position: relative;
-      text-decoration: none;
-      color: #d0d0d0;
-      transition: color 0.3s ease;
-      padding-bottom: 2px;
-      display: inline-block;
-      width: fit-content;
-    }
-    .mobile-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #A6F13B;
-      transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .mobile-link:hover {
-      color: #ffffff;
-    }
-    .mobile-link:hover::after {
-      width: 100%;
-    }
-    
-    @media (max-width: 768px) {
-      .dropdown-menu { 
-        position: relative; 
-        top: 0; 
-        background: transparent; 
-        border: none; 
-        box-shadow: none; 
-        padding: 0.3rem 0 0 1rem; 
-      }
-      .dropdown-trigger:hover .dropdown-menu { display: none; }
-      .dropdown-trigger.active .dropdown-menu { display: block; }
-      .dropdown-menu a { 
-        padding: 0.3rem 0.75rem; 
-        font-size: 0.8rem; 
-        color: #b0b0b0; 
-      }
-    }
-    
-    @media (max-width: 640px) { 
-      .service-card { padding: 1.25rem; } 
-      .why-card { padding: 1.25rem; } 
-    }
-  </style>
+  <link rel="stylesheet" href="assets/styles/styles.css">
 </head>
 <body>
 
@@ -574,97 +488,7 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16 pb-6" role="contentinfo">
-  <div class="bg-lime text-[#101010] rounded-[2rem] p-5 sm:p-9">
-    <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
-      <div>
-        <div class="flex items-center gap-2 font-bold text-xl mb-2">
-          <i class='bx bx-sparkle text-xl' aria-hidden="true"></i>
-          <span>4 Digi Sol</span>
-        </div>
-        <p class="text-sm max-w-xs text-[#1a1a1a]/80">Empowering brands through creative solutions — web, branding & digital design for over a decade.</p>
-        <div class="flex gap-2 mt-4">
-          <a href="#" class="footer-icon" aria-label="Facebook"><i class='bx bxl-facebook' aria-hidden="true"></i></a>
-          <a href="#" class="footer-icon" aria-label="Instagram"><i class='bx bxl-instagram' aria-hidden="true"></i></a>
-          <a href="#" class="footer-icon" aria-label="Twitter"><i class='bx bxl-twitter' aria-hidden="true"></i></a>
-          <a href="#" class="footer-icon" aria-label="LinkedIn"><i class='bx bxl-linkedin' aria-hidden="true"></i></a>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm">
-        <div>
-          <p class="font-bold mb-2">Company</p>
-          <ul class="space-y-1.5 text-[#1a1a1a]/80">
-            <li><a href="about.php" class="hover:underline">About Us</a></li>
-            <li><a href="#team" class="hover:underline">Our Team</a></li>
-            <li><a href="#" class="hover:underline">Careers</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="font-bold mb-2">Support</p>
-          <ul class="space-y-1.5 text-[#1a1a1a]/80">
-            <li><a href="contact.php" class="hover:underline">Contact Us</a></li>
-            <li><a href="#" class="hover:underline">FAQs</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="font-bold mb-2">Services</p>
-          <ul class="space-y-1.5 text-[#1a1a1a]/80">
-            <li><a href="local-seo.php" class="hover:underline">Local SEO</a></li>
-            <li><a href="onpage-seo.php" class="hover:underline">On-Page SEO</a></li>
-            <li><a href="web-development.php" class="hover:underline">Web Development</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="max-w-xs">
-        <p class="font-bold mb-2">Subscribe to our newsletter</p>
-        <form class="flex flex-wrap gap-2" onsubmit="return false;" aria-label="Newsletter subscription">
-          <label for="footer-email" class="sr-only">Email address</label>
-          <input type="email" id="footer-email" required placeholder="Your email" class="flex-1 min-w-[150px] bg-white/40 placeholder:text-[#1a1a1a]/60 rounded-full px-4 py-2 text-sm outline-none">
-          <button type="submit" class="footer-subscribe-btn">Subscribe</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 pt-5 border-t border-[#1a1a1a]/15 text-xs text-[#1a1a1a]/70">
-      <p>&copy; 2026 4 Digi Sol. All rights reserved.</p>
-      <div class="flex gap-1.5" aria-hidden="true">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#101010]"></span>
-        <span class="w-1.5 h-1.5 rounded-full bg-[#101010]/40"></span>
-        <span class="w-1.5 h-1.5 rounded-full bg-[#101010]/40"></span>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-  // Mobile menu
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const iconOpen = document.getElementById('menuIconOpen');
-  const iconClose = document.getElementById('menuIconClose');
-
-  function openMenu(){ mobileMenu.classList.remove('hidden'); iconOpen.classList.add('hidden'); iconClose.classList.remove('hidden'); menuBtn.setAttribute('aria-expanded','true'); }
-  function closeMenu(){ mobileMenu.classList.add('hidden'); iconOpen.classList.remove('hidden'); iconClose.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false'); }
-  menuBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu(); });
-  document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', closeMenu));
-  document.addEventListener('click', (e) => { if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && e.target !== menuBtn) closeMenu(); });
-  window.addEventListener('resize', () => { if (window.innerWidth >= 768) closeMenu(); });
-
-  // Mobile Services Dropdown
-  const mobileServicesBtn = document.getElementById('mobileServicesBtn');
-  const mobileServicesMenu = document.getElementById('mobileServicesMenu');
-  const mobileServicesIcon = document.getElementById('mobileServicesIcon');
-
-  mobileServicesBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    mobileServicesMenu.classList.toggle('hidden');
-    mobileServicesIcon.classList.toggle('bx-chevron-down');
-    mobileServicesIcon.classList.toggle('bx-chevron-up');
-  });
-</script>
-
+<?php include "includes/footer.php" ?>
+<?php include "includes/js-links.php" ?>
 </body>
 </html>

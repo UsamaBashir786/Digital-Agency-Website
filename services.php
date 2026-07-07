@@ -8,53 +8,7 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root { --lime: #A6F13B; --lime-dark: #8BD82E; }
-    * { font-family: 'Manrope', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #0c0c0c; color: #ffffff; overflow-x: hidden; }
-    .lime { color: var(--lime); }
-    .bg-lime { background: var(--lime); }
-    .pill-nav {
-      background: #101010;
-      border-radius: 9999px;
-      padding: 0.6rem 1.2rem;
-    }
-    .service-card {
-      background: #141414;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 1.5rem;
-      padding: 1.75rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      border-color: rgba(166, 241, 59, 0.2);
-    }
-    .service-icon {
-      background: rgba(166, 241, 59, 0.08);
-      width: 56px;
-      height: 56px;
-      border-radius: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      color: #A6F13B;
-    }
-    .tag {
-      background: rgba(166, 241, 59, 0.12);
-      color: #A6F13B;
-      padding: 0.25rem 0.9rem;
-      border-radius: 9999px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-    @media (max-width: 640px) {
-      .service-card { padding: 1.25rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/styles/styles.css">
 </head>
 <body>
 
@@ -281,32 +235,8 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-12 pb-6">
-  <div class="bg-lime text-[#101010] rounded-[2rem] p-5 sm:p-9">
-    <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
-      <div>
-        <div class="flex items-center gap-2 font-bold text-xl mb-2">
-          <i class='bx bx-sparkle text-xl'></i>
-          <span>Creatix</span>
-        </div>
-        <p class="text-sm max-w-xs text-[#1a1a1a]/80">Empowering brands through creative solutions — web, branding & digital design for over a decade.</p>
-        <div class="flex gap-2 mt-4">
-          <a href="#" class="footer-icon" style="background:#101010;color:#fff;display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:9999px;transition:opacity 0.2s;text-decoration:none;"><i class='bx bxl-facebook'></i></a>
-          <a href="#" class="footer-icon" style="background:#101010;color:#fff;display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:9999px;transition:opacity 0.2s;text-decoration:none;"><i class='bx bxl-instagram'></i></a>
-          <a href="#" class="footer-icon" style="background:#101010;color:#fff;display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:9999px;transition:opacity 0.2s;text-decoration:none;"><i class='bx bxl-twitter'></i></a>
-          <a href="#" class="footer-icon" style="background:#101010;color:#fff;display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:9999px;transition:opacity 0.2s;text-decoration:none;"><i class='bx bxl-linkedin'></i></a>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm">
-        <div><p class="font-bold mb-2">Company</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">About Us</a></li><li><a href="#" class="hover:underline">Our Team</a></li><li><a href="#" class="hover:underline">Careers</a></li></ul></div>
-        <div><p class="font-bold mb-2">Support</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Help Center</a></li><li><a href="#" class="hover:underline">Contact Us</a></li><li><a href="#" class="hover:underline">FAQs</a></li></ul></div>
-        <div><p class="font-bold mb-2">Products</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Web Design</a></li><li><a href="#" class="hover:underline">Branding</a></li><li><a href="#" class="hover:underline">Motion Graphics</a></li></ul></div>
-      </div>
-      <div class="max-w-xs"><p class="font-bold mb-2">Subscribe</p><form class="flex flex-wrap gap-2" onsubmit="return false;"><input type="email" required placeholder="Your email" class="flex-1 min-w-[150px] bg-white/40 placeholder:text-[#1a1a1a]/60 rounded-full px-4 py-2 text-sm outline-none"><button class="bg-[#101010] text-white rounded-full px-4 py-2 text-sm font-semibold hover:opacity-85 transition">Subscribe</button></form></div>
-    </div>
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 pt-5 border-t border-[#1a1a1a]/15 text-xs text-[#1a1a1a]/70"><p>© 2026 Creatix. All rights reserved.</p></div>
-  </div>
-</footer>
+<?php include "includes/footer.php" ?>
+
 
 <style>
   @keyframes marquee {
@@ -315,21 +245,6 @@
   }
   .marquee-track { display: flex; width: max-content; animation: marquee 22s linear infinite; }
 </style>
-
-<script>
-  // Mobile menu
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const iconOpen = document.getElementById('menuIconOpen');
-  const iconClose = document.getElementById('menuIconClose');
-
-  function openMenu(){ mobileMenu.classList.remove('hidden'); iconOpen.classList.add('hidden'); iconClose.classList.remove('hidden'); menuBtn.setAttribute('aria-expanded','true'); }
-  function closeMenu(){ mobileMenu.classList.add('hidden'); iconOpen.classList.remove('hidden'); iconClose.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false'); }
-  menuBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu(); });
-  document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', closeMenu));
-  document.addEventListener('click', (e) => { if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && e.target !== menuBtn) closeMenu(); });
-  window.addEventListener('resize', () => { if (window.innerWidth >= 768) closeMenu(); });
-</script>
-
+<?php include "includes/js-links.php" ?>
 </body>
 </html>

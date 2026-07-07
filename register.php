@@ -9,107 +9,26 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --lime: #A6F13B;
-      --lime-dark: #8BD82E;
-    }
-    * { font-family: 'Manrope', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      background: #0c0c0c; 
-      min-height: 100vh; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      padding: 1rem; 
-    }
-    .lime { color: var(--lime); }
-    .bg-lime { background: var(--lime); }
-    .noise-card {
-      background: radial-gradient(120% 140% at 15% 0%, #262626 0%, #141414 55%, #0c0c0c 100%);
-    }
-    .focus-ring:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
-    .auth-card {
-      width: 100%;
-      max-width: 440px;
-      border-radius: 2.5rem;
-      background: radial-gradient(140% 150% at 10% 0%, #262626 0%, #141414 55%, #0c0c0c 100%);
-      border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 30px 60px -15px rgba(0,0,0,0.8);
-      padding: 2rem 1.75rem;
-    }
-    .brand-icon {
-      background: #1a1a1a;
-      border-radius: 9999px;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .auth-input {
-      background: #141414;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 9999px;
-      padding: 0.9rem 1.2rem;
-      width: 100%;
-      color: #ffffff;
-      font-size: 0.95rem;
-      transition: border 0.2s;
-    }
-    .auth-input:focus {
-      border-color: #A6F13B;
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(166, 241, 59, 0.15);
-    }
-    .auth-input::placeholder { color: #aaaaaa; }
-    .btn-primary {
-      background: #A6F13B;
-      color: #0c0c0c;
-      font-weight: 700;
-      border-radius: 9999px;
-      padding: 0.9rem 1.2rem;
-      width: 100%;
-      border: none;
-      font-size: 1rem;
-      transition: background 0.2s, transform 0.1s;
-      cursor: pointer;
-    }
-    .btn-primary:hover { background: #8BD82E; }
-    .btn-primary:active { transform: scale(0.98); }
-    .auth-link { color: #dddddd; transition: color 0.2s; }
-    .auth-link:hover { color: #A6F13B; }
-    .divider-line { flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
-    .social-btn {
-      background: #1a1a1a;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 9999px;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      transition: background 0.2s, border-color 0.2s;
-      cursor: pointer;
-    }
-    .social-btn:hover { background: #262626; border-color: rgba(166, 241, 59, 0.3); }
-    .social-btn i { font-size: 1.3rem; }
-    .back-home {
-      color: #cccccc;
-      transition: color 0.2s;
-      font-size: 0.9rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .back-home:hover { color: #A6F13B; }
-    .text-white-force { color: #ffffff !important; }
-    .text-gray-light { color: #e0e0e0; }
-    @media (max-width: 480px) {
-      .auth-card { padding: 1.5rem 1.25rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/styles/styles.css">
+<style>
+  html, body {
+    height: auto;
+    min-height: 100%;
+    margin: 0;
+  }
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+  }
+  .auth-card {
+    margin: auto;
+  }
+</style>
 </head>
 <body>
 

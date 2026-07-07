@@ -8,30 +8,7 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root { --lime: #A6F13B; --lime-dark: #8BD82E; }
-    * { font-family: 'Manrope', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #0c0c0c; color: #ffffff; overflow-x: hidden; }
-    .lime { color: var(--lime); }
-    .bg-lime { background: var(--lime); }
-    .pill-nav { background: #101010; border-radius: 9999px; padding: 0.6rem 1.2rem; }
-    .footer-icon { background: #101010; color: #ffffff !important; display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 9999px; transition: opacity 0.2s; text-decoration: none; }
-    .footer-icon:hover { opacity: 0.8; }
-    .footer-icon i { color: #ffffff !important; font-size: 1.1rem; }
-    .footer-subscribe-btn { background: #101010; color: #ffffff !important; border-radius: 9999px; padding: 0.5rem 1.2rem; font-size: 0.875rem; font-weight: 600; transition: opacity 0.2s; border: none; cursor: pointer; }
-    .footer-subscribe-btn:hover { opacity: 0.85; }
-    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #1a1a1a; border-radius: 1rem; padding: 0.75rem 0; min-width: 200px; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-    .dropdown-trigger:hover .dropdown-menu { display: block; }
-    .dropdown-menu a { display: block; padding: 0.5rem 1.25rem; color: #d0d0d0; font-size: 0.85rem; transition: all 0.2s; text-decoration: none; }
-    .dropdown-menu a:hover { color: #A6F13B; background: rgba(166, 241, 59, 0.05); }
-    @media (max-width: 768px) { .dropdown-menu { position: relative; top: 0; background: transparent; border: none; box-shadow: none; padding: 0.5rem 0 0 1rem; } .dropdown-trigger:hover .dropdown-menu { display: none; } .dropdown-trigger.active .dropdown-menu { display: block; } }
-    .related-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 1.25rem; overflow: hidden; transition: transform 0.3s ease; }
-    .related-card:hover { transform: translateY(-4px); border-color: rgba(166, 241, 59, 0.2); }
-    .tag { background: rgba(166, 241, 59, 0.12); color: #A6F13B; padding: 0.2rem 0.8rem; border-radius: 9999px; font-size: 0.65rem; font-weight: 600; }
-    .table-of-contents { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 1.25rem; padding: 1.5rem; }
-    .table-of-contents a { color: #b0b0b0; transition: color 0.2s; }
-    .table-of-contents a:hover { color: #A6F13B; }
-  </style>
+  <link rel="stylesheet" href="assets/styles/styles.css">
 </head>
 <body>
 
@@ -216,57 +193,8 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16 pb-6">
-  <div class="bg-lime text-[#101010] rounded-[2rem] p-5 sm:p-9">
-    <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
-      <div>
-        <div class="flex items-center gap-2 font-bold text-xl mb-2">
-          <i class='bx bx-sparkle text-xl'></i>
-          <span>Creatix</span>
-        </div>
-        <p class="text-sm max-w-xs text-[#1a1a1a]/80">Data-driven SEO and web development agency helping businesses rank higher and grow faster.</p>
-        <div class="flex gap-2 mt-4">
-          <a href="#" class="footer-icon"><i class='bx bxl-facebook'></i></a>
-          <a href="#" class="footer-icon"><i class='bx bxl-instagram'></i></a>
-          <a href="#" class="footer-icon"><i class='bx bxl-twitter'></i></a>
-          <a href="#" class="footer-icon"><i class='bx bxl-linkedin'></i></a>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm">
-        <div><p class="font-bold mb-2">Services</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Local SEO</a></li><li><a href="#" class="hover:underline">On-Page SEO</a></li><li><a href="#" class="hover:underline">Web Development</a></li></ul></div>
-        <div><p class="font-bold mb-2">Company</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">About Us</a></li><li><a href="#" class="hover:underline">Case Studies</a></li><li><a href="#" class="hover:underline">Blog</a></li></ul></div>
-        <div><p class="font-bold mb-2">Support</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Contact</a></li><li><a href="#" class="hover:underline">FAQs</a></li><li><a href="#" class="hover:underline">Privacy Policy</a></li></ul></div>
-      </div>
-      <div class="max-w-xs"><p class="font-bold mb-2">Subscribe</p><form class="flex flex-wrap gap-2" onsubmit="return false;"><input type="email" required placeholder="Your email" class="flex-1 min-w-[150px] bg-white/40 placeholder:text-[#1a1a1a]/60 rounded-full px-4 py-2 text-sm outline-none"><button class="footer-subscribe-btn">Subscribe</button></form></div>
-    </div>
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 pt-5 border-t border-[#1a1a1a]/15 text-xs text-[#1a1a1a]/70"><p>© 2026 Creatix. All rights reserved.</p></div>
-  </div>
-</footer>
+<?php include "includes/footer.php" ?>
 
-<script>
-  // Mobile menu
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const iconOpen = document.getElementById('menuIconOpen');
-  const iconClose = document.getElementById('menuIconClose');
-
-  function openMenu(){ mobileMenu.classList.remove('hidden'); iconOpen.classList.add('hidden'); iconClose.classList.remove('hidden'); menuBtn.setAttribute('aria-expanded','true'); }
-  function closeMenu(){ mobileMenu.classList.add('hidden'); iconOpen.classList.remove('hidden'); iconClose.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false'); }
-  menuBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu(); });
-  document.querySelectorAll('#mobileMenu a:not(#mobileServicesBtn)').forEach(link => link.addEventListener('click', closeMenu));
-  document.addEventListener('click', (e) => { if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && e.target !== menuBtn) closeMenu(); });
-  window.addEventListener('resize', () => { if (window.innerWidth >= 1024) closeMenu(); });
-
-  // Mobile services dropdown
-  document.getElementById('mobileServicesBtn').addEventListener('click', function(e) {
-    e.preventDefault();
-    const menu = document.getElementById('mobileServicesMenu');
-    const icon = document.getElementById('mobileServicesIcon');
-    menu.classList.toggle('hidden');
-    icon.classList.toggle('bx-chevron-down');
-    icon.classList.toggle('bx-chevron-up');
-  });
-</script>
-
+<?php include "includes/js-links.php" ?>
 </body>
 </html>
