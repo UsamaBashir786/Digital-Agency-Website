@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>Creatix · Service Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --lime: #A6F13B; --lime-dark: #8BD82E; }
+    * { font-family: 'Manrope', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0c0c0c; color: #ffffff; overflow-x: hidden; }
+    .lime { color: var(--lime); }
+    .bg-lime { background: var(--lime); }
+    .pill-nav {
+      background: #101010;
+      border-radius: 9999px;
+      padding: 0.6rem 1.2rem;
+    }
+    .detail-card {
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 2rem;
+      padding: 2rem;
+    }
+    .tag {
+      background: rgba(166, 241, 59, 0.12);
+      color: #A6F13B;
+      padding: 0.25rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .back-link {
+      color: #aaaaaa;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+    }
+    .back-link:hover { color: #A6F13B; }
+    .stat-item {
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #A6F13B;
+    }
+    @media (max-width: 640px) {
+      .detail-card { padding: 1.25rem; }
+      .stat-number { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============ FIXED NAVBAR ============ -->
+<nav class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4">
+  <div class="pill-nav rounded-full flex items-center justify-between px-3 sm:px-5 py-2.5 text-white relative shadow-lg shadow-black/30">
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-200 flex-1">
+      <a href="#about" class="hover:text-lime transition">About Us</a>
+      <a href="services.html" class="text-lime transition">Services</a>
+    </div>
+    <div class="flex items-center gap-1.5 font-bold text-base sm:text-lg shrink-0">
+      <i class='bx bx-sparkle text-xl lime'></i>
+      <span>Creatix</span>
+    </div>
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-200 flex-1 justify-end">
+      <a href="projects.html" class="hover:text-lime transition">Projects</a>
+      <a href="#reviews" class="hover:text-lime transition">Reviews</a>
+    </div>
+    <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false" class="md:hidden w-8 h-8 flex items-center justify-center text-xl">
+      <i class='bx bx-menu' id="menuIconOpen"></i>
+      <i class='bx bx-x hidden' id="menuIconClose"></i>
+    </button>
+  </div>
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="hidden md:hidden mt-2 bg-[#101010] text-white rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm origin-top shadow-lg shadow-black/30">
+    <a href="#about" class="mobile-link py-1 hover:text-lime transition">About Us</a>
+    <a href="services.html" class="mobile-link py-1 text-lime transition">Services</a>
+    <a href="projects.html" class="mobile-link py-1 hover:text-lime transition">Projects</a>
+    <a href="#reviews" class="mobile-link py-1 hover:text-lime transition">Reviews</a>
+  </div>
+</nav>
+
+<!-- spacer -->
+<div class="pt-[70px] sm:pt-[84px]"></div>
+
+<!-- ============ SERVICE DETAILS ============ -->
+<section class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-6">
+  <div class="detail-card">
+    <!-- Back button -->
+    <a href="services.html" class="back-link mb-4 text-sm">
+      <i class='bx bx-arrow-back'></i> Back to services
+    </a>
+
+    <!-- Service Header -->
+    <div id="serviceContent">
+      <div class="flex flex-wrap items-start gap-4">
+        <div class="flex-1 min-w-[200px]">
+          <div class="flex items-center gap-3 flex-wrap">
+            <div class="service-icon-large" id="serviceIcon" style="background:rgba(166,241,59,0.08);width:64px;height:64px;border-radius:1.25rem;display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:#A6F13B;">
+              <i class='bx bx-pen'></i>
+            </div>
+            <div>
+              <h2 id="serviceTitle" class="text-2xl sm:text-3xl font-bold">UI/UX Design</h2>
+              <span id="serviceTag" class="tag inline-block mt-1">01</span>
+            </div>
+          </div>
+          <p id="serviceDescription" class="text-gray-400 text-sm mt-3 max-w-xl leading-relaxed">
+            User-centered designs that combine aesthetics with functionality. We create intuitive interfaces that delight users and drive engagement.
+          </p>
+        </div>
+        <div class="flex gap-2">
+          <button class="bg-lime text-[#101010] font-semibold rounded-full px-5 py-2.5 text-sm hover:brightness-95 transition">
+            <i class='bx bx-calendar'></i> Book Now
+          </button>
+          <button class="border border-white/20 text-white font-semibold rounded-full px-5 py-2.5 text-sm hover:bg-white hover:text-[#101010] transition">
+            <i class='bx bx-heart'></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Image -->
+      <div class="mt-5 rounded-2xl overflow-hidden aspect-[16/6] bg-[#1a1a1a]">
+        <img id="serviceImage" src="https://picsum.photos/seed/uiux-design/1200/500" alt="Service detail" class="w-full h-full object-cover" />
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
+        <div class="stat-item">
+          <p class="stat-number" id="statProjects">150+</p>
+          <p class="text-xs text-gray-400 mt-1">Projects Delivered</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number" id="statClients">98%</p>
+          <p class="text-xs text-gray-400 mt-1">Client Satisfaction</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number" id="statTeam">12</p>
+          <p class="text-xs text-gray-400 mt-1">Expert Team</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number" id="statTime">2.5x</p>
+          <p class="text-xs text-gray-400 mt-1">Faster Delivery</p>
+        </div>
+      </div>
+
+      <!-- Detailed Info -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5">
+        <div class="lg:col-span-2 space-y-4">
+          <div>
+            <h3 class="text-lg font-bold mb-2">What We Offer</h3>
+            <ul id="offerList" class="space-y-2 text-sm text-gray-300">
+              <li class="flex items-start gap-2"><i class='bx bx-check-circle text-lime mt-0.5'></i> User research and persona development</li>
+              <li class="flex items-start gap-2"><i class='bx bx-check-circle text-lime mt-0.5'></i> Wireframing and interactive prototyping</li>
+              <li class="flex items-start gap-2"><i class='bx bx-check-circle text-lime mt-0.5'></i> Visual design and design systems</li>
+              <li class="flex items-start gap-2"><i class='bx bx-check-circle text-lime mt-0.5'></i> Usability testing and iteration</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-2">Our Process</h3>
+            <p id="processText" class="text-sm text-gray-400 leading-relaxed">
+              We follow a user-centered design process: Discover → Define → Design → Test → Deliver. 
+              Each phase involves close collaboration with you to ensure the final product exceeds expectations.
+            </p>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-3">Tools & Technologies</h3>
+          <div class="flex flex-wrap gap-2" id="toolsList">
+            <span class="tag">Figma</span>
+            <span class="tag">Sketch</span>
+            <span class="tag">Adobe XD</span>
+            <span class="tag">InVision</span>
+            <span class="tag">Zeplin</span>
+            <span class="tag">Miro</span>
+          </div>
+          
+          <div class="mt-4 bg-[#1a1a1a] rounded-xl p-4 border border-white/5">
+            <p class="text-xs text-gray-400 mb-1">Estimated Timeline</p>
+            <p class="text-sm font-medium" id="timelineText">4-8 weeks</p>
+            <p class="text-xs text-gray-400 mt-2">Starting from</p>
+            <p class="text-lg font-bold lime" id="priceText">$2,500</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Services -->
+      <div class="mt-6 pt-5 border-t border-white/5">
+        <h3 class="text-sm font-semibold text-gray-400 mb-3">Related Services</h3>
+        <div class="flex flex-wrap gap-2">
+          <a href="service-details.html?id=web-dev" class="tag hover:bg-lime hover:text-[#101010] transition cursor-pointer">Web Development</a>
+          <a href="service-details.html?id=app-design" class="tag hover:bg-lime hover:text-[#101010] transition cursor-pointer">App Design</a>
+          <a href="service-details.html?id=branding" class="tag hover:bg-lime hover:text-[#101010] transition cursor-pointer">Branding</a>
+          <a href="service-details.html?id=motion" class="tag hover:bg-lime hover:text-[#101010] transition cursor-pointer">Motion Graphics</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<section class="mt-12 border-y border-white/10 bg-lime text-[#101010] py-2.5 overflow-hidden">
+  <div class="marquee-track font-bold text-xs sm:text-base" style="display:flex;width:max-content;animation:marquee 22s linear infinite;">
+    <div class="flex items-center gap-2 pr-6">
+      <span>UX Design</span><i class='bx bx-sparkle text-sm sm:text-base'></i>
+      <span>App Design</span><i class='bx bx-sparkle text-sm sm:text-base'></i>
+      <span>Dashboard</span><i class='bx bx-sparkle text-sm sm:text-base'></i>
+      <span>Wireframe</span><i class='bx bx-sparkle text-sm sm:text-base'></i>
+      <span>User Research</span><i class='bx bx-sparkle text-sm sm:text-base'></i>
+    </div>
+    <div class="flex items-center gap-2 pr-6">
+      <span>UX Design</span><i class='bx bx-sparkle text-sm sm:text-base'></i>
+      <span>App Design</span><i class='bx bx-sparkle text-sm sm:text-base'></i>
+      <span>Dashboard</span><i class='bx bx-sparkle text-sm sm:text-base'></i>
+      <span>Wireframe</span><i class='bx bx-sparkle text-sm sm:text-base'></i>
+      <span>User Research</span><i class='bx bx-sparkle text-sm sm:text-base'></i>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-12 pb-6">
+  <div class="bg-lime text-[#101010] rounded-[2rem] p-5 sm:p-9">
+    <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
+      <div>
+        <div class="flex items-center gap-2 font-bold text-xl mb-2">
+          <i class='bx bx-sparkle text-xl'></i>
+          <span>Creatix</span>
+        </div>
+        <p class="text-sm max-w-xs text-[#1a1a1a]/80">Empowering brands through creative solutions — web, branding & digital design for over a decade.</p>
+        <div class="flex gap-2 mt-4">
+          <a href="#" class="footer-icon" style="background:#101010;color:#fff;display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:9999px;transition:opacity 0.2s;text-decoration:none;"><i class='bx bxl-facebook'></i></a>
+          <a href="#" class="footer-icon" style="background:#101010;color:#fff;display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:9999px;transition:opacity 0.2s;text-decoration:none;"><i class='bx bxl-instagram'></i></a>
+          <a href="#" class="footer-icon" style="background:#101010;color:#fff;display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:9999px;transition:opacity 0.2s;text-decoration:none;"><i class='bx bxl-twitter'></i></a>
+          <a href="#" class="footer-icon" style="background:#101010;color:#fff;display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:9999px;transition:opacity 0.2s;text-decoration:none;"><i class='bx bxl-linkedin'></i></a>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm">
+        <div><p class="font-bold mb-2">Company</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">About Us</a></li><li><a href="#" class="hover:underline">Our Team</a></li><li><a href="#" class="hover:underline">Careers</a></li></ul></div>
+        <div><p class="font-bold mb-2">Support</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Help Center</a></li><li><a href="#" class="hover:underline">Contact Us</a></li><li><a href="#" class="hover:underline">FAQs</a></li></ul></div>
+        <div><p class="font-bold mb-2">Products</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Web Design</a></li><li><a href="#" class="hover:underline">Branding</a></li><li><a href="#" class="hover:underline">Motion Graphics</a></li></ul></div>
+      </div>
+      <div class="max-w-xs"><p class="font-bold mb-2">Subscribe</p><form class="flex flex-wrap gap-2" onsubmit="return false;"><input type="email" required placeholder="Your email" class="flex-1 min-w-[150px] bg-white/40 placeholder:text-[#1a1a1a]/60 rounded-full px-4 py-2 text-sm outline-none"><button class="bg-[#101010] text-white rounded-full px-4 py-2 text-sm font-semibold hover:opacity-85 transition">Subscribe</button></form></div>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 pt-5 border-t border-[#1a1a1a]/15 text-xs text-[#1a1a1a]/70"><p>© 2026 Creatix. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<style>
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-track { display: flex; width: max-content; animation: marquee 22s linear infinite; }
+</style>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconOpen = document.getElementById('menuIconOpen');
+  const iconClose = document.getElementById('menuIconClose');
+
+  function openMenu(){ mobileMenu.classList.remove('hidden'); iconOpen.classList.add('hidden'); iconClose.classList.remove('hidden'); menuBtn.setAttribute('aria-expanded','true'); }
+  function closeMenu(){ mobileMenu.classList.add('hidden'); iconOpen.classList.remove('hidden'); iconClose.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false'); }
+  menuBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu(); });
+  document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('click', (e) => { if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && e.target !== menuBtn) closeMenu(); });
+  window.addEventListener('resize', () => { if (window.innerWidth >= 768) closeMenu(); });
+
+  // Service data
+  const services = {
+    'ui-ux': {
+      title: 'UI/UX Design',
+      tag: '01',
+      icon: 'bx-pen',
+      description: 'User-centered designs that combine aesthetics with functionality. We create intuitive interfaces that delight users and drive engagement.',
+      image: 'https://picsum.photos/seed/uiux-design/1200/500',
+      projects: '150+',
+      satisfaction: '98%',
+      team: '12',
+      delivery: '2.5x',
+      offers: [
+        'User research and persona development',
+        'Wireframing and interactive prototyping',
+        'Visual design and design systems',
+        'Usability testing and iteration'
+      ],
+      process: 'We follow a user-centered design process: Discover → Define → Design → Test → Deliver. Each phase involves close collaboration with you to ensure the final product exceeds expectations.',
+      tools: ['Figma', 'Sketch', 'Adobe XD', 'InVision', 'Zeplin', 'Miro'],
+      timeline: '4-8 weeks',
+      price: '$2,500'
+    },
+    'web-dev': {
+      title: 'Web Development',
+      tag: '02',
+      icon: 'bx-code-alt',
+      description: 'Custom web solutions built with modern technologies. From landing pages to complex web applications, we deliver scalable and performant websites.',
+      image: 'https://picsum.photos/seed/web-dev/1200/500',
+      projects: '120+',
+      satisfaction: '97%',
+      team: '10',
+      delivery: '2x',
+      offers: [
+        'Custom website development',
+        'E-commerce solutions',
+        'CMS integration (WordPress, Webflow)',
+        'Performance optimization'
+      ],
+      process: 'Our development process follows Agile methodology: Plan → Design → Develop → Test → Deploy → Maintain. We ensure continuous communication and iterative improvements.',
+      tools: ['React', 'Next.js', 'Node.js', 'Tailwind CSS', 'MongoDB', 'AWS'],
+      timeline: '6-12 weeks',
+      price: '$4,000'
+    },
+    'app-design': {
+      title: 'App Design',
+      tag: '07',
+      icon: 'bx-mobile-alt',
+      description: 'Mobile-first app designs that provide seamless user experiences across iOS and Android platforms with intuitive navigation and stunning visuals.',
+      image: 'https://picsum.photos/seed/app-design/1200/500',
+      projects: '80+',
+      satisfaction: '96%',
+      team: '8',
+      delivery: '2x',
+      offers: [
+        'iOS and Android app design',
+        'Responsive mobile interfaces',
+        'App prototyping and testing',
+        'Design system creation'
+      ],
+      process: 'We start with user research, create wireframes, develop high-fidelity prototypes, conduct usability testing, and deliver pixel-perfect designs ready for development.',
+      tools: ['Figma', 'Sketch', 'Adobe XD', 'Principle', 'ProtoPie'],
+      timeline: '4-10 weeks',
+      price: '$3,500'
+    },
+    branding: {
+      title: 'Branding',
+      tag: '05',
+      icon: 'bx-brush',
+      description: 'Complete brand identity solutions including logo design, visual identity, typography, and brand guidelines that make your brand memorable.',
+      image: 'https://picsum.photos/seed/branding/1200/500',
+      projects: '90+',
+      satisfaction: '99%',
+      team: '7',
+      delivery: '1.5x',
+      offers: [
+        'Logo and visual identity design',
+        'Brand strategy and positioning',
+        'Typography and color systems',
+        'Brand guidelines documentation'
+      ],
+      process: 'We follow a strategic branding process: Research → Strategy → Design → Refine → Deliver. We ensure your brand stands out and resonates with your audience.',
+      tools: ['Adobe Illustrator', 'Photoshop', 'InDesign', 'Figma', 'Miro'],
+      timeline: '3-6 weeks',
+      price: '$3,000'
+    },
+    motion: {
+      title: 'Motion Graphics',
+      tag: '04',
+      icon: 'bx-movie',
+      description: 'Dynamic motion graphics that captivate audiences. From explainer videos to animated logos, we create visual stories that engage and inspire.',
+      image: 'https://picsum.photos/seed/motion-graphics/1200/500',
+      projects: '70+',
+      satisfaction: '97%',
+      team: '6',
+      delivery: '2x',
+      offers: [
+        '2D and 3D animation',
+        'Explainer videos',
+        'Animated logos and graphics',
+        'Visual effects and compositing'
+      ],
+      process: 'Our motion design process: Concept → Storyboard → Animation → Review → Final Deliverable. We create compelling visual stories that capture attention.',
+      tools: ['After Effects', 'Premiere Pro', 'Blender', 'Cinema 4D'],
+      timeline: '4-10 weeks',
+      price: '$3,500'
+    }
+  };
+
+  // Load service data from URL
+  function loadServiceData() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceId = urlParams.get('id');
+    
+    // Default to UI/UX if no ID or invalid ID
+    const defaultId = 'ui-ux';
+    const id = serviceId && services[serviceId] ? serviceId : defaultId;
+    const service = services[id];
+
+    document.getElementById('serviceTitle').textContent = service.title;
+    document.getElementById('serviceTag').textContent = service.tag;
+    document.getElementById('serviceIcon').innerHTML = `<i class='bx ${service.icon}'></i>`;
+    document.getElementById('serviceDescription').textContent = service.description;
+    document.getElementById('serviceImage').src = service.image;
+    document.getElementById('statProjects').textContent = service.projects;
+    document.getElementById('statClients').textContent = service.satisfaction;
+    document.getElementById('statTeam').textContent = service.team;
+    document.getElementById('statTime').textContent = service.delivery;
+    document.getElementById('processText').textContent = service.process;
+    document.getElementById('timelineText').textContent = service.timeline;
+    document.getElementById('priceText').textContent = service.price;
+
+    // Update offers list
+    const offerList = document.getElementById('offerList');
+    offerList.innerHTML = service.offers.map(offer => 
+      `<li class="flex items-start gap-2"><i class='bx bx-check-circle text-lime mt-0.5'></i> ${offer}</li>`
+    ).join('');
+
+    // Update tools
+    const toolsList = document.getElementById('toolsList');
+    toolsList.innerHTML = service.tools.map(tool => 
+      `<span class="tag">${tool}</span>`
+    ).join('');
+  }
+
+  // Load on page load
+  window.addEventListener('DOMContentLoaded', loadServiceData);
+</script>
+
+</body>
+</html>
