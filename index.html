@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Creatix — Empowering Brands Through Creative Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Boxicons CDN -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --lime:#A6F13B;
+      --lime-dark:#8BD82E;
+      --ink:#101010;
+      --ink-2:#1A1A1A;
+      --ink-card:#1E1E1E;
+    }
+    *{font-family:'Manrope', sans-serif; margin:0; padding:0; box-sizing:border-box;}
+    h1,h2,h3,.display{font-family:'Poppins', sans-serif;}
+    body{background:#0c0c0c; overflow-x:hidden; width:100%;}
+    .lime{color:var(--lime);}
+    .bg-lime{background:var(--lime);}
+    .noise-card{
+      background: radial-gradient(120% 140% at 15% 0%, #262626 0%, #141414 55%, #0c0c0c 100%);
+    }
+    .star{color:var(--lime);}
+    .btn-outline{border:1.5px solid rgba(255,255,255,0.7);}
+    .pill-nav{background:#101010;}
+    .marquee-track{
+      display:flex;
+      width:max-content;
+      animation:marquee 22s linear infinite;
+    }
+    @keyframes marquee{
+      from{transform:translateX(0);}
+      to{transform:translateX(-50%);}
+    }
+    .vertical-tag{
+      writing-mode:vertical-rl;
+      transform:rotate(180deg);
+    }
+    .team-card{transition:transform .25s ease, box-shadow .25s ease;}
+    .team-card:hover{transform:translateY(-4px);}
+    .hero-blob{
+      border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
+    }
+    ::selection{background:var(--lime); color:#0c0c0c;}
+    .focus-ring:focus-visible{outline:2px solid var(--lime); outline-offset:2px;}
+    @media (prefers-reduced-motion: reduce){
+      .marquee-track{animation:none;}
+      .team-card{transition:none;}
+    }
+    /* 100% mobile responsive fixes */
+    .hero-blob img, .rounded-3xl img, .rounded-2xl img, .rounded-\[2rem\] img {
+      max-width:100%;
+      height:auto;
+    }
+    .pill-nav {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .noise-card {
+      padding: 1.25rem 1rem;
+    }
+    .grid {
+      gap: 1rem;
+    }
+    .service-item {
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 480px) {
+      .hero-blob { max-width: 100%; }
+      .text-\[1\.9rem\] { font-size: 1.8rem; }
+      .pill-nav { padding: 0.6rem 0.8rem; }
+    }
+    /* testimonial slider */
+    .testimonial-slider {
+      overflow: hidden;
+      position: relative;
+    }
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      gap: 1rem;
+    }
+    .testimonial-slide {
+      flex: 0 0 100%;
+      min-width: 0;
+    }
+    @media (min-width: 640px) {
+      .testimonial-slide {
+        flex: 0 0 calc(33.333% - 0.67rem);
+      }
+    }
+    /* footer icon fix */
+    .footer-icon {
+      background: #101010;
+      color: #ffffff !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 9999px;
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+    .footer-icon:hover {
+      opacity: 0.8;
+    }
+    .footer-icon i {
+      color: #ffffff !important;
+      font-size: 1.1rem;
+    }
+    .footer-subscribe-btn {
+      background: #101010;
+      color: #ffffff !important;
+      border-radius: 9999px;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: opacity 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .footer-subscribe-btn:hover {
+      opacity: 0.85;
+    }
+    /* dot indicator */
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transition: background 0.3s;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+    }
+    .dot.active {
+      background: #A6F13B;
+    }
+    /* project card hover */
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body class="bg-[#0c0c0c] text-white antialiased">
+
+<!-- ============ FIXED NAVBAR ============ -->
+<nav class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4">
+  <div class="pill-nav rounded-full flex items-center justify-between px-3 sm:px-5 py-2.5 text-white relative shadow-lg shadow-black/30">
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-200 flex-1">
+      <a href="#about" class="hover:text-lime transition">About Us</a>
+      <a href="#services" class="hover:text-lime transition">Services</a>
+    </div>
+    <div class="flex items-center gap-1.5 font-bold text-base sm:text-lg shrink-0">
+      <i class='bx bx-sparkle text-xl lime' ></i>
+      <span>Creatix</span>
+    </div>
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-200 flex-1 justify-end">
+      <a href="#projects" class="hover:text-lime transition">Projects</a>
+      <a href="#reviews" class="hover:text-lime transition">Reviews</a>
+    </div>
+    <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false" class="md:hidden w-8 h-8 flex items-center justify-center text-xl">
+      <i class='bx bx-menu' id="menuIconOpen"></i>
+      <i class='bx bx-x hidden' id="menuIconClose"></i>
+    </button>
+  </div>
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="hidden md:hidden mt-2 bg-[#101010] text-white rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm origin-top shadow-lg shadow-black/30">
+    <a href="#about" class="mobile-link py-1 hover:text-lime transition">About Us</a>
+    <a href="#services" class="mobile-link py-1 hover:text-lime transition">Services</a>
+    <a href="#projects" class="mobile-link py-1 hover:text-lime transition">Projects</a>
+    <a href="#reviews" class="mobile-link py-1 hover:text-lime transition">Reviews</a>
+  </div>
+</nav>
+
+<!-- ============ HERO WRAPPER (white card) ============ -->
+<section class="relative w-full">
+  <div class="w-full">
+    <div class="bg-white text-[#101010] rounded-b-[2rem] sm:rounded-b-[3rem] overflow-hidden relative">
+
+      <!-- spacer for fixed navbar height -->
+      <div class="pt-[70px] sm:pt-[84px]"></div>
+
+      <!-- HERO CONTENT -->
+      <div class="relative px-4 sm:px-8 lg:px-12 pt-5 sm:pt-8 pb-8 sm:pb-12 max-w-[1400px] mx-auto">
+        <i class='bx bx-sparkle absolute left-3 sm:left-6 top-3 sm:top-8 text-3xl sm:text-5xl lime opacity-90' ></i>
+
+        <div class="text-center max-w-3xl mx-auto relative z-10">
+          <h1 class="text-[1.7rem] leading-[1.2] sm:text-4xl md:text-[3.2rem] font-bold tracking-tight">
+            Empowering Brands
+            <br class="hidden sm:block">
+            Through Creative Solutions
+            <i class='bx bx-move-left inline-block text-2xl sm:text-4xl lime align-middle ml-0.5' ></i>
+          </h1>
+        </div>
+
+        <!-- image + side content -->
+        <div class="relative mt-5 sm:mt-7 flex items-center justify-center">
+          <div class="hero-blob bg-gray-100 w-full max-w-[320px] sm:max-w-md aspect-[4/3.4] sm:aspect-[4/3] overflow-hidden mx-auto">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Team member portrait" class="w-full h-full object-cover">
+          </div>
+
+          <!-- left paragraph (desktop absolute, mobile stacked) -->
+          <div class="hidden lg:block absolute left-0 top-6 max-w-[180px] text-xs text-gray-600 leading-relaxed">
+            From web development to branding, we deliver innovative strategies that elevate your brand and drive growth. Let's create something exceptional together.
+            <div class="mt-3">
+              <button class="btn-outline rounded-full px-4 py-2 text-xs font-semibold hover:bg-[#101010] hover:text-white transition">Innovate Your Brand</button>
+            </div>
+          </div>
+
+          <!-- right rating (desktop absolute) -->
+          <div class="hidden lg:flex flex-col items-center absolute right-0 top-10 text-center">
+            <div class="flex gap-0.5 mb-1">
+              <i class='bx bxs-star text-yellow-400 text-base' ></i>
+              <i class='bx bxs-star text-yellow-400 text-base' ></i>
+              <i class='bx bxs-star text-yellow-400 text-base' ></i>
+              <i class='bx bxs-star text-yellow-400 text-base' ></i>
+              <i class='bx bxs-star text-yellow-400 text-base' ></i>
+            </div>
+            <p class="text-xl font-bold">10 Years</p>
+            <p class="text-xs text-gray-500">Experience</p>
+          </div>
+        </div>
+
+        <!-- mobile-only paragraph & rating -->
+        <div class="lg:hidden flex flex-col sm:flex-row gap-4 items-center sm:items-start justify-between mt-5 text-center sm:text-left">
+          <div class="max-w-xs text-xs text-gray-600 leading-relaxed">
+            From web development to branding, we deliver innovative strategies that elevate your brand and drive growth. Let's create something exceptional together.
+            <div class="mt-3">
+              <button class="btn-outline rounded-full px-4 py-2 text-xs font-semibold hover:bg-[#101010] hover:text-white transition">Innovate Your Brand</button>
+            </div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="flex gap-0.5 mb-1">
+              <i class='bx bxs-star text-yellow-400 text-base' ></i>
+              <i class='bx bxs-star text-yellow-400 text-base' ></i>
+              <i class='bx bxs-star text-yellow-400 text-base' ></i>
+              <i class='bx bxs-star text-yellow-400 text-base' ></i>
+              <i class='bx bxs-star text-yellow-400 text-base' ></i>
+            </div>
+            <p class="text-xl font-bold">10 Years</p>
+            <p class="text-xs text-gray-500">Experience</p>
+          </div>
+        </div>
+
+        <!-- CTA buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-3 mt-6 sm:mt-8">
+          <button class="bg-lime text-[#101010] font-semibold rounded-full px-5 sm:px-6 py-3 text-sm hover:brightness-95 transition">Start Your Project</button>
+          <button class="bg-[#101010] text-white font-semibold rounded-full px-5 sm:px-6 py-3 text-sm hover:bg-black transition">Let's Collaborate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS BAR ============ -->
+<section class="max-w-[1180px] mx-auto px-3 sm:px-6 mt-4 sm:mt-6">
+  <div class="noise-card border border-white/5 rounded-[1.75rem] px-4 sm:px-8 py-5 sm:py-7 grid grid-cols-2 sm:grid-cols-4 gap-y-4 text-center">
+    <div class="border-r border-white/10 sm:border-r sm:pr-3">
+      <p class="text-2xl sm:text-3xl font-bold">2000<span class="lime">+</span></p>
+      <p class="text-[10px] sm:text-xs text-gray-400 mt-0.5">Company</p>
+    </div>
+    <div class="sm:border-r sm:border-white/10 sm:pr-3">
+      <p class="text-2xl sm:text-3xl font-bold">10<span class="lime">+</span></p>
+      <p class="text-[10px] sm:text-xs text-gray-400 mt-0.5">Years Exp.</p>
+    </div>
+    <div class="border-r border-white/10 sm:border-r sm:pr-3">
+      <p class="text-2xl sm:text-3xl font-bold">800<span class="lime">+</span></p>
+      <p class="text-[10px] sm:text-xs text-gray-400 mt-0.5">Hours of Digital</p>
+    </div>
+    <div>
+      <p class="text-2xl sm:text-3xl font-bold">150M<span class="lime">+</span></p>
+      <p class="text-[10px] sm:text-xs text-gray-400 mt-0.5">In Tracked Revenue</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TURNING IDEAS INTO MASTERPIECES ============ -->
+<section id="about" class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
+  <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 sm:gap-6">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight max-w-sm">Turning Ideas Into Masterpieces</h2>
+    <p class="text-gray-400 text-sm max-w-sm leading-relaxed">We may be a compact team, but our creativity knows no bounds. By staying agile and working hand-in-hand with our clients, we transform ideas into cutting-edge designs that make a lasting impression.</p>
+  </div>
+
+  <div class="relative mt-6 grid grid-cols-1 sm:grid-cols-[1.5fr_1fr] gap-3 sm:gap-5">
+    <i class='bx bx-sparkle absolute -left-2 -top-5 text-xl lime hidden sm:block' ></i>
+    <div class="relative rounded-3xl overflow-hidden aspect-[16/11] sm:aspect-[16/12]">
+      <img src="https://picsum.photos/seed/creatix-team-work/900/650" alt="Team working together" class="w-full h-full object-cover grayscale">
+      <div class="absolute bottom-3 left-3 right-3 flex flex-wrap items-center gap-2">
+        <span class="bg-lime text-[#101010] text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-md tracking-wide">A CREATIVE DESIGN AGENCY</span>
+        <div class="flex gap-1 items-end h-5">
+          <span class="w-1 bg-lime h-3 rounded-sm"></span>
+          <span class="w-1 bg-lime h-5 rounded-sm"></span>
+          <span class="w-1 bg-lime h-4 rounded-sm"></span>
+        </div>
+      </div>
+    </div>
+    <div class="rounded-3xl overflow-hidden aspect-[16/11] sm:aspect-auto relative">
+      <img src="https://picsum.photos/seed/creatix-designer-think/600/650" alt="Designer thinking" class="w-full h-full object-cover grayscale">
+      <i class='bx bx-lightbulb absolute top-3 right-3 text-xl text-white/70' ></i>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
+  <div class="noise-card border border-white/5 rounded-[2rem] p-4 sm:p-7 relative overflow-hidden">
+    <div class="hidden sm:flex absolute left-0 top-8 bg-lime text-[#101010] text-[10px] font-bold tracking-widest px-2 py-3 rounded-r-lg vertical-tag">
+      WHAT WE DO
+    </div>
+
+    <div class="sm:pl-8">
+      <div class="flex items-center gap-2 mb-2">
+        <h2 class="text-2xl sm:text-3xl font-bold">Our <span class="bg-lime text-[#101010] px-3 py-1 rounded-full">Services</span></h2>
+      </div>
+      <p class="text-gray-400 text-sm max-w-md mb-4">We offer a range of creative and digital services designed to help your brand stand out.</p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_1fr_0.8fr] gap-4">
+        <div class="flex flex-col gap-2.5">
+          <button class="service-item group flex items-center justify-between bg-[#141414] hover:bg-white hover:text-[#101010] transition rounded-xl px-4 py-3 text-sm font-medium border border-white/10">
+            <span><span class="lime group-hover:text-[#7ab82e] font-bold mr-2">01</span>UI/UX Design</span>
+            <i class='bx bx-up-arrow-alt text-base' ></i>
+          </button>
+          <button class="service-item group flex items-center justify-between bg-[#141414] hover:bg-white hover:text-[#101010] transition rounded-xl px-4 py-3 text-sm font-medium border border-white/10">
+            <span><span class="lime group-hover:text-[#7ab82e] font-bold mr-2">02</span>Web Development</span>
+            <i class='bx bx-up-arrow-alt text-base' ></i>
+          </button>
+          <button class="service-item group flex items-center justify-between bg-[#141414] hover:bg-white hover:text-[#101010] transition rounded-xl px-4 py-3 text-sm font-medium border border-white/10">
+            <span><span class="lime group-hover:text-[#7ab82e] font-bold mr-2">03</span>3D Designs</span>
+            <i class='bx bx-up-arrow-alt text-base' ></i>
+          </button>
+          <button class="service-item group flex items-center justify-between bg-[#141414] hover:bg-white hover:text-[#101010] transition rounded-xl px-4 py-3 text-sm font-medium border border-white/10">
+            <span><span class="lime group-hover:text-[#7ab82e] font-bold mr-2">04</span>Motion Graphics</span>
+            <i class='bx bx-up-arrow-alt text-base' ></i>
+          </button>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden relative min-h-[180px] sm:min-h-[220px]">
+          <img src="https://picsum.photos/seed/creatix-designer-desk/500/600" alt="Designer working on laptop" class="w-full h-full object-cover grayscale">
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <div class="bg-[#141414] border border-white/10 rounded-2xl p-4">
+            <p class="text-sm text-gray-300 mb-2">Ever wondered how design magic happens?</p>
+            <button class="flex items-center gap-1 text-sm font-semibold hover:lime">See how we work <i class='bx bx-up-arrow-alt text-base' ></i></button>
+          </div>
+          <div class="bg-lime text-[#101010] rounded-2xl p-4">
+            <p class="text-sm font-medium mb-2">Looking for design experts who can bring your vision to life?</p>
+            <button class="flex items-center gap-2 text-sm font-bold">Meet our expert <span class="bg-[#101010] text-lime rounded-full p-1"><i class='bx bx-up-arrow-alt text-sm' ></i></span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS SECTION ============ -->
+<section id="projects" class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
+  <div class="flex items-center justify-between mb-6">
+    <div>
+      <h2 class="text-2xl sm:text-3xl font-bold">Featured <span class="bg-lime text-[#101010] px-3 py-1 rounded-full">Projects</span></h2>
+      <p class="text-gray-400 text-sm mt-1">Some of our recent work that we're proud of</p>
+    </div>
+    <button class="hidden sm:flex items-center gap-2 text-sm font-semibold border border-white/20 rounded-full px-4 py-2 hover:bg-white hover:text-[#101010] transition">
+      View All <i class='bx bx-arrow-right' ></i>
+    </button>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <!-- Project 1 -->
+    <div class="project-card bg-[#141414] border border-white/10 rounded-2xl overflow-hidden">
+      <div class="relative aspect-[4/3] overflow-hidden">
+        <img src="https://picsum.photos/seed/project-nexus/600/450" alt="Nexus Dashboard" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
+        <div class="absolute top-3 right-3 bg-lime text-[#101010] text-[10px] font-bold px-3 py-1 rounded-full">UI/UX</div>
+      </div>
+      <div class="p-4">
+        <h3 class="font-bold text-base">Nexus Dashboard</h3>
+        <p class="text-xs text-gray-400 mt-1 leading-relaxed">A comprehensive analytics dashboard for enterprise clients with real-time data visualization.</p>
+        <div class="flex items-center gap-3 mt-3">
+          <span class="text-[10px] text-gray-500">Web Development</span>
+          <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+          <span class="text-[10px] text-gray-500">2025</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card bg-[#141414] border border-white/10 rounded-2xl overflow-hidden">
+      <div class="relative aspect-[4/3] overflow-hidden">
+        <img src="https://picsum.photos/seed/project-brandify/600/450" alt="Brandify Campaign" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
+        <div class="absolute top-3 right-3 bg-lime text-[#101010] text-[10px] font-bold px-3 py-1 rounded-full">Branding</div>
+      </div>
+      <div class="p-4">
+        <h3 class="font-bold text-base">Brandify Campaign</h3>
+        <p class="text-xs text-gray-400 mt-1 leading-relaxed">Complete brand identity redesign for a tech startup including logo, typography, and visual language.</p>
+        <div class="flex items-center gap-3 mt-3">
+          <span class="text-[10px] text-gray-500">Branding</span>
+          <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+          <span class="text-[10px] text-gray-500">2025</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card bg-[#141414] border border-white/10 rounded-2xl overflow-hidden">
+      <div class="relative aspect-[4/3] overflow-hidden">
+        <img src="https://picsum.photos/seed/project-motion/600/450" alt="Motion Reel" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
+        <div class="absolute top-3 right-3 bg-lime text-[#101010] text-[10px] font-bold px-3 py-1 rounded-full">Motion</div>
+      </div>
+      <div class="p-4">
+        <h3 class="font-bold text-base">Motion Reel 2025</h3>
+        <p class="text-xs text-gray-400 mt-1 leading-relaxed">Dynamic motion graphics package for a global product launch, featuring 3D animation and kinetic typography.</p>
+        <div class="flex items-center gap-3 mt-3">
+          <span class="text-[10px] text-gray-500">Motion Graphics</span>
+          <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+          <span class="text-[10px] text-gray-500">2025</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4 (hidden on mobile, visible on tablet+) -->
+    <div class="project-card bg-[#141414] border border-white/10 rounded-2xl overflow-hidden hidden sm:block">
+      <div class="relative aspect-[4/3] overflow-hidden">
+        <img src="https://picsum.photos/seed/project-ecommerce/600/450" alt="E-Commerce Platform" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
+        <div class="absolute top-3 right-3 bg-lime text-[#101010] text-[10px] font-bold px-3 py-1 rounded-full">Web Dev</div>
+      </div>
+      <div class="p-4">
+        <h3 class="font-bold text-base">E-Commerce Platform</h3>
+        <p class="text-xs text-gray-400 mt-1 leading-relaxed">Full-stack e-commerce solution with custom checkout flow, inventory management, and payment integration.</p>
+        <div class="flex items-center gap-3 mt-3">
+          <span class="text-[10px] text-gray-500">Web Development</span>
+          <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+          <span class="text-[10px] text-gray-500">2024</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5 (hidden on mobile, visible on tablet+) -->
+    <div class="project-card bg-[#141414] border border-white/10 rounded-2xl overflow-hidden hidden sm:block">
+      <div class="relative aspect-[4/3] overflow-hidden">
+        <img src="https://picsum.photos/seed/project-social/600/450" alt="Social Campaign" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
+        <div class="absolute top-3 right-3 bg-lime text-[#101010] text-[10px] font-bold px-3 py-1 rounded-full">Social</div>
+      </div>
+      <div class="p-4">
+        <h3 class="font-bold text-base">Social Media Campaign</h3>
+        <p class="text-xs text-gray-400 mt-1 leading-relaxed">Integrated social media strategy with content creation, community management, and influencer partnerships.</p>
+        <div class="flex items-center gap-3 mt-3">
+          <span class="text-[10px] text-gray-500">Social Media</span>
+          <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+          <span class="text-[10px] text-gray-500">2024</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 6 (hidden on mobile, visible on tablet+) -->
+    <div class="project-card bg-[#141414] border border-white/10 rounded-2xl overflow-hidden hidden sm:block">
+      <div class="relative aspect-[4/3] overflow-hidden">
+        <img src="https://picsum.photos/seed/project-mobile/600/450" alt="Mobile App" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
+        <div class="absolute top-3 right-3 bg-lime text-[#101010] text-[10px] font-bold px-3 py-1 rounded-full">App</div>
+      </div>
+      <div class="p-4">
+        <h3 class="font-bold text-base">Mobile Fitness App</h3>
+        <p class="text-xs text-gray-400 mt-1 leading-relaxed">Cross-platform mobile app with workout tracking, nutrition planning, and real-time progress analytics.</p>
+        <div class="flex items-center gap-3 mt-3">
+          <span class="text-[10px] text-gray-500">App Design</span>
+          <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+          <span class="text-[10px] text-gray-500">2024</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile view all button -->
+  <div class="sm:hidden flex justify-center mt-5">
+    <button class="flex items-center gap-2 text-sm font-semibold border border-white/20 rounded-full px-5 py-2.5 hover:bg-white hover:text-[#101010] transition">
+      View All Projects <i class='bx bx-arrow-right' ></i>
+    </button>
+  </div>
+</section>
+
+<!-- ============ INNOVATE INSPIRE CREATE ============ -->
+<section class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16 text-center">
+  <h2 class="text-2xl sm:text-4xl md:text-5xl font-extrabold flex flex-wrap items-center justify-center gap-2 sm:gap-4">
+    <span>Innovate</span>
+    <i class='bx bx-sparkle text-2xl sm:text-4xl lime' ></i>
+    <span>Inspire</span>
+    <i class='bx bx-sparkle text-2xl sm:text-4xl lime' ></i>
+    <span>Create</span>
+  </h2>
+  <div class="flex items-center justify-center gap-3 mt-4">
+    <span class="h-px w-12 sm:w-28 bg-white/20"></span>
+    <i class='bx bx-sparkle text-sm lime' ></i>
+    <span class="h-px w-12 sm:w-28 bg-white/20"></span>
+  </div>
+</section>
+
+<!-- ============ MEET THE TEAM ============ -->
+<section id="team" class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+    <h2 class="text-2xl sm:text-3xl font-bold">Meet <span class="bg-lime text-[#101010] px-3 py-1 rounded-full">the Team</span></h2>
+    <button class="flex items-center gap-2 text-xs font-semibold border border-white/20 rounded-full px-4 py-2 hover:bg-white hover:text-[#101010] transition">
+      JOIN OUR TEAM <i class='bx bx-up-arrow-alt text-sm' ></i>
+    </button>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="team-card bg-white text-[#101010] rounded-2xl p-4 relative">
+      <span class="absolute top-3 right-3 w-6 h-6 rounded-full bg-[#101010] text-white flex items-center justify-center"><i class='bx bxl-linkedin text-sm' ></i></span>
+      <div class="flex items-center gap-3 mb-3">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-12 h-12 rounded-full object-cover" alt="Jane Smith">
+        <div>
+          <p class="font-bold text-sm">Jane Smith</p>
+          <p class="text-xs text-gray-500">CEO and Founder</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-500 leading-relaxed">10+ years of experience in brand strategy and creative direction, leading Creatix's vision and growth.</p>
+    </div>
+
+    <div class="team-card bg-white text-[#101010] rounded-2xl p-4 relative">
+      <span class="absolute top-3 right-3 w-6 h-6 rounded-full bg-[#101010] text-white flex items-center justify-center"><i class='bx bxl-linkedin text-sm' ></i></span>
+      <div class="flex items-center gap-3 mb-3">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full object-cover" alt="John Doe">
+        <div>
+          <p class="font-bold text-sm">John Doe</p>
+          <p class="text-xs text-gray-500">Director of Operations</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-500 leading-relaxed">8+ years of experience in project management and operations, keeping every campaign running smoothly.</p>
+    </div>
+
+    <div class="team-card bg-white text-[#101010] rounded-2xl p-4 relative">
+      <span class="absolute top-3 right-3 w-6 h-6 rounded-full bg-[#101010] text-white flex items-center justify-center"><i class='bx bxl-linkedin text-sm' ></i></span>
+      <div class="flex items-center gap-3 mb-3">
+        <img src="https://randomuser.me/api/portraits/men/54.jpg" class="w-12 h-12 rounded-full object-cover" alt="Michael Brown">
+        <div>
+          <p class="font-bold text-sm">Michael Brown</p>
+          <p class="text-xs text-gray-500">SEO Specialist</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-500 leading-relaxed">6+ years of experience in SEO, driving organic growth with data-backed strategies that work.</p>
+    </div>
+
+    <div class="team-card bg-white text-[#101010] rounded-2xl p-4 relative">
+      <span class="absolute top-3 right-3 w-6 h-6 rounded-full bg-[#101010] text-white flex items-center justify-center"><i class='bx bxl-linkedin text-sm' ></i></span>
+      <div class="flex items-center gap-3 mb-3">
+        <img src="https://randomuser.me/api/portraits/women/26.jpg" class="w-12 h-12 rounded-full object-cover" alt="Emily Johnson">
+        <div>
+          <p class="font-bold text-sm">Emily Johnson</p>
+          <p class="text-xs text-gray-500">PPC Manager</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-500 leading-relaxed">5+ years of experience in paid advertising, turning every click into measurable results.</p>
+    </div>
+
+    <div class="team-card bg-white text-[#101010] rounded-2xl p-4 relative">
+      <span class="absolute top-3 right-3 w-6 h-6 rounded-full bg-[#101010] text-white flex items-center justify-center"><i class='bx bxl-linkedin text-sm' ></i></span>
+      <div class="flex items-center gap-3 mb-3">
+        <img src="https://randomuser.me/api/portraits/men/76.jpg" class="w-12 h-12 rounded-full object-cover" alt="Brian Williams">
+        <div>
+          <p class="font-bold text-sm">Brian Williams</p>
+          <p class="text-xs text-gray-500">Social Media Specialist</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-500 leading-relaxed">4+ years of experience in social media, crafting content that connects and engages audiences.</p>
+    </div>
+
+    <div class="team-card bg-white text-[#101010] rounded-2xl p-4 relative">
+      <span class="absolute top-3 right-3 w-6 h-6 rounded-full bg-[#101010] text-white flex items-center justify-center"><i class='bx bxl-linkedin text-sm' ></i></span>
+      <div class="flex items-center gap-3 mb-3">
+        <img src="https://randomuser.me/api/portraits/women/12.jpg" class="w-12 h-12 rounded-full object-cover" alt="Sarah Kim">
+        <div>
+          <p class="font-bold text-sm">Sarah Kim</p>
+          <p class="text-xs text-gray-500">Content Creator</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-500 leading-relaxed">3+ years of experience crafting stories, delivering content that resonates across every channel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS (SLIDER) ============ -->
+<section id="reviews" class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
+  <div class="testimonial-slider relative">
+    <div class="testimonial-track" id="testimonialTrack">
+      <!-- Slide 1 -->
+      <div class="testimonial-slide bg-[#141414] border border-white/10 rounded-2xl p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <img src="https://randomuser.me/api/portraits/men/85.jpg" class="w-10 h-10 rounded-full" alt="Alan Baker">
+          <div>
+            <p class="font-bold text-sm">Alan Baker</p>
+            <p class="text-xs text-gray-500">CEO of Method Company</p>
+          </div>
+          <i class='bx bxs-quote-left text-xl lime ml-auto' ></i>
+        </div>
+        <p class="text-xs text-gray-400 leading-relaxed">Working with Creatix has been an incredible experience. They truly listened to our needs and delivered a design that exceeded our expectations. We couldn't be happier with the final product.</p>
+      </div>
+      <!-- Slide 2 -->
+      <div class="testimonial-slide bg-[#141414] border border-white/10 rounded-2xl p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <img src="https://randomuser.me/api/portraits/women/50.jpg" class="w-10 h-10 rounded-full" alt="Theresa Webb">
+          <div>
+            <p class="font-bold text-sm">Theresa Webb</p>
+            <p class="text-xs text-gray-500">Founder of Nimbus Studio</p>
+          </div>
+          <i class='bx bxs-quote-left text-xl lime ml-auto' ></i>
+        </div>
+        <p class="text-xs text-gray-400 leading-relaxed">The team's attention to detail and creative approach transformed our brand identity completely. Communication was clear throughout and the results speak for themselves.</p>
+      </div>
+      <!-- Slide 3 -->
+      <div class="testimonial-slide bg-[#141414] border border-white/10 rounded-2xl p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <img src="https://randomuser.me/api/portraits/men/22.jpg" class="w-10 h-10 rounded-full" alt="Robert Cole">
+          <div>
+            <p class="font-bold text-sm">Robert Cole</p>
+            <p class="text-xs text-gray-500">CMO of Vertex Labs</p>
+          </div>
+          <i class='bx bxs-quote-left text-xl lime ml-auto' ></i>
+        </div>
+        <p class="text-xs text-gray-400 leading-relaxed">Professional, creative and reliable from start to finish. Creatix understood our vision instantly and translated it into a digital experience our customers love.</p>
+      </div>
+      <!-- Slide 4 (extra for desktop) -->
+      <div class="testimonial-slide bg-[#141414] border border-white/10 rounded-2xl p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-10 h-10 rounded-full" alt="Maria Garcia">
+          <div>
+            <p class="font-bold text-sm">Maria Garcia</p>
+            <p class="text-xs text-gray-500">Creative Director at Apex</p>
+          </div>
+          <i class='bx bxs-quote-left text-xl lime ml-auto' ></i>
+        </div>
+        <p class="text-xs text-gray-400 leading-relaxed">Creatix brought a fresh perspective to our project. Their innovative solutions and seamless execution made all the difference in our campaign's success.</p>
+      </div>
+      <!-- Slide 5 (extra for desktop) -->
+      <div class="testimonial-slide bg-[#141414] border border-white/10 rounded-2xl p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-10 h-10 rounded-full" alt="David Chen">
+          <div>
+            <p class="font-bold text-sm">David Chen</p>
+            <p class="text-xs text-gray-500">Marketing Lead at Pulse</p>
+          </div>
+          <i class='bx bxs-quote-left text-xl lime ml-auto' ></i>
+        </div>
+        <p class="text-xs text-gray-400 leading-relaxed">The level of professionalism and creativity at Creatix is unmatched. They delivered beyond our expectations and helped us achieve our goals faster.</p>
+      </div>
+    </div>
+
+    <!-- Navigation buttons -->
+    <div class="flex justify-center gap-3 mt-5">
+      <button id="prevBtn" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-[#101010] transition">
+        <i class='bx bx-chevron-left text-lg' ></i>
+      </button>
+      <button id="nextBtn" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-[#101010] transition">
+        <i class='bx bx-chevron-right text-lg' ></i>
+      </button>
+    </div>
+    <!-- Dot indicators -->
+    <div class="flex justify-center gap-2 mt-3" id="dotContainer"></div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE TAGS ============ -->
+<section class="mt-10 sm:mt-16 border-y border-white/10 bg-lime text-[#101010] py-2.5 overflow-hidden">
+  <div class="marquee-track font-bold text-xs sm:text-base">
+    <div class="flex items-center gap-2 pr-6">
+      <span>UX Design</span><i class='bx bx-sparkle text-sm sm:text-base' ></i>
+      <span>App Design</span><i class='bx bx-sparkle text-sm sm:text-base' ></i>
+      <span>Dashboard</span><i class='bx bx-sparkle text-sm sm:text-base' ></i>
+      <span>Wireframe</span><i class='bx bx-sparkle text-sm sm:text-base' ></i>
+      <span>User Research</span><i class='bx bx-sparkle text-sm sm:text-base' ></i>
+    </div>
+    <div class="flex items-center gap-2 pr-6">
+      <span>UX Design</span><i class='bx bx-sparkle text-sm sm:text-base' ></i>
+      <span>App Design</span><i class='bx bx-sparkle text-sm sm:text-base' ></i>
+      <span>Dashboard</span><i class='bx bx-sparkle text-sm sm:text-base' ></i>
+      <span>Wireframe</span><i class='bx bx-sparkle text-sm sm:text-base' ></i>
+      <span>User Research</span><i class='bx bx-sparkle text-sm sm:text-base' ></i>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GET IN TOUCH ============ -->
+<section class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
+  <div class="grid grid-cols-1 sm:grid-cols-[1.3fr_1fr] gap-6 items-center">
+    <div>
+      <h2 class="text-2xl sm:text-4xl font-bold mb-3">Get in Touch Today!</h2>
+      <p class="text-gray-400 text-sm max-w-md mb-5">Let's transform your ideas into exceptional digital experiences. Whether you're looking for a complete rebrand, a stunning website, or a fresh creative direction — we're ready to help.</p>
+      <form class="flex flex-wrap gap-2 max-w-md" onsubmit="return false;">
+        <input type="email" required placeholder="Enter your email" class="focus-ring flex-1 min-w-[180px] bg-[#141414] border border-white/10 rounded-full px-4 py-3 text-sm outline-none placeholder:text-gray-500">
+        <button class="bg-lime text-[#101010] font-semibold rounded-full px-5 py-3 text-sm whitespace-nowrap hover:brightness-95 transition">Contact Us</button>
+      </form>
+    </div>
+    <div class="rounded-3xl overflow-hidden aspect-[4/3] sm:aspect-square">
+      <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Smiling team member" class="w-full h-full object-cover">
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER (GREEN CARD) ============ -->
+<footer class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16 pb-6">
+  <div class="bg-lime text-[#101010] rounded-[2rem] p-5 sm:p-9">
+    <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
+      <div>
+        <div class="flex items-center gap-2 font-bold text-xl mb-2">
+          <i class='bx bx-sparkle text-xl' ></i>
+          <span>Creatix</span>
+        </div>
+        <p class="text-sm max-w-xs text-[#1a1a1a]/80">Empowering brands through creative solutions — web, branding & digital design for over a decade.</p>
+        <div class="flex gap-2 mt-4">
+          <a href="#" class="footer-icon"><i class='bx bxl-facebook'></i></a>
+          <a href="#" class="footer-icon"><i class='bx bxl-instagram'></i></a>
+          <a href="#" class="footer-icon"><i class='bx bxl-twitter'></i></a>
+          <a href="#" class="footer-icon"><i class='bx bxl-linkedin'></i></a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm">
+        <div>
+          <p class="font-bold mb-2">Company</p>
+          <ul class="space-y-1.5 text-[#1a1a1a]/80">
+            <li><a href="#about" class="hover:underline">About Us</a></li>
+            <li><a href="#team" class="hover:underline">Our Team</a></li>
+            <li><a href="#" class="hover:underline">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-bold mb-2">Support</p>
+          <ul class="space-y-1.5 text-[#1a1a1a]/80">
+            <li><a href="#" class="hover:underline">Help Center</a></li>
+            <li><a href="#" class="hover:underline">Contact Us</a></li>
+            <li><a href="#" class="hover:underline">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-bold mb-2">Products</p>
+          <ul class="space-y-1.5 text-[#1a1a1a]/80">
+            <li><a href="#services" class="hover:underline">Web Design</a></li>
+            <li><a href="#services" class="hover:underline">Branding</a></li>
+            <li><a href="#services" class="hover:underline">Motion Graphics</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="max-w-xs">
+        <p class="font-bold mb-2">Subscribe to our newsletter</p>
+        <form class="flex flex-wrap gap-2" onsubmit="return false;">
+          <input type="email" required placeholder="Your email" class="flex-1 min-w-[150px] bg-white/40 placeholder:text-[#1a1a1a]/60 rounded-full px-4 py-2 text-sm outline-none">
+          <button class="footer-subscribe-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 pt-5 border-t border-[#1a1a1a]/15 text-xs text-[#1a1a1a]/70">
+      <p>© 2026 Creatix. All rights reserved.</p>
+      <div class="flex gap-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#101010]"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-[#101010]/40"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-[#101010]/40"></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconOpen = document.getElementById('menuIconOpen');
+  const iconClose = document.getElementById('menuIconClose');
+
+  function openMenu(){
+    mobileMenu.classList.remove('hidden');
+    iconOpen.classList.add('hidden');
+    iconClose.classList.remove('hidden');
+    menuBtn.setAttribute('aria-expanded', 'true');
+  }
+  function closeMenu(){
+    mobileMenu.classList.add('hidden');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu();
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && e.target !== menuBtn) {
+      closeMenu();
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) closeMenu();
+  });
+
+  // ============ TESTIMONIAL SLIDER ============
+  const track = document.getElementById('testimonialTrack');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dotContainer = document.getElementById('dotContainer');
+  const slides = track.querySelectorAll('.testimonial-slide');
+  let currentIndex = 0;
+  let totalSlides = slides.length;
+  let slidesPerView = 1;
+  let autoPlayInterval;
+
+  // Determine slides per view based on screen width
+  function getSlidesPerView() {
+    if (window.innerWidth >= 640) {
+      return 3;
+    }
+    return 1;
+  }
+
+  // Create dots
+  function createDots() {
+    dotContainer.innerHTML = '';
+    const totalDots = Math.ceil(totalSlides / slidesPerView);
+    for (let i = 0; i < totalDots; i++) {
+      const dot = document.createElement('button');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+      dot.addEventListener('click', () => goToSlide(i));
+      dotContainer.appendChild(dot);
+    }
+  }
+
+  // Update dots
+  function updateDots() {
+    const dots = dotContainer.querySelectorAll('.dot');
+    const totalDots = Math.ceil(totalSlides / slidesPerView);
+    const activeIndex = Math.floor(currentIndex / slidesPerView);
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === activeIndex);
+    });
+  }
+
+  // Go to specific slide
+  function goToSlide(index) {
+    slidesPerView = getSlidesPerView();
+    const maxIndex = Math.max(0, totalSlides - slidesPerView);
+    currentIndex = Math.min(Math.max(0, index * slidesPerView), maxIndex);
+    
+    // Calculate translate value
+    const slideWidth = slides[0].offsetWidth + 16; // width + gap
+    const translateX = currentIndex * slideWidth;
+    track.style.transform = `translateX(-${translateX}px)`;
+    
+    updateDots();
+  }
+
+  // Next slide
+  function nextSlide() {
+    slidesPerView = getSlidesPerView();
+    const maxIndex = Math.max(0, totalSlides - slidesPerView);
+    if (currentIndex + slidesPerView < totalSlides) {
+      currentIndex += slidesPerView;
+    } else {
+      currentIndex = 0;
+    }
+    goToSlide(Math.floor(currentIndex / slidesPerView));
+  }
+
+  // Previous slide
+  function prevSlide() {
+    slidesPerView = getSlidesPerView();
+    if (currentIndex - slidesPerView >= 0) {
+      currentIndex -= slidesPerView;
+    } else {
+      currentIndex = Math.max(0, totalSlides - slidesPerView);
+    }
+    goToSlide(Math.floor(currentIndex / slidesPerView));
+  }
+
+  // Initialize slider
+  function initSlider() {
+    slidesPerView = getSlidesPerView();
+    createDots();
+    currentIndex = 0;
+    goToSlide(0);
+    startAutoPlay();
+  }
+
+  // Auto-play
+  function startAutoPlay() {
+    stopAutoPlay();
+    autoPlayInterval = setInterval(nextSlide, 5000);
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = null;
+    }
+  }
+
+  // Event listeners
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    stopAutoPlay();
+    startAutoPlay();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    stopAutoPlay();
+    startAutoPlay();
+  });
+
+  // Handle resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      slidesPerView = getSlidesPerView();
+      createDots();
+      goToSlide(Math.floor(currentIndex / slidesPerView));
+    }, 200);
+  });
+
+  // Pause on hover
+  const sliderContainer = document.querySelector('.testimonial-slider');
+  sliderContainer.addEventListener('mouseenter', stopAutoPlay);
+  sliderContainer.addEventListener('mouseleave', startAutoPlay);
+
+  // Touch support for mobile swipe
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stopAutoPlay();
+  }, { passive: true });
+
+  track.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+    startAutoPlay();
+  }, { passive: true });
+
+  // Initialize on load
+  initSlider();
+</script>
+</body>
+</html>
