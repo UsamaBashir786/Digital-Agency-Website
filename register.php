@@ -116,7 +116,7 @@
 <div class="auth-card">
   <!-- back to landing (subtle) -->
   <div class="flex justify-end mb-1">
-    <a href="#" class="back-home" onclick="alert('🔙 Navigate to landing page (index.html)'); return false;">
+    <a href="#" class="back-home" onclick="alert('🔙 Navigate to landing page (index.php)'); return false;">
       <i class='bx bx-arrow-back'></i> Back
     </a>
   </div>
@@ -182,7 +182,7 @@
   <!-- login link -->
   <div class="text-center text-sm text-gray-300 mt-6">
     Already have an account?
-    <a href="#" class="auth-link font-medium" onclick="alert('🔑 Navigate to Login page (login.html)'); return false;">Log in</a>
+    <a href="#" class="auth-link font-medium" onclick="alert('🔑 Navigate to Login page (login.php)'); return false;">Log in</a>
   </div>
 
   <!-- extra: demo hint -->

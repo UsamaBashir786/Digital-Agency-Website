@@ -64,33 +64,7 @@
 <body>
 
 <!-- ============ FIXED NAVBAR ============ -->
-<nav class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4">
-  <div class="pill-nav rounded-full flex items-center justify-between px-3 sm:px-5 py-2.5 text-white relative shadow-lg shadow-black/30">
-    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-200 flex-1">
-      <a href="#about" class="hover:text-lime transition">About Us</a>
-      <a href="services.html" class="text-lime transition">Services</a>
-    </div>
-    <div class="flex items-center gap-1.5 font-bold text-base sm:text-lg shrink-0">
-      <i class='bx bx-sparkle text-xl lime'></i>
-      <span>Creatix</span>
-    </div>
-    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-200 flex-1 justify-end">
-      <a href="projects.html" class="hover:text-lime transition">Projects</a>
-      <a href="#reviews" class="hover:text-lime transition">Reviews</a>
-    </div>
-    <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false" class="md:hidden w-8 h-8 flex items-center justify-center text-xl">
-      <i class='bx bx-menu' id="menuIconOpen"></i>
-      <i class='bx bx-x hidden' id="menuIconClose"></i>
-    </button>
-  </div>
-  <!-- mobile menu -->
-  <div id="mobileMenu" class="hidden md:hidden mt-2 bg-[#101010] text-white rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm origin-top shadow-lg shadow-black/30">
-    <a href="#about" class="mobile-link py-1 hover:text-lime transition">About Us</a>
-    <a href="services.html" class="mobile-link py-1 text-lime transition">Services</a>
-    <a href="projects.html" class="mobile-link py-1 hover:text-lime transition">Projects</a>
-    <a href="#reviews" class="mobile-link py-1 hover:text-lime transition">Reviews</a>
-  </div>
-</nav>
+<?php include "includes/navbar.php" ?>
 
 <!-- spacer -->
 <div class="pt-[70px] sm:pt-[84px]"></div>
@@ -99,7 +73,7 @@
 <section class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-6">
   <div class="detail-card">
     <!-- Back button -->
-    <a href="services.html" class="back-link mb-4 text-sm">
+    <a href="services.php" class="back-link mb-4 text-sm">
       <i class='bx bx-arrow-back'></i> Back to services
     </a>
 
@@ -199,10 +173,10 @@
       <div class="mt-6 pt-5 border-t border-white/5">
         <h3 class="text-sm font-semibold text-gray-400 mb-3">Related Services</h3>
         <div class="flex flex-wrap gap-2">
-          <a href="service-details.html?id=web-dev" class="tag hover:bg-lime hover:text-[#101010] transition cursor-pointer">Web Development</a>
-          <a href="service-details.html?id=app-design" class="tag hover:bg-lime hover:text-[#101010] transition cursor-pointer">App Design</a>
-          <a href="service-details.html?id=branding" class="tag hover:bg-lime hover:text-[#101010] transition cursor-pointer">Branding</a>
-          <a href="service-details.html?id=motion" class="tag hover:bg-lime hover:text-[#101010] transition cursor-pointer">Motion Graphics</a>
+          <a href="service-details.php?id=web-dev" class="tag hover:bg-lime hover:text-[#101010] transition cursor-pointer">Web Development</a>
+          <a href="service-details.php?id=app-design" class="tag hover:bg-lime hover:text-[#101010] transition cursor-pointer">App Design</a>
+          <a href="service-details.php?id=branding" class="tag hover:bg-lime hover:text-[#101010] transition cursor-pointer">Branding</a>
+          <a href="service-details.php?id=motion" class="tag hover:bg-lime hover:text-[#101010] transition cursor-pointer">Motion Graphics</a>
         </div>
       </div>
     </div>

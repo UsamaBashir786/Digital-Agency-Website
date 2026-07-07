@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Answer Engine Optimization — Creatix Agency</title>
+  <title>Local SEO Services — Creatix Agency</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,69 +34,7 @@
 <body>
 
 <!-- ============ NAVBAR ============ -->
-<nav class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4" role="navigation">
-  <div class="pill-nav rounded-full flex items-center justify-between px-3 sm:px-5 py-2.5 text-white relative shadow-lg shadow-black/30">
-    <div class="flex items-center gap-1.5 font-bold text-base sm:text-lg shrink-0">
-      <i class='bx bx-sparkle text-xl lime'></i>
-      <span>Creatix</span>
-    </div>
-    <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-200">
-      <a href="index.html" class="hover:text-lime transition">Home</a>
-      <div class="dropdown-trigger relative">
-        <a href="services.html" class="text-lime font-semibold flex items-center gap-1">Services <i class='bx bx-chevron-down text-xs'></i></a>
-        <div class="dropdown-menu">
-          <a href="service-local-seo.html">Local SEO</a>
-          <a href="service-ecommerce-seo.html">E-Com SEO</a>
-          <a href="service-onpage-seo.html">On-Page SEO</a>
-          <a href="service-offpage-seo.html">Off-Page SEO</a>
-          <a href="service-technical-seo.html">Technical SEO</a>
-          <hr class="border-white/10 my-1">
-          <a href="service-answer-engine.html" class="active">Answer Engine Optimization</a>
-          <a href="service-generative-seo.html">Generative SEO</a>
-          <hr class="border-white/10 my-1">
-          <a href="service-web-development.html">Web Development</a>
-        </div>
-      </div>
-      <a href="case-studies.html" class="hover:text-lime transition">Case Studies</a>
-      <a href="about.html" class="hover:text-lime transition">About</a>
-      <a href="blog.html" class="hover:text-lime transition">Blog</a>
-    </div>
-    <div class="hidden lg:flex items-center gap-3">
-      <a href="login.html" class="text-sm font-medium hover:text-lime transition">Log In</a>
-      <a href="register.html" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-sm hover:brightness-95 transition">Get Started</a>
-    </div>
-    <button id="menuBtn" aria-label="Toggle menu" class="lg:hidden w-8 h-8 flex items-center justify-center text-xl">
-      <i class='bx bx-menu' id="menuIconOpen"></i>
-      <i class='bx bx-x hidden' id="menuIconClose"></i>
-    </button>
-  </div>
-  
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="hidden lg:hidden mt-2 bg-[#101010] text-white rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm shadow-lg shadow-black/30">
-    <a href="index.html" class="py-1 hover:text-lime transition">Home</a>
-    <div class="flex flex-col gap-1">
-      <button id="mobileServicesBtn" class="flex items-center justify-between w-full py-1 text-lime font-semibold text-left">Services <i class='bx bx-chevron-down' id="mobileServicesIcon"></i></button>
-      <div id="mobileServicesMenu" class="pl-4 flex flex-col gap-1 text-gray-400">
-        <a href="service-local-seo.html" class="py-1 hover:text-lime transition">Local SEO</a>
-        <a href="service-ecommerce-seo.html" class="py-1 hover:text-lime transition">E-Com SEO</a>
-        <a href="service-onpage-seo.html" class="py-1 hover:text-lime transition">On-Page SEO</a>
-        <a href="service-offpage-seo.html" class="py-1 hover:text-lime transition">Off-Page SEO</a>
-        <a href="service-technical-seo.html" class="py-1 hover:text-lime transition">Technical SEO</a>
-        <hr class="border-white/10">
-        <a href="service-answer-engine.html" class="py-1 text-lime">Answer Engine Optimization</a>
-        <a href="service-generative-seo.html" class="py-1 hover:text-lime transition">Generative SEO</a>
-        <hr class="border-white/10">
-        <a href="service-web-development.html" class="py-1 hover:text-lime transition">Web Development</a>
-      </div>
-    </div>
-    <a href="case-studies.html" class="py-1 hover:text-lime transition">Case Studies</a>
-    <a href="about.html" class="py-1 hover:text-lime transition">About</a>
-    <a href="blog.html" class="py-1 hover:text-lime transition">Blog</a>
-    <hr class="border-white/10">
-    <a href="login.html" class="py-1 hover:text-lime transition">Log In</a>
-    <a href="register.html" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-center hover:brightness-95 transition">Get Started</a>
-  </div>
-</nav>
+<?php include "includes/navbar.php" ?>
 
 <!-- ============ HERO ============ -->
 <section class="relative w-full">
@@ -107,9 +45,9 @@
         <div>
           <span class="inline-block bg-lime text-[#101010] text-[10px] font-bold tracking-widest px-4 py-1.5 rounded-full">SERVICE</span>
           <h1 class="text-3xl sm:text-4xl md:text-[3.2rem] font-bold leading-[1.15] mt-3">
-            Answer Engine <span class="bg-lime px-3 py-1 rounded-xl inline-block">Optimization</span>
+            Local <span class="bg-lime px-3 py-1 rounded-xl inline-block">SEO</span> Services
           </h1>
-          <p class="text-gray-600 text-sm sm:text-base mt-4 max-w-md">Optimize for AI-powered search and featured snippets. Capture voice search traffic and rank in position zero with our answer engine optimization strategies.</p>
+          <p class="text-gray-600 text-sm sm:text-base mt-4 max-w-md">Dominate local search results and Google Maps. Attract more customers from your area with our proven local SEO strategies.</p>
           <div class="flex flex-wrap gap-3 mt-6">
             <a href="#contact" class="bg-lime text-[#101010] font-bold rounded-full px-6 py-3 text-sm hover:brightness-95 transition">Get Free Audit</a>
             <a href="#process" class="border border-gray-300 text-gray-700 font-semibold rounded-full px-6 py-3 text-sm hover:bg-[#101010] hover:text-white hover:border-[#101010] transition">Our Process</a>
@@ -117,7 +55,7 @@
         </div>
         <div class="flex justify-center">
           <div class="service-detail-icon">
-            <i class='bx bx-bot'></i>
+            <i class='bx bx-map-pin'></i>
           </div>
         </div>
       </div>
@@ -129,16 +67,16 @@
 <section class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
     <div class="bg-[#141414] border border-white/5 rounded-2xl p-6 text-center">
-      <p class="text-3xl font-bold lime">300+</p>
-      <p class="text-xs text-gray-400 mt-1">Featured Snippets Won</p>
+      <p class="text-3xl font-bold lime">500+</p>
+      <p class="text-xs text-gray-400 mt-1">Local Businesses Ranked</p>
     </div>
     <div class="bg-[#141414] border border-white/5 rounded-2xl p-6 text-center">
-      <p class="text-3xl font-bold lime">60%</p>
-      <p class="text-xs text-gray-400 mt-1">Voice Search Share</p>
+      <p class="text-3xl font-bold lime">#1</p>
+      <p class="text-xs text-gray-400 mt-1">Average Map Ranking</p>
     </div>
     <div class="bg-[#141414] border border-white/5 rounded-2xl p-6 text-center">
-      <p class="text-3xl font-bold lime">85%</p>
-      <p class="text-xs text-gray-400 mt-1">CTR Increase</p>
+      <p class="text-3xl font-bold lime">300%</p>
+      <p class="text-xs text-gray-400 mt-1">Average Traffic Increase</p>
     </div>
   </div>
 </section>
@@ -147,15 +85,15 @@
 <section class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
   <div class="text-center max-w-3xl mx-auto mb-8">
     <span class="inline-block bg-[#1a1a1a] text-lime text-[10px] font-bold tracking-widest px-4 py-1.5 rounded-full border border-white/10">WHAT WE OFFER</span>
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-3">Our <span class="bg-lime text-[#101010] px-3 py-1 rounded-full">Answer Engine</span> Services</h2>
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-3">Our <span class="bg-lime text-[#101010] px-3 py-1 rounded-full">Local SEO</span> Services</h2>
   </div>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <div class="feature-card"><h4 class="font-bold text-base">Voice Search Optimization</h4><p class="text-gray-400 text-sm mt-1">Optimize for conversational queries and voice search to capture AI-driven traffic.</p></div>
-    <div class="feature-card"><h4 class="font-bold text-base">FAQ Schema Implementation</h4><p class="text-gray-400 text-sm mt-1">Add FAQ schema to appear in rich results and answer boxes.</p></div>
-    <div class="feature-card"><h4 class="font-bold text-base">Position Zero Strategy</h4><p class="text-gray-400 text-sm mt-1">Target featured snippets and "People Also Ask" boxes for maximum visibility.</p></div>
-    <div class="feature-card"><h4 class="font-bold text-base">AI Search Optimization</h4><p class="text-gray-400 text-sm mt-1">Optimize for AI-powered search engines like ChatGPT, Perplexity, and Gemini.</p></div>
-    <div class="feature-card"><h4 class="font-bold text-base">Content Structuring</h4><p class="text-gray-400 text-sm mt-1">Structure content in Q&A format, lists, and tables for better snippet eligibility.</p></div>
-    <div class="feature-card"><h4 class="font-bold text-base">Entity-Based SEO</h4><p class="text-gray-400 text-sm mt-1">Build entity relationships to improve AI understanding of your content.</p></div>
+    <div class="feature-card"><h4 class="font-bold text-base">Google Business Profile Optimization</h4><p class="text-gray-400 text-sm mt-1">Complete GMB setup, verification, and optimization with keywords, photos, and categories.</p></div>
+    <div class="feature-card"><h4 class="font-bold text-base">Local Citation Building</h4><p class="text-gray-400 text-sm mt-1">Build high-quality local citations and directory listings to boost your local presence.</p></div>
+    <div class="feature-card"><h4 class="font-bold text-base">Local Keyword Research</h4><p class="text-gray-400 text-sm mt-1">Find the most relevant local keywords that your customers are searching for.</p></div>
+    <div class="feature-card"><h4 class="font-bold text-base">Review Management</h4><p class="text-gray-400 text-sm mt-1">Encourage positive reviews and professionally manage your online reputation.</p></div>
+    <div class="feature-card"><h4 class="font-bold text-base">Local Content Creation</h4><p class="text-gray-400 text-sm mt-1">Create location-specific content that resonates with your local audience.</p></div>
+    <div class="feature-card"><h4 class="font-bold text-base">Local Link Building</h4><p class="text-gray-400 text-sm mt-1">Build authoritative local backlinks from trusted sources in your area.</p></div>
   </div>
 </section>
 
@@ -166,18 +104,18 @@
     <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-3">How We <span class="bg-lime text-[#101010] px-3 py-1 rounded-full">Work</span></h2>
   </div>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">01</span><h4 class="font-bold text-sm">Research</h4><p class="text-xs text-gray-400 mt-1">Identify question-based keywords</p></div>
-    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">02</span><h4 class="font-bold text-sm">Strategy</h4><p class="text-xs text-gray-400 mt-1">Create snippet-winning content plan</p></div>
-    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">03</span><h4 class="font-bold text-sm">Optimize</h4><p class="text-xs text-gray-400 mt-1">Implement schema and structure</p></div>
-    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">04</span><h4 class="font-bold text-sm">Monitor</h4><p class="text-xs text-gray-400 mt-1">Track featured snippet performance</p></div>
+    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">01</span><h4 class="font-bold text-sm">Audit</h4><p class="text-xs text-gray-400 mt-1">Analyze your current local presence</p></div>
+    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">02</span><h4 class="font-bold text-sm">Strategy</h4><p class="text-xs text-gray-400 mt-1">Create a custom local SEO plan</p></div>
+    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">03</span><h4 class="font-bold text-sm">Execution</h4><p class="text-xs text-gray-400 mt-1">Implement optimizations and build citations</p></div>
+    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">04</span><h4 class="font-bold text-sm">Monitor</h4><p class="text-xs text-gray-400 mt-1">Track rankings and refine strategy</p></div>
   </div>
 </section>
 
 <!-- ============ CTA ============ -->
 <section id="contact" class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
   <div class="bg-lime text-[#101010] rounded-[2rem] p-6 sm:p-10 text-center">
-    <h2 class="text-2xl sm:text-3xl font-bold">Ready to win featured snippets?</h2>
-    <p class="text-sm sm:text-base max-w-md mx-auto mt-2 text-[#1a1a1a]/80">Get a free answer engine audit and discover how we can help you rank in position zero.</p>
+    <h2 class="text-2xl sm:text-3xl font-bold">Ready to rank locally?</h2>
+    <p class="text-sm sm:text-base max-w-md mx-auto mt-2 text-[#1a1a1a]/80">Get a free local SEO audit and discover how we can help your business grow.</p>
     <a href="#" class="inline-block mt-4 bg-[#101010] text-white font-bold rounded-full px-8 py-3 text-sm hover:bg-black transition">Get Free Audit</a>
   </div>
 </section>
@@ -187,7 +125,7 @@
   <div class="bg-lime text-[#101010] rounded-[2rem] p-5 sm:p-9">
     <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
       <div><div class="flex items-center gap-2 font-bold text-xl mb-2"><i class='bx bx-sparkle text-xl'></i><span>Creatix</span></div><p class="text-sm max-w-xs text-[#1a1a1a]/80">Data-driven SEO and web development agency helping businesses rank higher and grow faster.</p><div class="flex gap-2 mt-4"><a href="#" class="footer-icon"><i class='bx bxl-facebook'></i></a><a href="#" class="footer-icon"><i class='bx bxl-instagram'></i></a><a href="#" class="footer-icon"><i class='bx bxl-twitter'></i></a><a href="#" class="footer-icon"><i class='bx bxl-linkedin'></i></a></div></div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm"><div><p class="font-bold mb-2">Services</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="service-local-seo.html" class="hover:underline">Local SEO</a></li><li><a href="service-onpage-seo.html" class="hover:underline">On-Page SEO</a></li><li><a href="service-web-development.html" class="hover:underline">Web Development</a></li></ul></div><div><p class="font-bold mb-2">Company</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="about.html" class="hover:underline">About Us</a></li><li><a href="case-studies.html" class="hover:underline">Case Studies</a></li><li><a href="blog.html" class="hover:underline">Blog</a></li></ul></div><div><p class="font-bold mb-2">Support</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Contact</a></li><li><a href="#" class="hover:underline">FAQs</a></li><li><a href="#" class="hover:underline">Privacy Policy</a></li></ul></div></div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm"><div><p class="font-bold mb-2">Services</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="service-local-seo.php" class="hover:underline">Local SEO</a></li><li><a href="service-onpage-seo.php" class="hover:underline">On-Page SEO</a></li><li><a href="service-web-development.php" class="hover:underline">Web Development</a></li></ul></div><div><p class="font-bold mb-2">Company</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="about.php" class="hover:underline">About Us</a></li><li><a href="case-studies.php" class="hover:underline">Case Studies</a></li><li><a href="blog.php" class="hover:underline">Blog</a></li></ul></div><div><p class="font-bold mb-2">Support</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Contact</a></li><li><a href="#" class="hover:underline">FAQs</a></li><li><a href="#" class="hover:underline">Privacy Policy</a></li></ul></div></div>
       <div class="max-w-xs"><p class="font-bold mb-2">Subscribe</p><form class="flex flex-wrap gap-2" onsubmit="return false;"><input type="email" required placeholder="Your email" class="flex-1 min-w-[150px] bg-white/40 placeholder:text-[#1a1a1a]/60 rounded-full px-4 py-2 text-sm outline-none"><button class="footer-subscribe-btn">Subscribe</button></form></div>
     </div>
     <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 pt-5 border-t border-[#1a1a1a]/15 text-xs text-[#1a1a1a]/70"><p>© 2026 Creatix. All rights reserved.</p></div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>On-Page SEO Services — Creatix Agency</title>
+  <title>Technical SEO Services — Creatix Agency</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,69 +34,7 @@
 <body>
 
 <!-- ============ NAVBAR ============ -->
-<nav class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4" role="navigation">
-  <div class="pill-nav rounded-full flex items-center justify-between px-3 sm:px-5 py-2.5 text-white relative shadow-lg shadow-black/30">
-    <div class="flex items-center gap-1.5 font-bold text-base sm:text-lg shrink-0">
-      <i class='bx bx-sparkle text-xl lime'></i>
-      <span>Creatix</span>
-    </div>
-    <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-200">
-      <a href="index.html" class="hover:text-lime transition">Home</a>
-      <div class="dropdown-trigger relative">
-        <a href="services.html" class="text-lime font-semibold flex items-center gap-1">Services <i class='bx bx-chevron-down text-xs'></i></a>
-        <div class="dropdown-menu">
-          <a href="service-local-seo.html">Local SEO</a>
-          <a href="service-ecommerce-seo.html">E-Com SEO</a>
-          <a href="service-onpage-seo.html" class="active">On-Page SEO</a>
-          <a href="service-offpage-seo.html">Off-Page SEO</a>
-          <a href="service-technical-seo.html">Technical SEO</a>
-          <hr class="border-white/10 my-1">
-          <a href="service-answer-engine.html">Answer Engine Optimization</a>
-          <a href="service-generative-seo.html">Generative SEO</a>
-          <hr class="border-white/10 my-1">
-          <a href="service-web-development.html">Web Development</a>
-        </div>
-      </div>
-      <a href="case-studies.html" class="hover:text-lime transition">Case Studies</a>
-      <a href="about.html" class="hover:text-lime transition">About</a>
-      <a href="blog.html" class="hover:text-lime transition">Blog</a>
-    </div>
-    <div class="hidden lg:flex items-center gap-3">
-      <a href="login.html" class="text-sm font-medium hover:text-lime transition">Log In</a>
-      <a href="register.html" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-sm hover:brightness-95 transition">Get Started</a>
-    </div>
-    <button id="menuBtn" aria-label="Toggle menu" class="lg:hidden w-8 h-8 flex items-center justify-center text-xl">
-      <i class='bx bx-menu' id="menuIconOpen"></i>
-      <i class='bx bx-x hidden' id="menuIconClose"></i>
-    </button>
-  </div>
-  
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="hidden lg:hidden mt-2 bg-[#101010] text-white rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm shadow-lg shadow-black/30">
-    <a href="index.html" class="py-1 hover:text-lime transition">Home</a>
-    <div class="flex flex-col gap-1">
-      <button id="mobileServicesBtn" class="flex items-center justify-between w-full py-1 text-lime font-semibold text-left">Services <i class='bx bx-chevron-down' id="mobileServicesIcon"></i></button>
-      <div id="mobileServicesMenu" class="pl-4 flex flex-col gap-1 text-gray-400">
-        <a href="service-local-seo.html" class="py-1 hover:text-lime transition">Local SEO</a>
-        <a href="service-ecommerce-seo.html" class="py-1 hover:text-lime transition">E-Com SEO</a>
-        <a href="service-onpage-seo.html" class="py-1 text-lime">On-Page SEO</a>
-        <a href="service-offpage-seo.html" class="py-1 hover:text-lime transition">Off-Page SEO</a>
-        <a href="service-technical-seo.html" class="py-1 hover:text-lime transition">Technical SEO</a>
-        <hr class="border-white/10">
-        <a href="service-answer-engine.html" class="py-1 hover:text-lime transition">Answer Engine Optimization</a>
-        <a href="service-generative-seo.html" class="py-1 hover:text-lime transition">Generative SEO</a>
-        <hr class="border-white/10">
-        <a href="service-web-development.html" class="py-1 hover:text-lime transition">Web Development</a>
-      </div>
-    </div>
-    <a href="case-studies.html" class="py-1 hover:text-lime transition">Case Studies</a>
-    <a href="about.html" class="py-1 hover:text-lime transition">About</a>
-    <a href="blog.html" class="py-1 hover:text-lime transition">Blog</a>
-    <hr class="border-white/10">
-    <a href="login.html" class="py-1 hover:text-lime transition">Log In</a>
-    <a href="register.html" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-center hover:brightness-95 transition">Get Started</a>
-  </div>
-</nav>
+<?php include "includes/navbar.php" ?>
 
 <!-- ============ HERO ============ -->
 <section class="relative w-full">
@@ -107,9 +45,9 @@
         <div>
           <span class="inline-block bg-lime text-[#101010] text-[10px] font-bold tracking-widest px-4 py-1.5 rounded-full">SERVICE</span>
           <h1 class="text-3xl sm:text-4xl md:text-[3.2rem] font-bold leading-[1.15] mt-3">
-            On-Page <span class="bg-lime px-3 py-1 rounded-xl inline-block">SEO</span> Services
+            Technical <span class="bg-lime px-3 py-1 rounded-xl inline-block">SEO</span> Services
           </h1>
-          <p class="text-gray-600 text-sm sm:text-base mt-4 max-w-md">Optimize your website's content, meta tags, and structure to rank higher in search results. We ensure every page is fully optimized for Google.</p>
+          <p class="text-gray-600 text-sm sm:text-base mt-4 max-w-md">Fix speed issues, crawl errors, indexing problems, and security loopholes. We ensure your website is fully optimized for search engine crawling and ranking.</p>
           <div class="flex flex-wrap gap-3 mt-6">
             <a href="#contact" class="bg-lime text-[#101010] font-bold rounded-full px-6 py-3 text-sm hover:brightness-95 transition">Get Free Audit</a>
             <a href="#process" class="border border-gray-300 text-gray-700 font-semibold rounded-full px-6 py-3 text-sm hover:bg-[#101010] hover:text-white hover:border-[#101010] transition">Our Process</a>
@@ -117,7 +55,7 @@
         </div>
         <div class="flex justify-center">
           <div class="service-detail-icon">
-            <i class='bx bx-code-alt'></i>
+            <i class='bx bx-cog'></i>
           </div>
         </div>
       </div>
@@ -129,16 +67,16 @@
 <section class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
     <div class="bg-[#141414] border border-white/5 rounded-2xl p-6 text-center">
-      <p class="text-3xl font-bold lime">10,000+</p>
-      <p class="text-xs text-gray-400 mt-1">Pages Optimized</p>
+      <p class="text-3xl font-bold lime">500+</p>
+      <p class="text-xs text-gray-400 mt-1">Websites Audited</p>
     </div>
     <div class="bg-[#141414] border border-white/5 rounded-2xl p-6 text-center">
-      <p class="text-3xl font-bold lime">80%</p>
-      <p class="text-xs text-gray-400 mt-1">Avg. Ranking Boost</p>
+      <p class="text-3xl font-bold lime">2.1s</p>
+      <p class="text-xs text-gray-400 mt-1">Avg. Load Time</p>
     </div>
     <div class="bg-[#141414] border border-white/5 rounded-2xl p-6 text-center">
-      <p class="text-3xl font-bold lime">95%</p>
-      <p class="text-xs text-gray-400 mt-1">Client Satisfaction</p>
+      <p class="text-3xl font-bold lime">99%</p>
+      <p class="text-xs text-gray-400 mt-1">Crawl Efficiency</p>
     </div>
   </div>
 </section>
@@ -147,15 +85,15 @@
 <section class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
   <div class="text-center max-w-3xl mx-auto mb-8">
     <span class="inline-block bg-[#1a1a1a] text-lime text-[10px] font-bold tracking-widest px-4 py-1.5 rounded-full border border-white/10">WHAT WE OFFER</span>
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-3">Our <span class="bg-lime text-[#101010] px-3 py-1 rounded-full">On-Page SEO</span> Services</h2>
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-3">Our <span class="bg-lime text-[#101010] px-3 py-1 rounded-full">Technical SEO</span> Services</h2>
   </div>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <div class="feature-card"><h4 class="font-bold text-base">Meta Tags Optimization</h4><p class="text-gray-400 text-sm mt-1">Optimize title tags, meta descriptions, and header tags for maximum visibility.</p></div>
-    <div class="feature-card"><h4 class="font-bold text-base">Content Optimization</h4><p class="text-gray-400 text-sm mt-1">Optimize existing content and create new SEO-friendly content that ranks.</p></div>
-    <div class="feature-card"><h4 class="font-bold text-base">Internal Linking Structure</h4><p class="text-gray-400 text-sm mt-1">Build a logical internal linking structure to distribute link equity.</p></div>
-    <div class="feature-card"><h4 class="font-bold text-base">Image Alt Text & Optimization</h4><p class="text-gray-400 text-sm mt-1">Optimize images with descriptive alt text and proper compression.</p></div>
-    <div class="feature-card"><h4 class="font-bold text-base">URL Structure Optimization</h4><p class="text-gray-400 text-sm mt-1">Create SEO-friendly URLs with target keywords and clear hierarchy.</p></div>
-    <div class="feature-card"><h4 class="font-bold text-base">Keyword Mapping & Strategy</h4><p class="text-gray-400 text-sm mt-1">Map target keywords to specific pages for maximum relevance.</p></div>
+    <div class="feature-card"><h4 class="font-bold text-base">Speed Optimization</h4><p class="text-gray-400 text-sm mt-1">Improve page load speed and Core Web Vitals for better user experience.</p></div>
+    <div class="feature-card"><h4 class="font-bold text-base">Crawl Error Fixes</h4><p class="text-gray-400 text-sm mt-1">Identify and fix 404 errors, redirect issues, and broken links.</p></div>
+    <div class="feature-card"><h4 class="font-bold text-base">Schema Markup Implementation</h4><p class="text-gray-400 text-sm mt-1">Add structured data to help search engines understand your content better.</p></div>
+    <div class="feature-card"><h4 class="font-bold text-base">Mobile Optimization</h4><p class="text-gray-400 text-sm mt-1">Ensure your website is fully responsive and mobile-friendly.</p></div>
+    <div class="feature-card"><h4 class="font-bold text-base">Security & SSL</h4><p class="text-gray-400 text-sm mt-1">Fix security issues and implement SSL certificates for safe browsing.</p></div>
+    <div class="feature-card"><h4 class="font-bold text-base">Indexing & Crawlability</h4><p class="text-gray-400 text-sm mt-1">Optimize robots.txt, XML sitemaps, and ensure proper indexing.</p></div>
   </div>
 </section>
 
@@ -166,18 +104,18 @@
     <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-3">How We <span class="bg-lime text-[#101010] px-3 py-1 rounded-full">Work</span></h2>
   </div>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">01</span><h4 class="font-bold text-sm">Audit</h4><p class="text-xs text-gray-400 mt-1">Analyze current on-page SEO</p></div>
-    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">02</span><h4 class="font-bold text-sm">Strategy</h4><p class="text-xs text-gray-400 mt-1">Create optimization roadmap</p></div>
-    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">03</span><h4 class="font-bold text-sm">Execution</h4><p class="text-xs text-gray-400 mt-1">Implement on-page optimizations</p></div>
-    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">04</span><h4 class="font-bold text-sm">Monitor</h4><p class="text-xs text-gray-400 mt-1">Track rankings and refine</p></div>
+    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">01</span><h4 class="font-bold text-sm">Audit</h4><p class="text-xs text-gray-400 mt-1">Comprehensive technical audit</p></div>
+    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">02</span><h4 class="font-bold text-sm">Priority</h4><p class="text-xs text-gray-400 mt-1">Identify critical issues first</p></div>
+    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">03</span><h4 class="font-bold text-sm">Fix</h4><p class="text-xs text-gray-400 mt-1">Resolve all technical issues</p></div>
+    <div class="bg-[#141414] border border-white/5 rounded-xl p-4 text-center"><span class="inline-block bg-lime text-[#101010] w-8 h-8 rounded-full font-bold text-sm leading-8 mb-2">04</span><h4 class="font-bold text-sm">Monitor</h4><p class="text-xs text-gray-400 mt-1">Track performance and re-audit</p></div>
   </div>
 </section>
 
 <!-- ============ CTA ============ -->
 <section id="contact" class="max-w-[1180px] mx-auto px-4 sm:px-6 mt-10 sm:mt-16">
   <div class="bg-lime text-[#101010] rounded-[2rem] p-6 sm:p-10 text-center">
-    <h2 class="text-2xl sm:text-3xl font-bold">Ready to optimize your pages?</h2>
-    <p class="text-sm sm:text-base max-w-md mx-auto mt-2 text-[#1a1a1a]/80">Get a free on-page SEO audit and discover how we can help you rank higher.</p>
+    <h2 class="text-2xl sm:text-3xl font-bold">Ready to fix your technical SEO?</h2>
+    <p class="text-sm sm:text-base max-w-md mx-auto mt-2 text-[#1a1a1a]/80">Get a free technical SEO audit and discover what's holding your website back.</p>
     <a href="#" class="inline-block mt-4 bg-[#101010] text-white font-bold rounded-full px-8 py-3 text-sm hover:bg-black transition">Get Free Audit</a>
   </div>
 </section>
@@ -187,7 +125,7 @@
   <div class="bg-lime text-[#101010] rounded-[2rem] p-5 sm:p-9">
     <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
       <div><div class="flex items-center gap-2 font-bold text-xl mb-2"><i class='bx bx-sparkle text-xl'></i><span>Creatix</span></div><p class="text-sm max-w-xs text-[#1a1a1a]/80">Data-driven SEO and web development agency helping businesses rank higher and grow faster.</p><div class="flex gap-2 mt-4"><a href="#" class="footer-icon"><i class='bx bxl-facebook'></i></a><a href="#" class="footer-icon"><i class='bx bxl-instagram'></i></a><a href="#" class="footer-icon"><i class='bx bxl-twitter'></i></a><a href="#" class="footer-icon"><i class='bx bxl-linkedin'></i></a></div></div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm"><div><p class="font-bold mb-2">Services</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="service-local-seo.html" class="hover:underline">Local SEO</a></li><li><a href="service-onpage-seo.html" class="hover:underline">On-Page SEO</a></li><li><a href="service-web-development.html" class="hover:underline">Web Development</a></li></ul></div><div><p class="font-bold mb-2">Company</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="about.html" class="hover:underline">About Us</a></li><li><a href="case-studies.html" class="hover:underline">Case Studies</a></li><li><a href="blog.html" class="hover:underline">Blog</a></li></ul></div><div><p class="font-bold mb-2">Support</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Contact</a></li><li><a href="#" class="hover:underline">FAQs</a></li><li><a href="#" class="hover:underline">Privacy Policy</a></li></ul></div></div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm"><div><p class="font-bold mb-2">Services</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="service-local-seo.php" class="hover:underline">Local SEO</a></li><li><a href="service-onpage-seo.php" class="hover:underline">On-Page SEO</a></li><li><a href="service-web-development.php" class="hover:underline">Web Development</a></li></ul></div><div><p class="font-bold mb-2">Company</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="about.php" class="hover:underline">About Us</a></li><li><a href="case-studies.php" class="hover:underline">Case Studies</a></li><li><a href="blog.php" class="hover:underline">Blog</a></li></ul></div><div><p class="font-bold mb-2">Support</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Contact</a></li><li><a href="#" class="hover:underline">FAQs</a></li><li><a href="#" class="hover:underline">Privacy Policy</a></li></ul></div></div>
       <div class="max-w-xs"><p class="font-bold mb-2">Subscribe</p><form class="flex flex-wrap gap-2" onsubmit="return false;"><input type="email" required placeholder="Your email" class="flex-1 min-w-[150px] bg-white/40 placeholder:text-[#1a1a1a]/60 rounded-full px-4 py-2 text-sm outline-none"><button class="footer-subscribe-btn">Subscribe</button></form></div>
     </div>
     <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 pt-5 border-t border-[#1a1a1a]/15 text-xs text-[#1a1a1a]/70"><p>© 2026 Creatix. All rights reserved.</p></div>

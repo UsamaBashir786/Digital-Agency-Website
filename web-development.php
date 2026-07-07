@@ -36,69 +36,7 @@
 <body>
 
 <!-- ============ NAVBAR ============ -->
-<nav class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4" role="navigation">
-  <div class="pill-nav rounded-full flex items-center justify-between px-3 sm:px-5 py-2.5 text-white relative shadow-lg shadow-black/30">
-    <div class="flex items-center gap-1.5 font-bold text-base sm:text-lg shrink-0">
-      <i class='bx bx-sparkle text-xl lime'></i>
-      <span>Creatix</span>
-    </div>
-    <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-200">
-      <a href="index.html" class="hover:text-lime transition">Home</a>
-      <div class="dropdown-trigger relative">
-        <a href="services.html" class="text-lime font-semibold flex items-center gap-1">Services <i class='bx bx-chevron-down text-xs'></i></a>
-        <div class="dropdown-menu">
-          <a href="service-local-seo.html">Local SEO</a>
-          <a href="service-ecommerce-seo.html">E-Com SEO</a>
-          <a href="service-onpage-seo.html">On-Page SEO</a>
-          <a href="service-offpage-seo.html">Off-Page SEO</a>
-          <a href="service-technical-seo.html">Technical SEO</a>
-          <hr class="border-white/10 my-1">
-          <a href="service-answer-engine.html">Answer Engine Optimization</a>
-          <a href="service-generative-seo.html">Generative SEO</a>
-          <hr class="border-white/10 my-1">
-          <a href="service-web-development.html" class="active">Web Development</a>
-        </div>
-      </div>
-      <a href="case-studies.html" class="hover:text-lime transition">Case Studies</a>
-      <a href="about.html" class="hover:text-lime transition">About</a>
-      <a href="blog.html" class="hover:text-lime transition">Blog</a>
-    </div>
-    <div class="hidden lg:flex items-center gap-3">
-      <a href="login.html" class="text-sm font-medium hover:text-lime transition">Log In</a>
-      <a href="register.html" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-sm hover:brightness-95 transition">Get Started</a>
-    </div>
-    <button id="menuBtn" aria-label="Toggle menu" class="lg:hidden w-8 h-8 flex items-center justify-center text-xl">
-      <i class='bx bx-menu' id="menuIconOpen"></i>
-      <i class='bx bx-x hidden' id="menuIconClose"></i>
-    </button>
-  </div>
-  
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="hidden lg:hidden mt-2 bg-[#101010] text-white rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm shadow-lg shadow-black/30">
-    <a href="index.html" class="py-1 hover:text-lime transition">Home</a>
-    <div class="flex flex-col gap-1">
-      <button id="mobileServicesBtn" class="flex items-center justify-between w-full py-1 text-lime font-semibold text-left">Services <i class='bx bx-chevron-down' id="mobileServicesIcon"></i></button>
-      <div id="mobileServicesMenu" class="pl-4 flex flex-col gap-1 text-gray-400">
-        <a href="service-local-seo.html" class="py-1 hover:text-lime transition">Local SEO</a>
-        <a href="service-ecommerce-seo.html" class="py-1 hover:text-lime transition">E-Com SEO</a>
-        <a href="service-onpage-seo.html" class="py-1 hover:text-lime transition">On-Page SEO</a>
-        <a href="service-offpage-seo.html" class="py-1 hover:text-lime transition">Off-Page SEO</a>
-        <a href="service-technical-seo.html" class="py-1 hover:text-lime transition">Technical SEO</a>
-        <hr class="border-white/10">
-        <a href="service-answer-engine.html" class="py-1 hover:text-lime transition">Answer Engine Optimization</a>
-        <a href="service-generative-seo.html" class="py-1 hover:text-lime transition">Generative SEO</a>
-        <hr class="border-white/10">
-        <a href="service-web-development.html" class="py-1 text-lime">Web Development</a>
-      </div>
-    </div>
-    <a href="case-studies.html" class="py-1 hover:text-lime transition">Case Studies</a>
-    <a href="about.html" class="py-1 hover:text-lime transition">About</a>
-    <a href="blog.html" class="py-1 hover:text-lime transition">Blog</a>
-    <hr class="border-white/10">
-    <a href="login.html" class="py-1 hover:text-lime transition">Log In</a>
-    <a href="register.html" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-center hover:brightness-95 transition">Get Started</a>
-  </div>
-</nav>
+<?php include "includes/navbar.php" ?>
 
 <!-- ============ HERO ============ -->
 <section class="relative w-full">
@@ -219,7 +157,7 @@
   <div class="bg-lime text-[#101010] rounded-[2rem] p-5 sm:p-9">
     <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
       <div><div class="flex items-center gap-2 font-bold text-xl mb-2"><i class='bx bx-sparkle text-xl'></i><span>Creatix</span></div><p class="text-sm max-w-xs text-[#1a1a1a]/80">Data-driven SEO and web development agency helping businesses rank higher and grow faster.</p><div class="flex gap-2 mt-4"><a href="#" class="footer-icon"><i class='bx bxl-facebook'></i></a><a href="#" class="footer-icon"><i class='bx bxl-instagram'></i></a><a href="#" class="footer-icon"><i class='bx bxl-twitter'></i></a><a href="#" class="footer-icon"><i class='bx bxl-linkedin'></i></a></div></div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm"><div><p class="font-bold mb-2">Services</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="service-local-seo.html" class="hover:underline">Local SEO</a></li><li><a href="service-onpage-seo.html" class="hover:underline">On-Page SEO</a></li><li><a href="service-web-development.html" class="hover:underline">Web Development</a></li></ul></div><div><p class="font-bold mb-2">Company</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="about.html" class="hover:underline">About Us</a></li><li><a href="case-studies.html" class="hover:underline">Case Studies</a></li><li><a href="blog.html" class="hover:underline">Blog</a></li></ul></div><div><p class="font-bold mb-2">Support</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Contact</a></li><li><a href="#" class="hover:underline">FAQs</a></li><li><a href="#" class="hover:underline">Privacy Policy</a></li></ul></div></div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm"><div><p class="font-bold mb-2">Services</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="service-local-seo.php" class="hover:underline">Local SEO</a></li><li><a href="service-onpage-seo.php" class="hover:underline">On-Page SEO</a></li><li><a href="service-web-development.php" class="hover:underline">Web Development</a></li></ul></div><div><p class="font-bold mb-2">Company</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="about.php" class="hover:underline">About Us</a></li><li><a href="case-studies.php" class="hover:underline">Case Studies</a></li><li><a href="blog.php" class="hover:underline">Blog</a></li></ul></div><div><p class="font-bold mb-2">Support</p><ul class="space-y-1.5 text-[#1a1a1a]/80"><li><a href="#" class="hover:underline">Contact</a></li><li><a href="#" class="hover:underline">FAQs</a></li><li><a href="#" class="hover:underline">Privacy Policy</a></li></ul></div></div>
       <div class="max-w-xs"><p class="font-bold mb-2">Subscribe</p><form class="flex flex-wrap gap-2" onsubmit="return false;"><input type="email" required placeholder="Your email" class="flex-1 min-w-[150px] bg-white/40 placeholder:text-[#1a1a1a]/60 rounded-full px-4 py-2 text-sm outline-none"><button class="footer-subscribe-btn">Subscribe</button></form></div>
     </div>
     <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 pt-5 border-t border-[#1a1a1a]/15 text-xs text-[#1a1a1a]/70"><p>© 2026 Creatix. All rights reserved.</p></div>

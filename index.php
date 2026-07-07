@@ -58,7 +58,7 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://creatix.design/" },
       { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://creatix.design/#services" },
-      { "@type": "ListItem", "position": 3, "name": "About", "item": "https://creatix.design/about.html" }
+      { "@type": "ListItem", "position": 3, "name": "About", "item": "https://creatix.design/about.php" }
     ]
   }
   </script>
@@ -70,7 +70,7 @@
   
   <style>
     :root { --lime: #A6F13B; --lime-dark: #8BD82E; }
-    * { font-family: 'Manrope', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+    * { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #0c0c0c; color: #ffffff; overflow-x: hidden; }
     .lime { color: var(--lime); }
     .bg-lime { background: var(--lime); }
@@ -130,11 +130,85 @@
     .dropdown-menu a:hover { color: #A6F13B; background: rgba(166, 241, 59, 0.05); }
     .dropdown-menu .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 0.25rem 0.75rem; }
     
+    /* ============ NAV LINKS WITH UNDERLINE ANIMATION ============ */
+    .nav-link {
+      position: relative;
+      text-decoration: none;
+      color: #e5e5e5;
+      transition: color 0.3s ease;
+      padding-bottom: 2px;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #A6F13B;
+      transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .nav-link:hover {
+      color: #ffffff;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .nav-link.active {
+      color: #ffffff;
+    }
+    .nav-link.active::after {
+      width: 100%;
+    }
+    
+    /* Dropdown trigger link with underline */
+    .dropdown-trigger .nav-link::after {
+      bottom: -2px;
+    }
+    
+    /* Mobile nav links */
+    .mobile-link {
+      position: relative;
+      text-decoration: none;
+      color: #d0d0d0;
+      transition: color 0.3s ease;
+      padding-bottom: 2px;
+      display: inline-block;
+      width: fit-content;
+    }
+    .mobile-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #A6F13B;
+      transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .mobile-link:hover {
+      color: #ffffff;
+    }
+    .mobile-link:hover::after {
+      width: 100%;
+    }
+    
     @media (max-width: 768px) {
-      .dropdown-menu { position: relative; top: 0; background: transparent; border: none; box-shadow: none; padding: 0.3rem 0 0 1rem; }
+      .dropdown-menu { 
+        position: relative; 
+        top: 0; 
+        background: transparent; 
+        border: none; 
+        box-shadow: none; 
+        padding: 0.3rem 0 0 1rem; 
+      }
       .dropdown-trigger:hover .dropdown-menu { display: none; }
       .dropdown-trigger.active .dropdown-menu { display: block; }
-      .dropdown-menu a { padding: 0.3rem 0.75rem; font-size: 0.8rem; color: #b0b0b0; }
+      .dropdown-menu a { 
+        padding: 0.3rem 0.75rem; 
+        font-size: 0.8rem; 
+        color: #b0b0b0; 
+      }
     }
     
     @media (max-width: 640px) { 
@@ -146,88 +220,7 @@
 <body>
 
 <!-- ============ NAVBAR WITH UPDATED LINKS ============ -->
-<nav class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4" role="navigation" aria-label="Main navigation">
-  <div class="pill-nav rounded-full flex items-center justify-between px-3 sm:px-5 py-2.5 text-white relative shadow-lg shadow-black/30">
-    
-    <!-- Left: About & Services Dropdown -->
-    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-200 flex-1">
-      <a href="about.html" class="hover:text-lime transition">About</a>
-      
-      <!-- Services Dropdown -->
-      <div class="dropdown-trigger relative">
-        <a href="services.html" class="hover:text-lime transition flex items-center gap-1 cursor-pointer">
-          Services <i class='bx bx-chevron-down text-xs'></i>
-        </a>
-        <div class="dropdown-menu">
-          <a href="local-seo.html">Local SEO</a>
-          <a href="ecommerce-seo.html">E-Commerce SEO</a>
-          <a href="onpage-seo.html">On-Page SEO</a>
-          <a href="offpage-seo.html">Off-Page SEO</a>
-          <a href="technical-seo.html">Technical SEO</a>
-          <div class="divider"></div>
-          <a href="answer-engine-seo.html">Answer Engine Optimization</a>
-          <a href="generative-seo.html">Generative SEO</a>
-          <div class="divider"></div>
-          <a href="web-development.html">Web Development</a>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Logo -->
-    <div class="flex items-center gap-1.5 font-bold text-base sm:text-lg shrink-0" aria-label="Creatix homepage">
-      <a href="index.html" class="flex items-center gap-1.5 no-underline text-white">
-        <i class='bx bx-sparkle text-xl lime' aria-hidden="true"></i>
-        <span>Creatix</span>
-      </a>
-    </div>
-    
-    <!-- Right: Case Studies, Blog, Contact, Auth -->
-    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-200 flex-1 justify-end">
-      <a href="case-studies.html" class="hover:text-lime transition">Case Studies</a>
-      <a href="blogs.html" class="hover:text-lime transition">Blog</a>
-      <a href="#contact" class="hover:text-lime transition">Contact</a>
-      <a href="login.html" class="text-sm font-medium hover:text-lime transition">Log In</a>
-      <a href="register.html" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-sm hover:brightness-95 transition">Get Started</a>
-    </div>
-    
-    <!-- Mobile Menu Toggle -->
-    <button id="menuBtn" aria-label="Toggle navigation menu" aria-expanded="false" class="md:hidden w-8 h-8 flex items-center justify-center text-xl">
-      <i class='bx bx-menu' id="menuIconOpen" aria-hidden="true"></i>
-      <i class='bx bx-x hidden' id="menuIconClose" aria-hidden="true"></i>
-    </button>
-  </div>
-  
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="hidden md:hidden mt-2 bg-[#101010] text-white rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm origin-top shadow-lg shadow-black/30" role="menu">
-    <a href="about.html" class="mobile-link py-1 hover:text-lime transition" role="menuitem">About</a>
-    
-    <!-- Mobile Services Dropdown -->
-    <div class="flex flex-col gap-1">
-      <button id="mobileServicesBtn" class="flex items-center justify-between w-full py-1 hover:text-lime transition text-left cursor-pointer">
-        Services <i class='bx bx-chevron-down' id="mobileServicesIcon"></i>
-      </button>
-      <div id="mobileServicesMenu" class="hidden pl-4 flex flex-col gap-1 text-gray-400">
-        <a href="local-seo.html" class="py-1 hover:text-lime transition">Local SEO</a>
-        <a href="ecommerce-seo.html" class="py-1 hover:text-lime transition">E-Commerce SEO</a>
-        <a href="onpage-seo.html" class="py-1 hover:text-lime transition">On-Page SEO</a>
-        <a href="offpage-seo.html" class="py-1 hover:text-lime transition">Off-Page SEO</a>
-        <a href="technical-seo.html" class="py-1 hover:text-lime transition">Technical SEO</a>
-        <div class="border-t border-white/10 my-1"></div>
-        <a href="answer-engine-seo.html" class="py-1 hover:text-lime transition">Answer Engine Optimization</a>
-        <a href="generative-seo.html" class="py-1 hover:text-lime transition">Generative SEO</a>
-        <div class="border-t border-white/10 my-1"></div>
-        <a href="web-development.html" class="py-1 hover:text-lime transition">Web Development</a>
-      </div>
-    </div>
-    
-    <a href="case-studies.html" class="mobile-link py-1 hover:text-lime transition" role="menuitem">Case Studies</a>
-    <a href="blogs.html" class="mobile-link py-1 hover:text-lime transition" role="menuitem">Blog</a>
-    <a href="#contact" class="mobile-link py-1 hover:text-lime transition" role="menuitem">Contact</a>
-    <div class="border-t border-white/10 my-1"></div>
-    <a href="login.html" class="mobile-link py-1 hover:text-lime transition" role="menuitem">Log In</a>
-    <a href="register.html" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-center hover:brightness-95 transition">Get Started</a>
-  </div>
-</nav>
+<?php include "includes/navbar.php" ?>
 
 <!-- ============ CONVERSION-OPTIMIZED HERO ============ -->
 <header class="relative w-full">
@@ -271,7 +264,7 @@
                 <span>Start Your Project</span>
                 <i class='bx bx-right-arrow-alt text-lg' aria-hidden="true"></i>
               </a>
-              <a href="services.html" class="border border-gray-300 text-gray-700 font-semibold rounded-full px-6 sm:px-8 py-3.5 text-sm hover:bg-[#101010] hover:text-white hover:border-[#101010] transition inline-flex items-center gap-2">
+              <a href="services.php" class="border border-gray-300 text-gray-700 font-semibold rounded-full px-6 sm:px-8 py-3.5 text-sm hover:bg-[#101010] hover:text-white hover:border-[#101010] transition inline-flex items-center gap-2">
                 <i class='bx bx-play-circle text-lg' aria-hidden="true"></i>
                 <span>View Services</span>
               </a>
@@ -393,42 +386,42 @@
   </div>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-    <a href="local-seo.html" class="service-card no-underline text-white block">
+    <a href="local-seo.php" class="service-card no-underline text-white block">
       <div class="service-icon mb-3" aria-hidden="true"><i class='bx bx-map-pin'></i></div>
       <h3 class="text-lg font-bold">Local SEO</h3>
       <p class="text-gray-400 text-sm mt-1 leading-relaxed">Dominate local search results and Google Maps. Attract more customers from your area.</p>
     </a>
-    <a href="ecommerce-seo.html" class="service-card no-underline text-white block">
+    <a href="ecommerce-seo.php" class="service-card no-underline text-white block">
       <div class="service-icon mb-3" aria-hidden="true"><i class='bx bx-store'></i></div>
       <h3 class="text-lg font-bold">E-Commerce SEO</h3>
       <p class="text-gray-400 text-sm mt-1 leading-relaxed">Optimize your online store to drive more traffic, increase conversions, and boost revenue.</p>
     </a>
-    <a href="onpage-seo.html" class="service-card no-underline text-white block">
+    <a href="onpage-seo.php" class="service-card no-underline text-white block">
       <div class="service-icon mb-3" aria-hidden="true"><i class='bx bx-code-alt'></i></div>
       <h3 class="text-lg font-bold">On-Page SEO</h3>
       <p class="text-gray-400 text-sm mt-1 leading-relaxed">Optimize meta tags, content, and structure to rank higher in search results.</p>
     </a>
-    <a href="offpage-seo.html" class="service-card no-underline text-white block">
+    <a href="offpage-seo.php" class="service-card no-underline text-white block">
       <div class="service-icon mb-3" aria-hidden="true"><i class='bx bx-link-alt'></i></div>
       <h3 class="text-lg font-bold">Off-Page SEO</h3>
       <p class="text-gray-400 text-sm mt-1 leading-relaxed">Build authority with high-quality backlinks and white-hat link building strategies.</p>
     </a>
-    <a href="technical-seo.html" class="service-card no-underline text-white block">
+    <a href="technical-seo.php" class="service-card no-underline text-white block">
       <div class="service-icon mb-3" aria-hidden="true"><i class='bx bx-cog'></i></div>
       <h3 class="text-lg font-bold">Technical SEO</h3>
       <p class="text-gray-400 text-sm mt-1 leading-relaxed">Fix speed issues, crawl errors, and indexing problems for optimal performance.</p>
     </a>
-    <a href="answer-engine-seo.html" class="service-card no-underline text-white block">
+    <a href="answer-engine-seo.php" class="service-card no-underline text-white block">
       <div class="service-icon mb-3" aria-hidden="true"><i class='bx bx-bot'></i></div>
       <h3 class="text-lg font-bold">Answer Engine Optimization</h3>
       <p class="text-gray-400 text-sm mt-1 leading-relaxed">Optimize for AI-powered search and featured snippets to capture voice search traffic.</p>
     </a>
-    <a href="generative-seo.html" class="service-card no-underline text-white block">
+    <a href="generative-seo.php" class="service-card no-underline text-white block">
       <div class="service-icon mb-3" aria-hidden="true"><i class='bx bx-brain'></i></div>
       <h3 class="text-lg font-bold">Generative SEO</h3>
       <p class="text-gray-400 text-sm mt-1 leading-relaxed">Leverage AI to scale your content strategy and automate SEO growth at scale.</p>
     </a>
-    <a href="web-development.html" class="service-card no-underline text-white block">
+    <a href="web-development.php" class="service-card no-underline text-white block">
       <div class="service-icon mb-3" aria-hidden="true"><i class='bx bx-palette'></i></div>
       <h3 class="text-lg font-bold">Web Development</h3>
       <p class="text-gray-400 text-sm mt-1 leading-relaxed">Build responsive, SEO-optimized websites that convert visitors into customers.</p>
@@ -587,7 +580,7 @@
       <div>
         <div class="flex items-center gap-2 font-bold text-xl mb-2">
           <i class='bx bx-sparkle text-xl' aria-hidden="true"></i>
-          <span>Creatix</span>
+          <span>4 Digi Sol</span>
         </div>
         <p class="text-sm max-w-xs text-[#1a1a1a]/80">Empowering brands through creative solutions — web, branding & digital design for over a decade.</p>
         <div class="flex gap-2 mt-4">
@@ -602,7 +595,7 @@
         <div>
           <p class="font-bold mb-2">Company</p>
           <ul class="space-y-1.5 text-[#1a1a1a]/80">
-            <li><a href="about.html" class="hover:underline">About Us</a></li>
+            <li><a href="about.php" class="hover:underline">About Us</a></li>
             <li><a href="#team" class="hover:underline">Our Team</a></li>
             <li><a href="#" class="hover:underline">Careers</a></li>
           </ul>
@@ -610,17 +603,16 @@
         <div>
           <p class="font-bold mb-2">Support</p>
           <ul class="space-y-1.5 text-[#1a1a1a]/80">
-            <li><a href="#" class="hover:underline">Help Center</a></li>
-            <li><a href="#contact" class="hover:underline">Contact Us</a></li>
+            <li><a href="contact.php" class="hover:underline">Contact Us</a></li>
             <li><a href="#" class="hover:underline">FAQs</a></li>
           </ul>
         </div>
         <div>
           <p class="font-bold mb-2">Services</p>
           <ul class="space-y-1.5 text-[#1a1a1a]/80">
-            <li><a href="local-seo.html" class="hover:underline">Local SEO</a></li>
-            <li><a href="onpage-seo.html" class="hover:underline">On-Page SEO</a></li>
-            <li><a href="web-development.html" class="hover:underline">Web Development</a></li>
+            <li><a href="local-seo.php" class="hover:underline">Local SEO</a></li>
+            <li><a href="onpage-seo.php" class="hover:underline">On-Page SEO</a></li>
+            <li><a href="web-development.php" class="hover:underline">Web Development</a></li>
           </ul>
         </div>
       </div>
@@ -636,7 +628,7 @@
     </div>
 
     <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 pt-5 border-t border-[#1a1a1a]/15 text-xs text-[#1a1a1a]/70">
-      <p>&copy; 2026 Creatix. All rights reserved.</p>
+      <p>&copy; 2026 4 Digi Sol. All rights reserved.</p>
       <div class="flex gap-1.5" aria-hidden="true">
         <span class="w-1.5 h-1.5 rounded-full bg-[#101010]"></span>
         <span class="w-1.5 h-1.5 rounded-full bg-[#101010]/40"></span>
