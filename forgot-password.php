@@ -1,53 +1,20 @@
 <?php
-// ============================================================
-// FORGOT-PASSWORD.PHP - Password Reset Request Page
-// ============================================================
-
-// Start session for potential error/success messages
-session_start();
-
-// Handle form submission
-$message = '';
-$message_type = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = trim($_POST['email'] ?? '');
-    
-    if (empty($email)) {
-        $message = 'Please enter your email address.';
-        $message_type = 'error';
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $message = 'Please enter a valid email address.';
-        $message_type = 'error';
-    } else {
-        // In a real application, check if email exists in database
-        // and send a password reset link
-        
-        // Demo - always show success for any valid email
-        $message = 'If an account exists with this email, we have sent a password reset link. Please check your inbox.';
-        $message_type = 'success';
-        
-        // In production, you would:
-        // 1. Check if email exists in users table
-        // 2. Generate a unique reset token
-        // 3. Store token with expiry in database
-        // 4. Send email with reset link
-        // 5. Redirect or show success message
-    }
+// 1. Start session FIRST (before ANY output)
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
+
+// 2. Include database connection
+include "config/connection.php";
+
+// 3. Your page logic and code
+// ...
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Forgot Password — 4 Digi Sol</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <?php include "includes/css-links.php" ?>
     <style>
-        * { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             background: #f5f7fa; 
             min-height: 100vh; 
@@ -56,45 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             justify-content: center; 
             padding: 1rem;
         }
-        .lime { color: #A6F13B; }
-        .bg-lime { background: #A6F13B; }
-        
-        .auth-card {
-            width: 100%; 
-            max-width: 440px;
-            border-radius: 2rem;
-            background: #ffffff;
-            border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-            padding: 2.5rem 2rem;
-        }
-        
-        .brand-icon { 
-            background: #f0f2f5; 
-            border-radius: 9999px; 
-            width: 52px; 
-            height: 52px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-        }
-        .brand-icon i { color: #A6F13B; font-size: 2rem; }
-        
-        .auth-input { 
-            background: #f8f9fa; 
-            border: 2px solid #e8eaed; 
-            border-radius: 12px; 
-            padding: 0.9rem 1.2rem; 
-            width: 100%; 
-            color: #1a1a1a; 
-            font-size: 0.95rem; 
-            transition: border-color 0.2s, box-shadow 0.2s; 
-        }
-        .auth-input:focus { 
-            border-color: #A6F13B; 
-            outline: none; 
-            box-shadow: 0 0 0 4px rgba(166, 241, 59, 0.15); 
-        }
+       
         .auth-input::placeholder { color: #9aa0a6; }
         
         .btn-primary { 

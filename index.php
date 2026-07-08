@@ -1,135 +1,21 @@
+<?php
+// 1. Start session FIRST (before ANY output)
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// 2. Include database connection
+include "config/connection.php";
+
+// 3. Your page logic and code
+// ...
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- ============ SEO META TAGS ============ -->
-  <title>Creatix — Digital Marketing Agency | Web Design, Branding & SEO Services in Pakistan</title>
-  <meta name="description" content="Creatix is a digital marketing agency empowering brands through creative solutions. We offer web design, branding, UI/UX, local & e-commerce SEO, and digital marketing services trusted by 2000+ brands.">
-  <meta name="keywords" content="digital marketing agency, web design, branding services, UI/UX design, SEO services Pakistan, local SEO, e-commerce SEO, technical SEO, creative agency, brand strategy, web development">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="author" content="Creatix">
-  <meta name="theme-color" content="#0c0c0c">
-  <link rel="canonical" href="https://creatix.design/">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-  <!-- Open Graph -->
-  <meta property="og:site_name" content="Creatix">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Creatix — Digital Marketing Agency | Web Design, Branding & SEO Services">
-  <meta property="og:description" content="Empowering brands through creative solutions. Web design, branding, UI/UX, local & e-commerce SEO, and digital marketing services trusted by 2000+ brands.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://creatix.design/">
-  <meta property="og:image" content="https://creatix.design/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Creatix digital marketing agency">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Creatix — Digital Marketing Agency">
-  <meta name="twitter:description" content="Empowering brands through creative solutions. Web design, branding, UI/UX, SEO, and digital marketing services.">
-  <meta name="twitter:image" content="https://creatix.design/og-image.jpg">
-  <meta name="twitter:image:alt" content="Creatix digital marketing agency">
-
-  <!-- Schema.org: Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Creatix",
-    "description": "Digital marketing agency empowering brands through creative solutions including web design, branding, UI/UX, SEO, and digital marketing.",
-    "url": "https://creatix.design/",
-    "logo": "https://creatix.design/logo.png",
-    "foundingDate": "2016",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "Pakistan"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "email": "hello@creatix.design"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "150"
-    },
-    "sameAs": [
-      "https://facebook.com/creatix",
-      "https://instagram.com/creatix",
-      "https://linkedin.com/company/creatix"
-    ]
-  }
-  </script>
-
-  <!-- Schema.org: WebSite (enables sitelinks search box) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Creatix",
-    "url": "https://creatix.design/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://creatix.design/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-
-  <!-- Schema.org: Breadcrumb -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://creatix.design/" },
-      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://creatix.design/#services" },
-      { "@type": "ListItem", "position": 3, "name": "About", "item": "https://creatix.design/about.php" }
-    ]
-  }
-  </script>
-
-  <!-- Schema.org: Service list (helps SERP understand offerings) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Digital Marketing and SEO Services",
-    "provider": { "@type": "Organization", "name": "Creatix", "url": "https://creatix.design/" },
-    "areaServed": "Worldwide",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Digital Marketing Services",
-      "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Local SEO" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-Commerce SEO" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "On-Page SEO" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Off-Page SEO" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technical SEO" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development" } }
-      ]
-    }
-  }
-  </script>
-
-  <!-- Preconnects (do these before font/CDN loads) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://unpkg.com">
-  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles/styles.css">
+    <?php include "includes/css-links.php" ?>
 </head>
 <body>
 

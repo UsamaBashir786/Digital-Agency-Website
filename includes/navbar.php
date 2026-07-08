@@ -1,33 +1,43 @@
 <?php
 // ============================================================
-// ACTIVE PAGE DETECTION FUNCTION
-// This function checks if the current page matches the link
-// and adds an 'active' class if it does
+// INCLUDES/NAVBAR.PHP - Main Navigation
 // ============================================================
 
-function isActive($pageName) {
-    // Get the current file name from the URL
-    $currentPage = basename($_SERVER['PHP_SELF']);
-    
-    // Check if the current page matches the provided page name
-    if ($currentPage == $pageName) {
-        return 'active';
-    }
-    return '';
+
+// Check if user is logged in
+$is_logged_in = isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true;
+$user_name = $_SESSION['user_name'] ?? 'User';
+$user_email = $_SESSION['user_email'] ?? '';
+
+// Get current page for active state
+$current_page = basename($_SERVER['PHP_SELF']);
+
+function isActive($page) {
+    global $current_page;
+    return $current_page == $page ? 'active' : '';
 }
 
 function isActiveDropdown($pages) {
-    // For dropdown items - check if any of the pages in the array match
-    $currentPage = basename($_SERVER['PHP_SELF']);
-    
-    if (in_array($currentPage, $pages)) {
-        return 'active';
-    }
-    return '';
+    global $current_page;
+    return in_array($current_page, $pages) ? 'active' : '';
 }
 
-// Get current page for conditional logic
-$currentPage = basename($_SERVER['PHP_SELF']);
+// Fetch all active services from database
+$services = [];
+if (isset($conn) && $conn) {
+    $services_query = "SELECT service_id, title FROM services WHERE is_active = 1 ORDER BY sort_order ASC";
+    $services_result = $conn->query($services_query);
+    if ($services_result && $services_result->num_rows > 0) {
+        while ($row = $services_result->fetch_assoc()) {
+            $services[] = $row;
+        }
+    }
+}
+
+// Create array of service page names for dropdown active state
+$service_pages = array_column($services, 'service_id');
+$service_pages[] = 'services.php';
+$service_pages[] = 'service-details.php';
 ?>
 
 <nav class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4" role="navigation" aria-label="Main navigation">
@@ -38,21 +48,27 @@ $currentPage = basename($_SERVER['PHP_SELF']);
       <a href="about.php" class="nav-link <?php echo isActive('about.php'); ?>">About</a>
       
       <!-- Services Dropdown -->
-      <div class="dropdown-trigger relative <?php echo isActiveDropdown(['services.php', 'local-seo.php', 'ecommerce-seo.php', 'onpage-seo.php', 'offpage-seo.php', 'technical-seo.php', 'answer-engine-seo.php', 'generative-seo.php', 'web-development.php']); ?>">
+      <div class="dropdown-trigger relative <?php echo isActiveDropdown($service_pages); ?>">
         <a href="services.php" class="nav-link flex items-center gap-1 cursor-pointer <?php echo isActive('services.php'); ?>">
           Services <i class='bx bx-chevron-down text-xs'></i>
         </a>
         <div class="dropdown-menu">
-          <a href="local-seo.php" class="<?php echo isActive('local-seo.php'); ?>">Local SEO</a>
-          <a href="ecommerce-seo.php" class="<?php echo isActive('ecommerce-seo.php'); ?>">E-Commerce SEO</a>
-          <a href="onpage-seo.php" class="<?php echo isActive('onpage-seo.php'); ?>">On-Page SEO</a>
-          <a href="offpage-seo.php" class="<?php echo isActive('offpage-seo.php'); ?>">Off-Page SEO</a>
-          <a href="technical-seo.php" class="<?php echo isActive('technical-seo.php'); ?>">Technical SEO</a>
-          <div class="divider"></div>
-          <a href="answer-engine-seo.php" class="<?php echo isActive('answer-engine-seo.php'); ?>">Answer Engine Optimization</a>
-          <a href="generative-seo.php" class="<?php echo isActive('generative-seo.php'); ?>">Generative SEO</a>
-          <div class="divider"></div>
-          <a href="web-development.php" class="<?php echo isActive('web-development.php'); ?>">Web Development</a>
+          <?php if (!empty($services)): ?>
+            <?php foreach ($services as $service): ?>
+              <!-- UPDATED: Link to service-details.php with id parameter -->
+              <a href="service-details.php?id=<?php echo htmlspecialchars($service['service_id']); ?>" class="<?php echo isActive($service['service_id'] . '.php'); ?>">
+                <?php echo htmlspecialchars($service['title']); ?>
+              </a>
+              <?php if ($service['service_id'] === 'technical-seo'): ?>
+                <div class="divider"></div>
+              <?php endif; ?>
+              <?php if ($service['service_id'] === 'generative-seo'): ?>
+                <div class="divider"></div>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <a href="services.php" class="text-gray-400">No services available</a>
+          <?php endif; ?>
         </div>
       </div>
     </div>
@@ -61,7 +77,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     <div class="flex items-center gap-1.5 font-bold text-base sm:text-lg shrink-0" aria-label="4 Digi Sol homepage">
       <a href="index.php" class="flex items-center gap-1.5 no-underline text-white">
         <i class='bx bx-sparkle text-xl lime' aria-hidden="true"></i>
-        <span>4 Digi Sol</span>
+        <span>
+          <img width="120" src="assets/imgs/logo.png" alt="">
+        </span>
       </a>
     </div>
     
@@ -70,8 +88,43 @@ $currentPage = basename($_SERVER['PHP_SELF']);
       <a href="case-studies.php" class="nav-link <?php echo isActive('case-studies.php'); ?>">Case Studies</a>
       <a href="blogs.php" class="nav-link <?php echo isActive('blogs.php'); ?>">Blog</a>
       <a href="contact.php" class="nav-link <?php echo isActive('contact.php'); ?>">Contact</a>
-      <a href="login.php" class="nav-link <?php echo isActive('login.php'); ?>">Log In</a>
-      <a href="login.php" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-sm hover:brightness-95 transition">Get Started</a>
+      
+      <?php if ($is_logged_in): ?>
+        <!-- Logged In - Show User Dropdown -->
+        <div class="dropdown-trigger relative">
+          <a href="#" class="nav-link flex items-center gap-2 cursor-pointer">
+            <div class="w-7 h-7 rounded-full bg-lime text-[#101010] flex items-center justify-center text-xs font-bold">
+              <?php echo strtoupper(substr($user_name, 0, 1)); ?>
+            </div>
+            <span class="text-sm font-medium"><?php echo htmlspecialchars($user_name); ?></span>
+            <i class='bx bx-chevron-down text-xs'></i>
+          </a>
+          <div class="dropdown-menu" style="min-width: 180px; right: 0; left: auto;">
+            <div class="px-4 py-2 border-b border-white/10">
+              <p class="text-xs text-gray-400">Signed in as</p>
+              <p class="text-sm font-medium text-white"><?php echo htmlspecialchars($user_name); ?></p>
+              <p class="text-xs text-gray-400"><?php echo htmlspecialchars($user_email); ?></p>
+            </div>
+            <a href="dashboard.php" class="flex items-center gap-2">
+              <i class='bx bx-grid-alt'></i> Dashboard
+            </a>
+            <a href="profile.php" class="flex items-center gap-2">
+              <i class='bx bx-user'></i> My Profile
+            </a>
+            <a href="settings.php" class="flex items-center gap-2">
+              <i class='bx bx-cog'></i> Settings
+            </a>
+            <div class="divider"></div>
+            <a href="logout.php" class="flex items-center gap-2 text-red-400 hover:text-red-300">
+              <i class='bx bx-log-out'></i> Logout
+            </a>
+          </div>
+        </div>
+      <?php else: ?>
+        <!-- Logged Out - Show Login & Get Started -->
+        <a href="login.php" class="nav-link <?php echo isActive('login.php'); ?>">Log In</a>
+        <a href="login.php" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-sm hover:brightness-95 transition">Get Started</a>
+      <?php endif; ?>
     </div>
     
     <!-- Mobile Menu Toggle -->
@@ -87,20 +140,28 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     
     <!-- Mobile Services Dropdown -->
     <div class="flex flex-col gap-1">
-      <button id="mobileServicesBtn" class="flex items-center justify-between w-full py-1 text-left cursor-pointer text-[#d0d0d0] hover:text-white transition <?php echo isActiveDropdown(['services.php', 'local-seo.php', 'ecommerce-seo.php', 'onpage-seo.php', 'offpage-seo.php', 'technical-seo.php', 'answer-engine-seo.php', 'generative-seo.php', 'web-development.php']); ?>">
+      <button id="mobileServicesBtn" class="flex items-center justify-between w-full py-1 text-left cursor-pointer text-[#d0d0d0] hover:text-white transition <?php echo isActiveDropdown($service_pages); ?>">
         Services <i class='bx bx-chevron-down' id="mobileServicesIcon"></i>
       </button>
       <div id="mobileServicesMenu" class="hidden pl-4 flex flex-col gap-1 text-gray-400">
-        <a href="local-seo.php" class="mobile-link py-1 <?php echo isActive('local-seo.php'); ?>">Local SEO</a>
-        <a href="ecommerce-seo.php" class="mobile-link py-1 <?php echo isActive('ecommerce-seo.php'); ?>">E-Commerce SEO</a>
-        <a href="onpage-seo.php" class="mobile-link py-1 <?php echo isActive('onpage-seo.php'); ?>">On-Page SEO</a>
-        <a href="offpage-seo.php" class="mobile-link py-1 <?php echo isActive('offpage-seo.php'); ?>">Off-Page SEO</a>
-        <a href="technical-seo.php" class="mobile-link py-1 <?php echo isActive('technical-seo.php'); ?>">Technical SEO</a>
-        <div class="border-t border-white/10 my-1"></div>
-        <a href="answer-engine-seo.php" class="mobile-link py-1 <?php echo isActive('answer-engine-seo.php'); ?>">Answer Engine Optimization</a>
-        <a href="generative-seo.php" class="mobile-link py-1 <?php echo isActive('generative-seo.php'); ?>">Generative SEO</a>
-        <div class="border-t border-white/10 my-1"></div>
-        <a href="web-development.php" class="mobile-link py-1 <?php echo isActive('web-development.php'); ?>">Web Development</a>
+        <?php if (!empty($services)): ?>
+          <?php 
+          $mobile_service_count = 0;
+          foreach ($services as $service): 
+            $mobile_service_count++;
+            $is_last_group = ($service['service_id'] === 'technical-seo' || $service['service_id'] === 'generative-seo' || $service['service_id'] === 'web-development');
+          ?>
+            <!-- UPDATED: Link to service-details.php with id parameter -->
+            <a href="service-details.php?id=<?php echo htmlspecialchars($service['service_id']); ?>" class="mobile-link py-1 <?php echo isActive($service['service_id'] . '.php'); ?>">
+              <?php echo htmlspecialchars($service['title']); ?>
+            </a>
+            <?php if ($is_last_group && $mobile_service_count < count($services)): ?>
+              <div class="border-t border-white/10 my-1"></div>
+            <?php endif; ?>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <a href="services.php" class="mobile-link py-1 text-gray-400">No services available</a>
+        <?php endif; ?>
       </div>
     </div>
     
@@ -108,43 +169,26 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     <a href="blogs.php" class="mobile-link <?php echo isActive('blogs.php'); ?>" role="menuitem">Blog</a>
     <a href="contact.php" class="mobile-link <?php echo isActive('contact.php'); ?>" role="menuitem">Contact</a>
     <div class="border-t border-white/10 my-1"></div>
-    <a href="login.php" class="mobile-link <?php echo isActive('login.php'); ?>" role="menuitem">Log In</a>
-    <a href="login.php" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-center hover:brightness-95 transition">Get Started</a>
+    
+    <?php if ($is_logged_in): ?>
+      <!-- Mobile Logged In -->
+      <div class="flex items-center gap-3 py-1">
+        <div class="w-8 h-8 rounded-full bg-lime text-[#101010] flex items-center justify-center text-xs font-bold">
+          <?php echo strtoupper(substr($user_name, 0, 1)); ?>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-white"><?php echo htmlspecialchars($user_name); ?></p>
+          <p class="text-xs text-gray-400"><?php echo htmlspecialchars($user_email); ?></p>
+        </div>
+      </div>
+      <a href="dashboard.php" class="mobile-link">Dashboard</a>
+      <a href="profile.php" class="mobile-link">My Profile</a>
+      <a href="settings.php" class="mobile-link">Settings</a>
+      <a href="logout.php" class="mobile-link text-red-400">Logout</a>
+    <?php else: ?>
+      <!-- Mobile Logged Out -->
+      <a href="login.php" class="mobile-link <?php echo isActive('login.php'); ?>" role="menuitem">Log In</a>
+      <a href="login.php" class="bg-lime text-[#101010] font-semibold rounded-full px-4 py-2 text-center hover:brightness-95 transition">Get Started</a>
+    <?php endif; ?>
   </div>
 </nav>
-
-<!-- ============================================================
-     ADD THIS CSS TO YOUR STYLE SECTION FOR ACTIVE STATE
-     ============================================================ -->
-<style>
-    /* Active state for nav links - the underline stays visible */
-    .nav-link.active {
-        color: #ffffff;
-    }
-    .nav-link.active::after {
-        width: 100%;
-    }
-    
-    /* Active state for mobile links */
-    .mobile-link.active {
-        color: #A6F13B !important;
-    }
-    .mobile-link.active::after {
-        width: 100%;
-        background-color: #A6F13B;
-    }
-    
-    /* Active state for dropdown items */
-    .dropdown-menu a.active {
-        color: #A6F13B;
-        background: rgba(166, 241, 59, 0.08);
-    }
-    
-    /* Active state for Services dropdown trigger */
-    .dropdown-trigger.active .nav-link {
-        color: #ffffff;
-    }
-    .dropdown-trigger.active .nav-link::after {
-        width: 100%;
-    }
-</style>

@@ -1,9 +1,12 @@
 <?php
 // ============================================================
-// REGISTER.PHP - User Registration Page
+// REGISTER.PHP - User Registration Page with MySQLi Backend
 // ============================================================
 
 session_start();
+
+// Include database connection
+require_once 'config/connection.php';
 
 // If user is already logged in, redirect to dashboard
 if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
@@ -14,6 +17,7 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
 // Registration form variables
 $errors = [];
 $form_data = [];
+$success_message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get and sanitize form data
@@ -66,32 +70,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // If no errors, process registration
     if (empty($errors)) {
-        // In a real application, you would:
-        // 1. Check if email already exists in database
-        // 2. Hash the password using password_hash()
-        // 3. Insert user into database
-        // 4. Send welcome email
-        // 5. Redirect to login or dashboard
-        
-        // Demo - always success
-        $_SESSION['registration_success'] = true;
-        $_SESSION['registration_email'] = $email;
-        header('Location: login.php?registered=success');
-        exit();
+        // Check if email already exists
+        $check_sql = "SELECT id FROM users WHERE email = ?";
+        $check_stmt = $conn->prepare($check_sql);
+        $check_stmt->bind_param("s", $email);
+        $check_stmt->execute();
+        $check_result = $check_stmt->get_result();
+
+        if ($check_result->num_rows > 0) {
+            $errors['email'] = 'This email is already registered. Please login or use a different email.';
+        } else {
+            // Hash the password
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+            // Insert user into database
+            $insert_sql = "INSERT INTO users (fullname, email, password, phone) VALUES (?, ?, ?, ?)";
+            $insert_stmt = $conn->prepare($insert_sql);
+            $insert_stmt->bind_param("ssss", $fullname, $email, $hashed_password, $phone);
+
+            if ($insert_stmt->execute()) {
+                // Registration successful
+                $_SESSION['registration_success'] = true;
+                $_SESSION['registration_email'] = $email;
+                header('Location: login.php?registered=success');
+                exit();
+            } else {
+                $errors['general'] = 'Something went wrong. Please try again.';
+            }
+            $insert_stmt->close();
+        }
+        $check_stmt->close();
     }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Sign Up — 4 Digi Sol</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles/styles.css">
+  <?php include "includes/css-links.php" ?>
     <style>
         body { 
             background: #f5f7fa; 
@@ -125,6 +140,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <h2 class="text-xl font-semibold mb-1 text-[#1a1a1a]">Join 4 Digi Sol</h2>
     <p class="text-sm text-[#5f6368] mb-5">Create your free account and start growing your business.</p>
+
+    <!-- Display general error if any -->
+    <?php if (isset($errors['general'])): ?>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-4 text-sm">
+            <?php echo $errors['general']; ?>
+        </div>
+    <?php endif; ?>
 
     <!-- Registration Form -->
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">

@@ -1,49 +1,75 @@
 <?php
 // ============================================================
-// LOGIN.PHP - Light Theme Login Page with Redirect
+// LOGIN.PHP - Login Page with Database Authentication
 // ============================================================
 
-// Check if user is already logged in, redirect to dashboard
-session_start();
+// Start session FIRST
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Include database connection
+require_once 'config/connection.php';
+
+// If user is already logged in, redirect to index
 if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
-    header('Location: dashboard.php');
+    header('Location: index.php');
     exit();
 }
 
 // Handle login form submission
 $login_error = '';
+$email = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'] ?? '';
+    $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
     
-    // Demo credentials (in real app, check against database)
-    $valid_email = 'demo@4digisol.com';
-    $valid_password = 'password123';
-    
-    if ($email === $valid_email && $password === $valid_password) {
-        $_SESSION['user_logged_in'] = true;
-        $_SESSION['user_email'] = $email;
-        $_SESSION['user_name'] = 'Demo User';
-        header('Location: dashboard.php');
-        exit();
+    // Validate input
+    if (empty($email)) {
+        $login_error = 'Please enter your email address.';
+    } elseif (empty($password)) {
+        $login_error = 'Please enter your password.';
     } else {
-        $login_error = 'Invalid email or password. Please try again.';
+        // Query database for user
+        $sql = "SELECT id, fullname, email, password FROM users WHERE email = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if ($result->num_rows === 1) {
+            $user = $result->fetch_assoc();
+            
+            // Verify password
+            if (password_verify($password, $user['password'])) {
+                // Login successful
+                $_SESSION['user_logged_in'] = true;
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['user_email'] = $user['email'];
+                $_SESSION['user_name'] = $user['fullname'];
+                
+                // Redirect to index
+                header('Location: index.php');
+                exit();
+            } else {
+                $login_error = 'Invalid email or password. Please try again.';
+            }
+        } else {
+            $login_error = 'Invalid email or password. Please try again.';
+        }
+        $stmt->close();
     }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <?php include "includes/css-links.php" ?>
     <title>Login — 4 Digi Sol</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body { 
-            background: #f5f7fa; 
+            background: #f5f7fa !important; 
             min-height: 100vh; 
             display: flex; 
             align-items: center; 
@@ -51,7 +77,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             padding: 1rem;
         }
     </style>
-    <link rel="stylesheet" href="assets/styles/styles.css">
 </head>
 <body>
 
@@ -76,6 +101,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2 class="text-xl font-semibold mb-1 text-[#1a1a1a]">Log in to your account</h2>
     <p class="text-sm text-[#5f6368] mb-5">Access your dashboard and manage your projects.</p>
 
+    <!-- Success Message (from registration) -->
+    <?php if (isset($_GET['registered']) && $_GET['registered'] === 'success'): ?>
+    <div class="success-message">
+        <i class='bx bx-check-circle'></i>
+        Registration successful! Please log in with your credentials.
+    </div>
+    <?php endif; ?>
+
     <!-- Error Message -->
     <?php if ($login_error): ?>
     <div class="error-message">
@@ -88,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
         <div class="mb-4">
             <label for="email" class="block text-xs font-semibold text-[#1a1a1a] mb-1.5">Email address</label>
-            <input type="email" id="email" name="email" class="auth-input" placeholder="hello@4digisol.com" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required />
+            <input type="email" id="email" name="email" class="auth-input" placeholder="hello@4digisol.com" value="<?php echo htmlspecialchars($email); ?>" required autofocus />
         </div>
         <div class="mb-4">
             <div class="flex items-center justify-between mb-1.5">

@@ -1,14 +1,19 @@
+<?php
+// 1. Start session FIRST (before ANY output)
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// 2. Include database connection
+include "config/connection.php";
+
+// 3. Your page logic and code
+// ...
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>About Us — Creatix SEO & Digital Agency</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles/styles.css">
+    <?php include "includes/css-links.php" ?>
 </head>
 <body>
 
@@ -155,7 +160,7 @@
   <div class="bg-lime text-[#101010] rounded-[2rem] p-6 sm:p-10 text-center">
     <h2 class="text-2xl sm:text-3xl font-bold">Ready to grow with us?</h2>
     <p class="text-sm sm:text-base max-w-md mx-auto mt-2 text-[#1a1a1a]/80">Let's discuss how our team can help your business achieve its goals.</p>
-    <a href="#contact" class="inline-block mt-4 bg-[#101010] text-white font-bold rounded-full px-8 py-3 text-sm hover:bg-black transition">Get in Touch</a>
+    <a href="contact.php" class="inline-block mt-4 bg-[#101010] text-white font-bold rounded-full px-8 py-3 text-sm hover:bg-black transition">Get in Touch</a>
   </div>
 </section>
 
